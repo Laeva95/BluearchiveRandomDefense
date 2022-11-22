@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
+    public int m_Stage;
     public static GameManager Instance
     {
         get
@@ -24,5 +25,7 @@ public class GameManager : MonoBehaviour
             // instance가 비어있을 경우 해당 객체를 넣어줌
             instance = this;
         }
+
+        m_Stage = 0;
     }
 }

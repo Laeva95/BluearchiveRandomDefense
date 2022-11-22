@@ -45,7 +45,7 @@ public abstract class Unit : MonoBehaviour
             {
                 Monster monster = monsterObj.GetComponent<Monster>();
 
-                monster.OnDamage(m_Type, m_Damage * (m_Level + 1));
+                monster.OnDamage(m_Type, TotalDamage());
             }
 
             yield return m_AttackDelaySec;
@@ -56,10 +56,14 @@ public abstract class Unit : MonoBehaviour
         m_Type = _type;
         m_Halo = m_UnitSO.m_Sprites[_index];
         m_Name = m_UnitSO.m_Names[_index];
-        m_Damage = m_UnitSO.m_Damage[_index];
+        m_Damage = m_UnitSO.m_Damages[_index];
     }
     public void Upgrade()
     {
         m_Level++;
+    }
+    public int TotalDamage()
+    {
+        return m_Damage * (m_Level + 1);
     }
 }

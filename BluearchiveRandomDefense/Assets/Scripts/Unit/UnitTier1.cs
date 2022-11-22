@@ -8,7 +8,7 @@ public class UnitTier1 : Unit
     {
         m_Tier = UNITTIER.·¹¾î;
         m_Level = 0;
-        m_Range = 4f;
+        m_Range = 7f;
         m_AttackDelay = 0.8f;
         m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
     }

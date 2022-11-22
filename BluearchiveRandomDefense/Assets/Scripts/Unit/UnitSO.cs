@@ -7,5 +7,5 @@ public class UnitSO : ScriptableObject
 {
     public Sprite[] m_Sprites;
     public string[] m_Names;
-    public int[] m_Damage;
+    public int[] m_Damages;
 }

@@ -16,6 +16,10 @@ public class UnitSpawnManager : MonoBehaviour
     [SerializeField]
     GameObject[] m_UnitObj;
 
+    public List<Unit> m_Type0Unit = new List<Unit>();
+    public List<Unit> m_Type1Unit = new List<Unit>();
+    public List<Unit> m_Type2Unit = new List<Unit>();
+
     public void SpawnUnit()
     {
         float ran1 = Random.Range(0f, 100f);
@@ -24,11 +28,12 @@ public class UnitSpawnManager : MonoBehaviour
         int tier = CheckTier(ran1);
         ATTACKTYPE type = CheckType(ran2);
 
-        int index = CheckIndex(tier, (int)type);
+        int index = CheckIndex(tier, type);
 
         GameObject obj = Spawn(tier);
         Unit unit = obj.GetComponent<Unit>();
         unit.SetStatus(type, index);
+        InsertList(type, unit);
     }
     GameObject Spawn(int _tier)
     {
@@ -88,7 +93,7 @@ public class UnitSpawnManager : MonoBehaviour
         }
         return type;
     }
-    int CheckIndex(int _tier, int _type)
+    int CheckIndex(int _tier, ATTACKTYPE _type)
     {
         int index = 0;
         switch (_tier)
@@ -96,13 +101,13 @@ public class UnitSpawnManager : MonoBehaviour
             case 0:
                 switch (_type)
                 {
-                    case 0:
+                    case ATTACKTYPE.폭발형:
                         index = 0;
                         break;
-                    case 1:
+                    case ATTACKTYPE.신비형:
                         index = 1;
                         break;
-                    case 2:
+                    case ATTACKTYPE.관통형:
                         index = 2;
                         break;
                 }
@@ -110,13 +115,13 @@ public class UnitSpawnManager : MonoBehaviour
             case 1:
                 switch (_type)
                 {
-                    case 0:
+                    case ATTACKTYPE.폭발형:
                         index = 3;
                         break;
-                    case 1:
+                    case ATTACKTYPE.신비형:
                         index = 4;
                         break;
-                    case 2:
+                    case ATTACKTYPE.관통형:
                         index = 5;
                         break;
                 }
@@ -124,13 +129,13 @@ public class UnitSpawnManager : MonoBehaviour
             case 2:
                 switch (_type)
                 {
-                    case 0:
+                    case ATTACKTYPE.폭발형:
                         index = 6;
                         break;
-                    case 1:
+                    case ATTACKTYPE.신비형:
                         index = 7;
                         break;
-                    case 2:
+                    case ATTACKTYPE.관통형:
                         index = 8;
                         break;
                 }
@@ -138,13 +143,13 @@ public class UnitSpawnManager : MonoBehaviour
             case 3:
                 switch (_type)
                 {
-                    case 0:
+                    case ATTACKTYPE.폭발형:
                         index = 9;
                         break;
-                    case 1:
+                    case ATTACKTYPE.신비형:
                         index = 10;
                         break;
-                    case 2:
+                    case ATTACKTYPE.관통형:
                         index = 11;
                         break;
                 }
@@ -152,13 +157,13 @@ public class UnitSpawnManager : MonoBehaviour
             case 4:
                 switch (_type)
                 {
-                    case 0:
+                    case ATTACKTYPE.폭발형:
                         index = 12;
                         break;
-                    case 1:
+                    case ATTACKTYPE.신비형:
                         index = 13;
                         break;
-                    case 2:
+                    case ATTACKTYPE.관통형:
                         index = 14;
                         break;
                 }
@@ -166,13 +171,13 @@ public class UnitSpawnManager : MonoBehaviour
             case 5:
                 switch (_type)
                 {
-                    case 0:
+                    case ATTACKTYPE.폭발형:
                         index = 15;
                         break;
-                    case 1:
+                    case ATTACKTYPE.신비형:
                         index = 16;
                         break;
-                    case 2:
+                    case ATTACKTYPE.관통형:
                         index = 17;
                         break;
                 }
@@ -180,13 +185,13 @@ public class UnitSpawnManager : MonoBehaviour
             case 6:
                 switch (_type)
                 {
-                    case 0:
+                    case ATTACKTYPE.폭발형:
                         index = 18;
                         break;
-                    case 1:
+                    case ATTACKTYPE.신비형:
                         index = 19;
                         break;
-                    case 2:
+                    case ATTACKTYPE.관통형:
                         index = 20;
                         break;
                 }
@@ -194,18 +199,33 @@ public class UnitSpawnManager : MonoBehaviour
             case 7:
                 switch (_type)
                 {
-                    case 0:
+                    case ATTACKTYPE.폭발형:
                         index = 21;
                         break;
-                    case 1:
+                    case ATTACKTYPE.신비형:
                         index = 22;
                         break;
-                    case 2:
+                    case ATTACKTYPE.관통형:
                         index = 23;
                         break;
                 }
                 break;
         }
         return index;
+    }
+    void InsertList(ATTACKTYPE _type, Unit unit)
+    {
+        switch (_type)
+        {
+            case ATTACKTYPE.폭발형:
+                m_Type0Unit.Add(unit);
+                break;
+            case ATTACKTYPE.신비형:
+                m_Type1Unit.Add(unit);
+                break;
+            case ATTACKTYPE.관통형:
+                m_Type2Unit.Add(unit);
+                break;
+        }
     }
 }
