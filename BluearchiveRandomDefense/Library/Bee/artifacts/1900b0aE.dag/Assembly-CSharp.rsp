@@ -385,6 +385,8 @@
 "Assets/Scripts/Monster/MonsterSO.cs"
 "Assets/Scripts/MonsterSpawnManager.cs"
 "Assets/Scripts/ObjectPoolingManager.cs"
+"Assets/Scripts/StartUI.cs"
+"Assets/Scripts/Tile/SellButton.cs"
 "Assets/Scripts/Tile/Tile.cs"
 "Assets/Scripts/Unit/Unit.cs"
 "Assets/Scripts/Unit/UnitSO.cs"

@@ -24,6 +24,8 @@ public class Monster : MonoBehaviour
     WaitForSeconds m_OnDamageEffectSec = new WaitForSeconds(0.1f);
     SpriteRenderer m_Spren;
     Transform[] m_Point;
+    UnitSpawnManager m_UnitManager;
+    public GameObject m_FocusObj;
 
     public MonsterSO m_MonsterSO;
 
@@ -31,6 +33,7 @@ public class Monster : MonoBehaviour
     {
         m_Spren = GetComponent<SpriteRenderer>();
         m_Point = FindObjectOfType<MonsterSpawnManager>().m_Point;
+        m_UnitManager = FindObjectOfType<UnitSpawnManager>();
     }
 
     private void OnEnable()
@@ -43,6 +46,7 @@ public class Monster : MonoBehaviour
         m_IsBoss = m_MonsterSO.m_IsBoss[GameManager.Instance.m_Stage];
         m_Spren.color = Color.white;
         m_Stage = GameManager.Instance.m_Stage + 1;
+        m_FocusObj.SetActive(false);
 
         m_NextPoint = 0;
         MonsterSpawnManager.m_MonsterCount++;
@@ -67,7 +71,7 @@ public class Monster : MonoBehaviour
                 Mathf.Abs(transform.position.y - m_Point[m_NextPoint].position.y) < 0.1)
             {
                 m_NextPoint++;
-                if (m_NextPoint == 4)
+                if (m_NextPoint == m_Point.Length)
                 {
                     m_NextPoint = 0;
                 }
@@ -75,13 +79,13 @@ public class Monster : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
         }
     }
-    public void OnDamage(ATTACKTYPE _type, int _damage, UNITTIER _tier)
+    public void OnDamage(ATTACKTYPE _attackType, int _damage, UNITTIER _tier)
     {
         _damage -= m_Armor;
 
         if (_tier != UNITTIER.ÅÂÃÊ)
         {
-            switch (_type)
+            switch (_attackType)
             {
                 case ATTACKTYPE.Æø¹ßÇü:
                     switch (m_type)
@@ -132,8 +136,13 @@ public class Monster : MonoBehaviour
         {
             m_HP -= _damage;
         }
+
         StartCoroutine(OnDamageEffect());
 
+        if (m_UnitManager.m_FocusMonster == this)
+        {
+            m_UnitManager.MonsterTextUpdate();
+        }
 
         if (m_HP <= 0)
         {
@@ -142,6 +151,15 @@ public class Monster : MonoBehaviour
     }
     void MonsterDead()
     {
+        if (m_UnitManager.m_FocusMonster == this)
+        {
+            m_FocusObj.SetActive(false);
+            m_UnitManager.FocusMonsterSelect(null);
+            m_UnitManager.m_MonsterSet.SetActive(false);
+        }
+
+        GameManager.Instance.m_Gold += m_Gold;
+        GameManager.Instance.GoldTextUpdate();
         ObjectPoolingManager.Instance.InsertQueue(gameObject, ObjectPoolingManager.m_Monster00Key);
     }
     IEnumerator OnDamageEffect()
@@ -158,7 +176,7 @@ public class Monster : MonoBehaviour
     }
     public string GetHPText()
     {
-        return m_HP.ToString();
+        return string.Format("{0:N0}", m_HP.ToString());
     }
     public string GetArmorText()
     {
@@ -181,8 +199,24 @@ public class Monster : MonoBehaviour
         }
         return type;
     }
+    public ARMORTYPE GetArmorType()
+    {
+        return m_type;
+    }
     public Sprite GetSprite()
     {
         return m_Spren.sprite;
+    }
+    private void OnMouseDown()
+    {
+        if (m_UnitManager.m_FocusMonster != null)
+        {
+            m_UnitManager.m_FocusMonster.m_FocusObj.SetActive(false);
+        }
+        m_FocusObj.SetActive(true);
+        m_UnitManager.FocusMonsterSelect(this);
+        m_UnitManager.m_UnitSet.SetActive(false);
+        m_UnitManager.m_MonsterSet.SetActive(true);
+        m_UnitManager.MonsterTextUpdate();
     }
 }

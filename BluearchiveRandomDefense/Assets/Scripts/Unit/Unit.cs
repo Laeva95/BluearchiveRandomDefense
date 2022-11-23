@@ -34,6 +34,7 @@ public abstract class Unit : MonoBehaviour
     protected SpriteRenderer m_Halo;
     protected WaitForSeconds m_AttackDelaySec;
     protected TextMeshProUGUI m_NameText;
+    protected Animator m_Ani;
 
     [SerializeField]
     protected UnitSO m_UnitSO;
@@ -42,6 +43,7 @@ public abstract class Unit : MonoBehaviour
     {
         m_Halo = GetComponent<SpriteRenderer>();
         m_NameText = GetComponentInChildren<TextMeshProUGUI>();
+        m_Ani = GetComponent<Animator>();
 
         StartCoroutine(Attack());
     }
@@ -56,6 +58,8 @@ public abstract class Unit : MonoBehaviour
                 Monster monster = monsterObj.gameObject.GetComponent<Monster>();
 
                 monster.OnDamage(m_Type, TotalDamage(), m_Tier);
+
+                m_Ani.SetTrigger("Attack");
             }
 
             yield return m_AttackDelaySec;
@@ -68,6 +72,18 @@ public abstract class Unit : MonoBehaviour
         m_Name = m_UnitSO.m_Names[_index];
         m_Damage = m_UnitSO.m_Damages[_index];
         m_NameText.text = m_Name;
+        switch (_type)
+        {
+            case ATTACKTYPE.폭발형:
+                m_NameText.color = Color.red;
+                break;
+            case ATTACKTYPE.신비형:
+                m_NameText.color = Color.blue;
+                break;
+            case ATTACKTYPE.관통형:
+                m_NameText.color = Color.yellow;
+                break;
+        }
     }
     public void SetLevel(int _level)
     {
@@ -131,6 +147,46 @@ public abstract class Unit : MonoBehaviour
                 break;
         }
         return type;
+    }
+    public string GetTierText()
+    {
+        string tier = "";
+        switch (m_Tier)
+        {
+            case UNITTIER.일반:
+                tier = "일반";
+                break;
+            case UNITTIER.레어:
+                tier = "레어";
+                break;
+            case UNITTIER.고대:
+                tier = "고대";
+                break;
+            case UNITTIER.유물:
+                tier = "유물";
+                break;
+            case UNITTIER.서사:
+                tier = "서사";
+                break;
+            case UNITTIER.전설:
+                tier = "전설";
+                break;
+            case UNITTIER.신화:
+                tier = "신화";
+                break;
+            case UNITTIER.태초:
+                tier = "태초";
+                break;
+        }
+        return tier;
+    }
+    public UNITTIER GetTier()
+    {
+        return m_Tier;
+    }
+    public ATTACKTYPE GetAttackType()
+    {
+        return m_Type;
     }
     public Sprite GetSprite()
     {

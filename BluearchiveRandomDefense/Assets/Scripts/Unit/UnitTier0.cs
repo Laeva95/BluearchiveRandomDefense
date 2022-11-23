@@ -7,7 +7,7 @@ public class UnitTier0 : Unit
     private void OnEnable()
     {
         m_Tier = UNITTIER.¿œπ›;
-        m_Range = 4f;
+        m_Range = 5f;
         m_AttackDelay = 1f;
         m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
     }

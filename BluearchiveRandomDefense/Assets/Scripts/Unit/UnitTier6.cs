@@ -8,7 +8,7 @@ public class UnitTier6 : Unit
     {
         m_Tier = UNITTIER.Ω≈»≠;
         m_Range = 20f;
-        m_AttackDelay = 0.2f;
+        m_AttackDelay = 0.25f;
         m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
     }
     public override IEnumerator Attack()
@@ -31,7 +31,10 @@ public class UnitTier6 : Unit
                 }
                 GameObject obj = SpawnEffect(m_Type);
                 obj.transform.position = monsterObj.transform.position;
+
+                m_Ani.SetTrigger("Attack");
             }
+
             yield return m_AttackDelaySec;
         }
     }

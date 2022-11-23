@@ -8,7 +8,7 @@ public class UnitTier5 : Unit
     {
         m_Tier = UNITTIER.Àü¼³;
         m_Range = 9f;
-        m_AttackDelay = 0.4f;
+        m_AttackDelay = 0.33f;
         m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
     }
 
@@ -32,7 +32,10 @@ public class UnitTier5 : Unit
                 }
                 GameObject obj = SpawnEffect(m_Type);
                 obj.transform.position = monsterObj.transform.position;
+
+                m_Ani.SetTrigger("Attack");
             }
+
             yield return m_AttackDelaySec;
         }
     }
