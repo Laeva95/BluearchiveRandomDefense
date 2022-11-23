@@ -20,6 +20,7 @@ public class MonsterSpawnManager : MonoBehaviour
 
     IEnumerator MonsterSpawnCoroutine()
     {
+        //yield return new WaitForSeconds(10f);
         while (gameObject.activeSelf)
         {
             MonsterSpawnCountCal(GameManager.Instance.m_Stage);
@@ -28,11 +29,19 @@ public class MonsterSpawnManager : MonoBehaviour
 
             for (int i = 0; i < m_Timer; i++)
             {
+                if (m_MonsterCount > 100)
+                {
+                    Debug.Log("몬스터가 100마리 이상입니다!");
+                    if (m_MonsterCount > 150)
+                    {
+                        GameManager.Instance.GameOver();
+                    }
+                }
                 yield return m_Second;
             }
             if (m_MonsterSO.m_IsBoss[GameManager.Instance.m_Stage])
             {
-                
+                GameManager.Instance.GameOver();
             }
             GameManager.Instance.m_Stage++;
         }

@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     public int m_Stage;
+    public int m_Gold;
     public static GameManager Instance
     {
         get
@@ -27,5 +28,11 @@ public class GameManager : MonoBehaviour
         }
 
         m_Stage = 0;
+        m_Gold = 150;
+    }
+
+    public void GameOver()
+    {
+
     }
 }

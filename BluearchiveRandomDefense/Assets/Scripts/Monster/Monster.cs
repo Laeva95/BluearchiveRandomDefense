@@ -12,15 +12,17 @@ public enum ARMORTYPE
 
 public class Monster : MonoBehaviour
 {
+    [SerializeField]
+    int m_Stage;
     int m_HP;
     int m_Armor;
     int m_Gold;
+    int m_NextPoint;
     float m_MoveSpeed;
-    ARMORTYPE m_type;
     bool m_IsBoss;
+    ARMORTYPE m_type;
     WaitForSeconds m_OnDamageEffectSec = new WaitForSeconds(0.1f);
     SpriteRenderer m_Spren;
-    int m_NextPoint;
     Transform[] m_Point;
 
     public MonsterSO m_MonsterSO;
@@ -40,6 +42,7 @@ public class Monster : MonoBehaviour
         m_type = m_MonsterSO.m_type[GameManager.Instance.m_Stage];
         m_IsBoss = m_MonsterSO.m_IsBoss[GameManager.Instance.m_Stage];
         m_Spren.color = Color.white;
+        m_Stage = GameManager.Instance.m_Stage + 1;
 
         m_NextPoint = 0;
         MonsterSpawnManager.m_MonsterCount++;
@@ -58,7 +61,10 @@ public class Monster : MonoBehaviour
             Vector3 dir = (m_Point[m_NextPoint].position - transform.position).normalized;
             transform.position += dir * m_MoveSpeed * Time.deltaTime;
 
-            if (transform.position == m_Point[m_NextPoint].position)
+            m_Spren.flipX = dir.x >= 0;
+
+            if (Mathf.Abs(transform.position.x - m_Point[m_NextPoint].position.x) < 0.1 &&
+                Mathf.Abs(transform.position.y - m_Point[m_NextPoint].position.y) < 0.1)
             {
                 m_NextPoint++;
                 if (m_NextPoint == 4)
@@ -69,57 +75,63 @@ public class Monster : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
         }
     }
-    public void OnDamage(ATTACKTYPE _type, int _damage)
+    public void OnDamage(ATTACKTYPE _type, int _damage, UNITTIER _tier)
     {
         _damage -= m_Armor;
 
-        switch (_type)
+        if (_tier != UNITTIER.≈¬√ )
         {
-            case ATTACKTYPE.∆¯πﬂ«¸:
-                switch (m_type)
-                {
-                    case ARMORTYPE.∞Ê¿Â∞©:
-                        _damage = (int)(_damage * 1f);
-                        break;
-                    case ARMORTYPE.∆Øºˆ¿Â∞©:
-                        _damage = (int)(_damage * 0.33f);
-                        break;
-                    case ARMORTYPE.¡ﬂ¿Â∞©:
-                        _damage = (int)(_damage * 0.66f);
-                        break;
-                }
-                break;
-            case ATTACKTYPE.Ω≈∫Ò«¸:
-                switch (m_type)
-                {
-                    case ARMORTYPE.∞Ê¿Â∞©:
-                        _damage = (int)(_damage * 0.66f);
-                        break;
-                    case ARMORTYPE.∆Øºˆ¿Â∞©:
-                        _damage = (int)(_damage * 1f);
-                        break;
-                    case ARMORTYPE.¡ﬂ¿Â∞©:
-                        _damage = (int)(_damage * 0.33f);
-                        break;
-                }
-                break;
-            case ATTACKTYPE.∞¸≈Î«¸:
-                switch (m_type)
-                {
-                    case ARMORTYPE.∞Ê¿Â∞©:
-                        _damage = (int)(_damage * 0.33f);
-                        break;
-                    case ARMORTYPE.∆Øºˆ¿Â∞©:
-                        _damage = (int)(_damage * 0.66f);
-                        break;
-                    case ARMORTYPE.¡ﬂ¿Â∞©:
-                        _damage = (int)(_damage * 1f);
-                        break;  
-                }
-                break;
+            switch (_type)
+            {
+                case ATTACKTYPE.∆¯πﬂ«¸:
+                    switch (m_type)
+                    {
+                        case ARMORTYPE.∞Ê¿Â∞©:
+                            _damage = (int)(_damage * 1f);
+                            break;
+                        case ARMORTYPE.∆Øºˆ¿Â∞©:
+                            _damage = (int)(_damage * 0.33f);
+                            break;
+                        case ARMORTYPE.¡ﬂ¿Â∞©:
+                            _damage = (int)(_damage * 0.66f);
+                            break;
+                    }
+                    break;
+                case ATTACKTYPE.Ω≈∫Ò«¸:
+                    switch (m_type)
+                    {
+                        case ARMORTYPE.∞Ê¿Â∞©:
+                            _damage = (int)(_damage * 0.66f);
+                            break;
+                        case ARMORTYPE.∆Øºˆ¿Â∞©:
+                            _damage = (int)(_damage * 1f);
+                            break;
+                        case ARMORTYPE.¡ﬂ¿Â∞©:
+                            _damage = (int)(_damage * 0.33f);
+                            break;
+                    }
+                    break;
+                case ATTACKTYPE.∞¸≈Î«¸:
+                    switch (m_type)
+                    {
+                        case ARMORTYPE.∞Ê¿Â∞©:
+                            _damage = (int)(_damage * 0.33f);
+                            break;
+                        case ARMORTYPE.∆Øºˆ¿Â∞©:
+                            _damage = (int)(_damage * 0.66f);
+                            break;
+                        case ARMORTYPE.¡ﬂ¿Â∞©:
+                            _damage = (int)(_damage * 1f);
+                            break;
+                    }
+                    break;
+            }
         }
 
-        m_HP -= _damage;
+        if (_damage >= 0)
+        {
+            m_HP -= _damage;
+        }
         StartCoroutine(OnDamageEffect());
 
 
@@ -130,7 +142,7 @@ public class Monster : MonoBehaviour
     }
     void MonsterDead()
     {
-
+        ObjectPoolingManager.Instance.InsertQueue(gameObject, ObjectPoolingManager.m_Monster00Key);
     }
     IEnumerator OnDamageEffect()
     {
@@ -139,5 +151,38 @@ public class Monster : MonoBehaviour
         yield return m_OnDamageEffectSec;
 
         m_Spren.color = Color.white;
+    }
+    public string GetStageText()
+    {
+        return m_Stage.ToString();
+    }
+    public string GetHPText()
+    {
+        return m_HP.ToString();
+    }
+    public string GetArmorText()
+    {
+        return m_Armor.ToString();
+    }
+    public string GetTypeText()
+    {
+        string type = "";
+        switch (m_type)
+        {
+            case ARMORTYPE.∞Ê¿Â∞©:
+                type = "∞Ê¿Â∞©";
+                break;
+            case ARMORTYPE.∆Øºˆ¿Â∞©:
+                type = "∆Øºˆ¿Â∞©";
+                break;
+            case ARMORTYPE.¡ﬂ¿Â∞©:
+                type = "¡ﬂ¿Â∞©";
+                break;
+        }
+        return type;
+    }
+    public Sprite GetSprite()
+    {
+        return m_Spren.sprite;
     }
 }
