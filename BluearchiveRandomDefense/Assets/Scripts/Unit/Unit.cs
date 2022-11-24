@@ -59,6 +59,7 @@ public abstract class Unit : MonoBehaviour
 
                 monster.OnDamage(m_Type, TotalDamage(), m_Tier);
 
+                SoundManager.Instance.SoundPlay(SOUND_NAME.UnitAttack1);
                 m_Ani.SetTrigger("Attack");
             }
 

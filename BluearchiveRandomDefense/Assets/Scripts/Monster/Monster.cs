@@ -160,7 +160,13 @@ public class Monster : MonoBehaviour
 
         GameManager.Instance.m_Gold += m_Gold;
         GameManager.Instance.GoldTextUpdate();
+        SoundManager.Instance.SoundPlay(SOUND_NAME.MonsterDead);
         ObjectPoolingManager.Instance.InsertQueue(gameObject, ObjectPoolingManager.m_Monster00Key);
+
+        if (m_Stage == 101)
+        {
+            GameManager.Instance.GameClear();
+        }
     }
     IEnumerator OnDamageEffect()
     {

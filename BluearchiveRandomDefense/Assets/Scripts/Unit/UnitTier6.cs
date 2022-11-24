@@ -32,6 +32,7 @@ public class UnitTier6 : Unit
                 GameObject obj = SpawnEffect(m_Type);
                 obj.transform.position = monsterObj.transform.position;
 
+                SoundManager.Instance.SoundPlay(SOUND_NAME.UnitAttack2);
                 m_Ani.SetTrigger("Attack");
             }
 
