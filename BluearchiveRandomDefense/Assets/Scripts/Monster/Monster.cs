@@ -56,11 +56,13 @@ public class Monster : MonoBehaviour
     }
     private void OnDisable()
     {
+        m_NextPoint = 0;
         MonsterSpawnManager.m_MonsterCount--;
         StopAllCoroutines();
     }
     IEnumerator MonsterMoveCoroutine()
     {
+        m_NextPoint = 0;
         while (gameObject.activeSelf)
         {
             Vector3 dir = (m_Point[m_NextPoint].position - transform.position).normalized;
@@ -68,8 +70,8 @@ public class Monster : MonoBehaviour
 
             m_Spren.flipX = dir.x >= 0;
 
-            if (Mathf.Abs(transform.position.x - m_Point[m_NextPoint].position.x) < 0.1 &&
-                Mathf.Abs(transform.position.y - m_Point[m_NextPoint].position.y) < 0.1)
+            if (Mathf.Abs(transform.position.x - m_Point[m_NextPoint].position.x) < 0.2 &&
+                Mathf.Abs(transform.position.y - m_Point[m_NextPoint].position.y) < 0.2)
             {
                 m_NextPoint++;
                 if (m_NextPoint == m_Point.Length)

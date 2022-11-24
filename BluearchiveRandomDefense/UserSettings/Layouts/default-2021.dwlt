@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 24024
+  controlID: 361
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 24002
+  controlID: 340
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -925,7 +925,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 785bffffc25bffff585dffff665dffff54beffff64f9ffffb4f9ffff26fbffff24680000986d0000746e0000
+      m_ExpandedIDs: 42f3ffff8cf3ffff22f5ffff30f5ffff26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -990,21 +990,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Resources
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Resources
   m_LastFoldersGridSize: 16
   m_LastProjectPath: E:\2021.3.13f1\BluearchiveRandomDefense\BluearchiveRandomDefense
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f6600000
-    m_LastClickedID: 24822
+    m_SelectedIDs: 02610000
+    m_LastClickedID: 24834
     m_ExpandedIDs: 00000000dc600000de600000e0600000e2600000e4600000e6600000e8600000ea60000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1060,7 +1060,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: d47d00004466000000000000866e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

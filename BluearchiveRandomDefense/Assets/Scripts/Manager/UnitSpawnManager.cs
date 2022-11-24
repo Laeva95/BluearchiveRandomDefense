@@ -309,25 +309,25 @@ public class UnitSpawnManager : MonoBehaviour
     }
     public void UpgradeBtn0()
     {
-        if (GameManager.Instance.m_Gold >= (50 + m_Levels[0] * 15))
+        if (GameManager.Instance.m_Gold >= (100 + m_Levels[0] * 15))
         {
-            GameManager.Instance.m_Gold -= (50 + m_Levels[0] * 15);
+            GameManager.Instance.m_Gold -= (100 + m_Levels[0] * 15);
             Upgrade(ATTACKTYPE.폭발형);
         }
     }
     public void UpgradeBtn1()
     {
-        if (GameManager.Instance.m_Gold >= (50 + m_Levels[1] * 15))
+        if (GameManager.Instance.m_Gold >= (100 + m_Levels[1] * 15))
         {
-            GameManager.Instance.m_Gold -= (50 + m_Levels[1] * 15);
+            GameManager.Instance.m_Gold -= (100 + m_Levels[1] * 15);
             Upgrade(ATTACKTYPE.신비형);
         }
     }
     public void UpgradeBtn2()
     {
-        if (GameManager.Instance.m_Gold >= (50 + m_Levels[2] * 15))
+        if (GameManager.Instance.m_Gold >= (100 + m_Levels[2] * 15))
         {
-            GameManager.Instance.m_Gold -= (50 + m_Levels[2] * 15);
+            GameManager.Instance.m_Gold -= (100 + m_Levels[2] * 15);
             Upgrade(ATTACKTYPE.관통형);
         }
     }
@@ -335,7 +335,7 @@ public class UnitSpawnManager : MonoBehaviour
     {
         for (int i = 0; i < m_PriceTexts.Length; i++)
         {
-            m_PriceTexts[i].text = $"{50 + m_Levels[i] * 15}";
+            m_PriceTexts[i].text = $"{100 + m_Levels[i] * 15}";
         }
         for (int i = 0; i < m_LevelTexts.Length; i++)
         {

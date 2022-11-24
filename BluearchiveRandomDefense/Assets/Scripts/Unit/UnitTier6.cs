@@ -19,7 +19,7 @@ public class UnitTier6 : Unit
 
             if (monsterObj != null)
             {
-                Collider2D[] monstersObj = Physics2D.OverlapCircleAll(monsterObj.transform.position, 5f, LayerMask.GetMask("Monster"));
+                Collider2D[] monstersObj = Physics2D.OverlapCircleAll(monsterObj.transform.position, 3f, LayerMask.GetMask("Monster"));
                 for (int i = 0; i < monstersObj.Length; i++)
                 {
                     if (monstersObj[i] != null)
