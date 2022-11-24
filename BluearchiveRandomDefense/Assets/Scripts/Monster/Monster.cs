@@ -17,13 +17,11 @@ public class Monster : MonoBehaviour
     int m_HP;
     int m_Armor;
     int m_Gold;
-    int m_NextPoint;
     float m_MoveSpeed;
-    bool m_IsBoss;
     ARMORTYPE m_type;
     WaitForSeconds m_OnDamageEffectSec = new WaitForSeconds(0.1f);
     SpriteRenderer m_Spren;
-    Transform[] m_Point;
+    public Transform[] m_Point;
     UnitSpawnManager m_UnitManager;
     [SerializeField]
     GameObject m_FocusObj;
@@ -42,44 +40,43 @@ public class Monster : MonoBehaviour
         m_HP = m_MonsterSO.m_HP[GameManager.Instance.m_Stage];
         m_Armor = m_MonsterSO.m_Armor[GameManager.Instance.m_Stage];
         m_Gold = m_MonsterSO.m_Gold[GameManager.Instance.m_Stage];
-        m_MoveSpeed = m_MonsterSO.m_MoveSpeed[GameManager.Instance.m_Stage] * 0.8f;
+        m_MoveSpeed = m_MonsterSO.m_MoveSpeed[GameManager.Instance.m_Stage];
         m_type = m_MonsterSO.m_type[GameManager.Instance.m_Stage];
-        m_IsBoss = m_MonsterSO.m_IsBoss[GameManager.Instance.m_Stage];
         m_Spren.color = Color.white;
         m_Stage = GameManager.Instance.m_Stage + 1;
         m_FocusObj.SetActive(false);
 
-        m_NextPoint = 0;
         MonsterSpawnManager.m_MonsterCount++;
 
         StartCoroutine(MonsterMoveCoroutine());
     }
     private void OnDisable()
     {
-        m_NextPoint = 0;
         MonsterSpawnManager.m_MonsterCount--;
         StopAllCoroutines();
     }
     IEnumerator MonsterMoveCoroutine()
     {
-        m_NextPoint = 0;
+        yield return null;
+
+        int nextPoint = 0;
+
         while (gameObject.activeSelf)
         {
-            Vector3 dir = (m_Point[m_NextPoint].position - transform.position).normalized;
-            transform.position += dir * m_MoveSpeed * Time.deltaTime;
+            Vector3 dir = (m_Point[nextPoint].position - transform.position).normalized;
+            transform.position += dir * m_MoveSpeed * 0.0166667f;
 
             m_Spren.flipX = dir.x >= 0;
 
-            if (Mathf.Abs(transform.position.x - m_Point[m_NextPoint].position.x) < 0.2 &&
-                Mathf.Abs(transform.position.y - m_Point[m_NextPoint].position.y) < 0.2)
+            if (Vector2.SqrMagnitude(m_Point[nextPoint].position - transform.position) < 0.1f)
             {
-                m_NextPoint++;
-                if (m_NextPoint == m_Point.Length)
+                nextPoint++;
+                if (nextPoint == m_Point.Length)
                 {
-                    m_NextPoint = 0;
+                    nextPoint = 0;
                 }
             }
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return new WaitForSeconds(0.0166667f);
         }
     }
     public void OnDamage(ATTACKTYPE _attackType, int _damage, UNITTIER _tier)

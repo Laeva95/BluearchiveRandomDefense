@@ -33,6 +33,17 @@ public class UnitSpawnManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI[] m_LevelTexts;
 
+    int[] m_Keys = new int[] 
+    { 
+        ObjectPoolingManager.m_Unit00Key,
+    ObjectPoolingManager.m_Unit01Key,
+    ObjectPoolingManager.m_Unit02Key,
+    ObjectPoolingManager.m_Unit03Key,
+    ObjectPoolingManager.m_Unit04Key,
+    ObjectPoolingManager.m_Unit05Key,
+    ObjectPoolingManager.m_Unit06Key,
+    ObjectPoolingManager.m_Unit07Key
+    };
     public int[] m_Levels = new int[] {0,0,0};
     public List<Unit> m_Type0Unit = new List<Unit>();
     public List<Unit> m_Type1Unit = new List<Unit>();
@@ -74,7 +85,7 @@ public class UnitSpawnManager : MonoBehaviour
 
     //    return obj;
     //}
-    public GameObject SpawnUnit()
+    public GameObject SpawnUnit(Tile _tile)
     {
         float ranTierPercent = Random.Range(0f, 100f);
         int ranTypePercent = Random.Range(0, 3);
@@ -86,7 +97,7 @@ public class UnitSpawnManager : MonoBehaviour
 
         GameObject obj = Spawn(tier);
         Unit unit = obj.GetComponent<Unit>();
-        unit.SetStatus(type, index);
+        unit.SetStatus(type, index, _tile);
         unit.SetLevel(m_Levels[(int)type]);
         InsertList(type, unit);
         SpawnSoundPlay(tier);
@@ -95,7 +106,7 @@ public class UnitSpawnManager : MonoBehaviour
     }
     GameObject Spawn(int _tier)
     {
-        return Instantiate(m_UnitObj[_tier], gameObject.transform.position, Quaternion.identity);
+        return ObjectPoolingManager.Instance.GetQueue(m_Keys[_tier]); ;
     }
     int CheckTier(float _ran)
     {
@@ -316,25 +327,25 @@ public class UnitSpawnManager : MonoBehaviour
     }
     public void UpgradeBtn0()
     {
-        if (GameManager.Instance.m_Gold >= (100 + m_Levels[0] * 15))
+        if (GameManager.Instance.m_Gold >= (50 + m_Levels[0] * 15))
         {
-            GameManager.Instance.m_Gold -= (100 + m_Levels[0] * 15);
+            GameManager.Instance.m_Gold -= (50 + m_Levels[0] * 15);
             Upgrade(ATTACKTYPE.폭발형);
         }
     }
     public void UpgradeBtn1()
     {
-        if (GameManager.Instance.m_Gold >= (100 + m_Levels[1] * 15))
+        if (GameManager.Instance.m_Gold >= (50 + m_Levels[1] * 15))
         {
-            GameManager.Instance.m_Gold -= (100 + m_Levels[1] * 15);
+            GameManager.Instance.m_Gold -= (50 + m_Levels[1] * 15);
             Upgrade(ATTACKTYPE.신비형);
         }
     }
     public void UpgradeBtn2()
     {
-        if (GameManager.Instance.m_Gold >= (100 + m_Levels[2] * 15))
+        if (GameManager.Instance.m_Gold >= (50 + m_Levels[2] * 15))
         {
-            GameManager.Instance.m_Gold -= (100 + m_Levels[2] * 15);
+            GameManager.Instance.m_Gold -= (50 + m_Levels[2] * 15);
             Upgrade(ATTACKTYPE.관통형);
         }
     }
@@ -342,7 +353,7 @@ public class UnitSpawnManager : MonoBehaviour
     {
         for (int i = 0; i < m_PriceTexts.Length; i++)
         {
-            m_PriceTexts[i].text = $"{100 + m_Levels[i] * 15}";
+            m_PriceTexts[i].text = $"{50 + m_Levels[i] * 15}";
         }
         for (int i = 0; i < m_LevelTexts.Length; i++)
         {
@@ -461,24 +472,35 @@ public class UnitSpawnManager : MonoBehaviour
     }
     public void RareSellBtn()
     {
+        UnitsSell((int)UNITTIER.레어);
 
-        CheckSellList(m_Type0Unit);
-        CheckSellList(m_Type1Unit);
-        CheckSellList(m_Type2Unit);
+    }
+    public void AncientSellBtn()
+    {
+        UnitsSell((int)UNITTIER.고대);
+    }
+    void UnitsSell(int _tier)
+    {
+        CheckSellList(m_Type0Unit, _tier);
+        CheckSellList(m_Type1Unit, _tier);
+        CheckSellList(m_Type2Unit, _tier);
         if (m_FocusMonster != null)
         {
             m_FocusMonster.OnFocusMonster(false);
         }
         if (m_FocusTile != null)
         {
-            m_FocusTile.m_Unit.OnFocusUnit(false);
+            if (m_FocusTile.m_Unit != null)
+            {
+                m_FocusTile.m_Unit.OnFocusUnit(false);
+            }
         }
         FocusTileSelect(null);
         m_UnitSet.SetActive(false);
         m_MonsterSet.SetActive(false);
         GameManager.Instance.GoldTextUpdate();
     }
-    void CheckSellList(List<Unit> _list)
+    void CheckSellList(List<Unit> _list, int _tier)
     {
         if (_list.Count == 0)
         {
@@ -486,7 +508,7 @@ public class UnitSpawnManager : MonoBehaviour
         }
         for (int i = _list.Count - 1; i >= 0; i--)
         {
-            if (_list[i].GetTier() == UNITTIER.일반 || _list[i].GetTier() == UNITTIER.레어)
+            if ((int)_list[i].GetTier() <= _tier)
             {
                 m_Sell.CheckSellUnitTier(_list[i]);
             }

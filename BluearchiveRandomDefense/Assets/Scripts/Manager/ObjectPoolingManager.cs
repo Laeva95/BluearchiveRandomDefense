@@ -8,13 +8,41 @@ public class ObjectPoolingManager : MonoBehaviour
 
     [SerializeField] GameObject m_Effect00;
 
+    [SerializeField] GameObject m_Unit00;
+    [SerializeField] GameObject m_Unit01;
+    [SerializeField] GameObject m_Unit02;
+    [SerializeField] GameObject m_Unit03;
+    [SerializeField] GameObject m_Unit04;
+    [SerializeField] GameObject m_Unit05;
+    [SerializeField] GameObject m_Unit06;
+    [SerializeField] GameObject m_Unit07;
+
     public const int m_Monster00Key = 0;
 
     public const int m_Effect00Key = 100;
 
+    public const int m_Unit00Key = 10;
+    public const int m_Unit01Key = 11;
+    public const int m_Unit02Key = 12;
+    public const int m_Unit03Key = 13;
+    public const int m_Unit04Key = 14;
+    public const int m_Unit05Key = 15;
+    public const int m_Unit06Key = 16;
+    public const int m_Unit07Key = 17;
+
     private Queue<GameObject> m_Monster00Queue = new Queue<GameObject>();
 
     private Queue<GameObject> m_Effect00Queue = new Queue<GameObject>();
+
+    private Queue<GameObject> m_Unit00Queue = new Queue<GameObject>();
+    private Queue<GameObject> m_Unit01Queue = new Queue<GameObject>();
+    private Queue<GameObject> m_Unit02Queue = new Queue<GameObject>();
+    private Queue<GameObject> m_Unit03Queue = new Queue<GameObject>();
+    private Queue<GameObject> m_Unit04Queue = new Queue<GameObject>();
+    private Queue<GameObject> m_Unit05Queue = new Queue<GameObject>();
+    private Queue<GameObject> m_Unit06Queue = new Queue<GameObject>();
+    private Queue<GameObject> m_Unit07Queue = new Queue<GameObject>();
+
 
 
     public Dictionary<int, Queue<GameObject>> m_queueDic = new Dictionary<int, Queue<GameObject>>();
@@ -44,9 +72,29 @@ public class ObjectPoolingManager : MonoBehaviour
 
         m_queueDic.Add(m_Effect00Key, m_Effect00Queue);
 
+        m_queueDic.Add(m_Unit00Key, m_Unit00Queue);
+        m_queueDic.Add(m_Unit01Key, m_Unit01Queue);
+        m_queueDic.Add(m_Unit02Key, m_Unit02Queue);
+        m_queueDic.Add(m_Unit03Key, m_Unit03Queue);
+        m_queueDic.Add(m_Unit04Key, m_Unit04Queue);
+        m_queueDic.Add(m_Unit05Key, m_Unit05Queue);
+        m_queueDic.Add(m_Unit06Key, m_Unit06Queue);
+        m_queueDic.Add(m_Unit07Key, m_Unit07Queue);
+
+
         InitQueue(m_Monster00, m_Monster00Queue, 10);
 
         InitQueue(m_Effect00, m_Effect00Queue, 10);
+
+        InitQueue(m_Unit00, m_Unit00Queue, 10);
+        InitQueue(m_Unit01, m_Unit01Queue, 10);
+        InitQueue(m_Unit02, m_Unit02Queue, 10);
+        InitQueue(m_Unit03, m_Unit03Queue, 10);
+        InitQueue(m_Unit04, m_Unit04Queue, 10);
+        InitQueue(m_Unit05, m_Unit05Queue, 10);
+        InitQueue(m_Unit06, m_Unit06Queue, 10);
+        InitQueue(m_Unit07, m_Unit07Queue, 10);
+
     }
 
     // 오브젝트 풀 Queue에 오브젝트를 생성해서 채워주는 초기화 함수
@@ -72,6 +120,7 @@ public class ObjectPoolingManager : MonoBehaviour
             rigid.velocity = Vector3.zero;
             rigid.angularVelocity = 0f;
         }
+        _obj.transform.position = new Vector3(5000, 5000);
         _obj.transform.rotation = Quaternion.identity;
 
         m_queueDic[_queueKey].Enqueue(_obj);
@@ -82,12 +131,14 @@ public class ObjectPoolingManager : MonoBehaviour
     public GameObject GetQueue(int _queueKey)
     {
         GameObject obj = m_queueDic[_queueKey].Dequeue();
-        obj.SetActive(true);
+
         // 큐에 오브젝트가 남아있지 않으면 추가 생성
         if (m_queueDic[_queueKey].Count < 1)
         {
             InitQueue(obj, m_queueDic[_queueKey], 10);
         }
+
+        obj.SetActive(true);
         return obj;
     }
 }

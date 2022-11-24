@@ -11,7 +11,9 @@ public class UnitTier7 : Unit
         m_Range = 20f;
         m_AttackDelay = 0.25f;
         m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
-        m_AllAttackDelaySec = new WaitForSeconds(1.5f);
+        m_AllAttackDelaySec = new WaitForSeconds(2f);
+
+        StartCoroutine(Attack());
     }
     public override IEnumerator Attack()
     {
@@ -45,6 +47,8 @@ public class UnitTier7 : Unit
 
     IEnumerator AllAttack()
     {
+        yield return m_AllAttackDelaySec;
+
         while (gameObject.activeSelf)
         {
             Collider2D[] monstersObj = Physics2D.OverlapCircleAll(transform.position, 25f, LayerMask.GetMask("Monster"));

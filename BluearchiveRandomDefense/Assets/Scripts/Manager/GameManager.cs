@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         GoldTextUpdate();
         SetResolution();
         Time.timeScale = 1;
+        Application.targetFrameRate = 60;
     }
 
     public void GameOver()

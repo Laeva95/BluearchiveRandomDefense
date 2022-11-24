@@ -41,13 +41,14 @@ public abstract class Unit : MonoBehaviour
     [SerializeField]
     protected GameObject m_FocusObj;
 
+    Tile m_Tile = null;
+
     private void Awake()
     {
         m_Halo = GetComponent<SpriteRenderer>();
         m_NameText = GetComponentInChildren<TextMeshProUGUI>();
         m_Ani = GetComponent<Animator>();
-
-        StartCoroutine(Attack());
+        m_Type = ATTACKTYPE.Æø¹ßÇü;
     }
     public virtual IEnumerator Attack()
     {
@@ -68,7 +69,7 @@ public abstract class Unit : MonoBehaviour
             yield return m_AttackDelaySec;
         }
     }
-    public void SetStatus(ATTACKTYPE _type,int _index)
+    public void SetStatus(ATTACKTYPE _type,int _index, Tile _tile)
     {
         m_Type = _type;
         m_Halo.sprite = m_UnitSO.m_Sprites[_index];
@@ -87,6 +88,7 @@ public abstract class Unit : MonoBehaviour
                 m_NameText.color = Color.yellow;
                 break;
         }
+        m_Tile = _tile;
     }
     public void SetLevel(int _level)
     {
@@ -96,9 +98,10 @@ public abstract class Unit : MonoBehaviour
     {
         return m_Damage * (m_Level + 1);
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         StopAllCoroutines();
+        OnFocusUnit(false);
     }
 
     protected GameObject SpawnEffect(ATTACKTYPE _type)
@@ -195,9 +198,25 @@ public abstract class Unit : MonoBehaviour
     {
         return m_Halo.sprite;
     }
+    public Tile GetTile()
+    {
+        return m_Tile;
+    }
 
     public void OnFocusUnit(bool _bool)
     {
         m_FocusObj.SetActive(_bool);
+    }
+    public void SetTileNull()
+    {
+        if (m_Tile.m_Unit != null)
+        {
+            m_Tile.m_Unit = null;
+        }
+        m_Tile = null;
+    }
+    public void SetTile(Tile _tile)
+    {
+        m_Tile = _tile;
     }
 }

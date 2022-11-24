@@ -10,6 +10,8 @@ public class UnitTier5 : Unit
         m_Range = 8f;
         m_AttackDelay = 0.33f;
         m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
+
+        StartCoroutine(Attack());
     }
 
     public override IEnumerator Attack()

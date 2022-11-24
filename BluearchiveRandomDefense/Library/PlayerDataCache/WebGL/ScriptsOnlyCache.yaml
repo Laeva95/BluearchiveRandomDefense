@@ -127,6 +127,9 @@ ScriptsOnlyBuild:
     fullTypeName: UnitSpawnManager
     methodName: UpgradeBtn0
   - assembly: Assembly-CSharp
+    fullTypeName: UnitSpawnManager
+    methodName: AncientSellBtn
+  - assembly: Assembly-CSharp
     fullTypeName: SellButton
     methodName: SellUnitBtn
   - assembly: Assembly-CSharp
@@ -788,7 +791,7 @@ ScriptsOnlyBuild:
     className: DictionaryAsset
   - hash:
       serializedVersion: 2
-      Hash: cf53b3a47b2970ad387a4f26bb6558a3
+      Hash: 5088c71c54b61282e24810711e588fe1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Monster
@@ -1130,7 +1133,7 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionExitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 79e522e11c568317aa971a3ed0e60197
+      Hash: 0885652f48282c6648d65d6c5dc83b0b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ObjectPoolingManager

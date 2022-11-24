@@ -10,5 +10,7 @@ public class UnitTier0 : Unit
         m_Range = 4f;
         m_AttackDelay = 1f;
         m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
+
+        StartCoroutine(Attack());
     }
 }

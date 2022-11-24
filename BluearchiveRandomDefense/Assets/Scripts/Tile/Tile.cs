@@ -53,12 +53,12 @@ public class Tile : MonoBehaviour
                     SwapUnit();
                 }
             }
-            m_Unit.OnFocusUnit(false);
+            m_Unit?.OnFocusUnit(false);
         }
     }
     void SpawnUnit()
     {
-        GameObject obj = m_UnitManager.SpawnUnit();
+        GameObject obj = m_UnitManager.SpawnUnit(this);
         obj.transform.position = transform.position;
         m_Unit = obj.GetComponent<Unit>();
     }
@@ -68,13 +68,16 @@ public class Tile : MonoBehaviour
         if (m_Unit != null)
         {
             m_UnitManager.m_FocusTile.m_Unit = m_Unit;
+            m_UnitManager.m_FocusTile.m_Unit.SetTile(m_UnitManager.m_FocusTile);
             m_UnitManager.m_FocusTile.m_Unit.transform.position = m_UnitManager.m_FocusTile.transform.position;
         }
         else
         {
+            m_UnitManager.m_FocusTile.m_Unit.SetTileNull();
             m_UnitManager.m_FocusTile.m_Unit = null;
         }
         m_Unit = unit;
+        m_Unit.SetTile(this);
         m_Unit.transform.position = transform.position;
         m_UnitManager.FocusTileSelect(null);
         m_UnitManager.m_UnitSet.SetActive(false);
