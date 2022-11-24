@@ -40,7 +40,12 @@ public class UnitSpawnManager : MonoBehaviour
 
     public Tile m_FocusTile = null;
     public Monster m_FocusMonster = null;
+    SellButton m_Sell;
 
+    private void Awake()
+    {
+        m_Sell = FindObjectOfType<SellButton>();
+    }
     private void Start()
     {
         UpgradeTextUpdate();
@@ -304,25 +309,25 @@ public class UnitSpawnManager : MonoBehaviour
     }
     public void UpgradeBtn0()
     {
-        if (GameManager.Instance.m_Gold >= (50 + m_Levels[0] * 25))
+        if (GameManager.Instance.m_Gold >= (50 + m_Levels[0] * 15))
         {
-            GameManager.Instance.m_Gold -= (50 + m_Levels[0] * 25);
+            GameManager.Instance.m_Gold -= (50 + m_Levels[0] * 15);
             Upgrade(ATTACKTYPE.폭발형);
         }
     }
     public void UpgradeBtn1()
     {
-        if (GameManager.Instance.m_Gold >= (50 + m_Levels[1] * 25))
+        if (GameManager.Instance.m_Gold >= (50 + m_Levels[1] * 15))
         {
-            GameManager.Instance.m_Gold -= (50 + m_Levels[1] * 25);
+            GameManager.Instance.m_Gold -= (50 + m_Levels[1] * 15);
             Upgrade(ATTACKTYPE.신비형);
         }
     }
     public void UpgradeBtn2()
     {
-        if (GameManager.Instance.m_Gold >= (50 + m_Levels[2] * 25))
+        if (GameManager.Instance.m_Gold >= (50 + m_Levels[2] * 15))
         {
-            GameManager.Instance.m_Gold -= (50 + m_Levels[2] * 25);
+            GameManager.Instance.m_Gold -= (50 + m_Levels[2] * 15);
             Upgrade(ATTACKTYPE.관통형);
         }
     }
@@ -330,7 +335,7 @@ public class UnitSpawnManager : MonoBehaviour
     {
         for (int i = 0; i < m_PriceTexts.Length; i++)
         {
-            m_PriceTexts[i].text = $"{50 + m_Levels[i] * 25}";
+            m_PriceTexts[i].text = $"{50 + m_Levels[i] * 15}";
         }
         for (int i = 0; i < m_LevelTexts.Length; i++)
         {
@@ -445,6 +450,39 @@ public class UnitSpawnManager : MonoBehaviour
         else
         {
             SoundManager.Instance.SoundPlay(SOUND_NAME.UnitSpawn2);
+        }
+    }
+    public void RareSellBtn()
+    {
+
+        CheckSellList(m_Type0Unit);
+        CheckSellList(m_Type1Unit);
+        CheckSellList(m_Type2Unit);
+        if (m_FocusMonster != null)
+        {
+            m_FocusMonster.OnFocusMonster(false);
+        }
+        if (m_FocusTile != null)
+        {
+            m_FocusTile.m_Unit.OnFocusUnit(false);
+        }
+        FocusTileSelect(null);
+        m_UnitSet.SetActive(false);
+        m_MonsterSet.SetActive(false);
+        GameManager.Instance.GoldTextUpdate();
+    }
+    void CheckSellList(List<Unit> _list)
+    {
+        if (_list.Count == 0)
+        {
+            return;
+        }
+        for (int i = _list.Count - 1; i >= 0; i--)
+        {
+            if (_list[i].GetTier() == UNITTIER.일반 || _list[i].GetTier() == UNITTIER.레어)
+            {
+                m_Sell.CheckSellUnitTier(_list[i]);
+            }
         }
     }
 }

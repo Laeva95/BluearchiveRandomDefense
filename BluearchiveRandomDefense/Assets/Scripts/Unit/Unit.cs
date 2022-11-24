@@ -38,6 +38,8 @@ public abstract class Unit : MonoBehaviour
 
     [SerializeField]
     protected UnitSO m_UnitSO;
+    [SerializeField]
+    protected GameObject m_FocusObj;
 
     private void Awake()
     {
@@ -192,5 +194,10 @@ public abstract class Unit : MonoBehaviour
     public Sprite GetSprite()
     {
         return m_Halo.sprite;
+    }
+
+    public void OnFocusUnit(bool _bool)
+    {
+        m_FocusObj.SetActive(_bool);
     }
 }

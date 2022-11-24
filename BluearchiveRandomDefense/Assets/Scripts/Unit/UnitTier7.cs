@@ -9,7 +9,7 @@ public class UnitTier7 : Unit
     {
         m_Tier = UNITTIER.≈¬√ ;
         m_Range = 25f;
-        m_AttackDelay = 0.25f;
+        m_AttackDelay = 0.5f;
         m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
         m_AllAttackDelaySec = new WaitForSeconds(3f);
     }

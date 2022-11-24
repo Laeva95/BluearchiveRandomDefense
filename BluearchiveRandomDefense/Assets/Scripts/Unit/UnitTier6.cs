@@ -8,7 +8,7 @@ public class UnitTier6 : Unit
     {
         m_Tier = UNITTIER.Ω≈»≠;
         m_Range = 20f;
-        m_AttackDelay = 0.25f;
+        m_AttackDelay = 0.5f;
         m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
     }
     public override IEnumerator Attack()

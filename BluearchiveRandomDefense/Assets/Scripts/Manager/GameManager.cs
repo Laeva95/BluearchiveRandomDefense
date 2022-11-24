@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         }
 
         m_Stage = 0;
-        m_Gold = 300;
+        m_Gold = 150;
         GoldTextUpdate();
         SetResolution();
         Time.timeScale = 1;
@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
 
         m_GameOverObj.SetActive(true);
         m_GameOverText.text = $"당신의 최고기록은 {m_Stage} Stage입니다.";
+        PlayerPrefs.SetInt("BestStage", m_Stage);
 
         yield return new WaitForSecondsRealtime(5f);
 
@@ -70,6 +71,8 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator GameClearCoroutine()
     {
+        PlayerPrefs.SetInt("BestStage", 101);
+
         Time.timeScale = 0;
 
         m_GameClearObj.SetActive(true);
@@ -113,10 +116,6 @@ public class GameManager : MonoBehaviour
                 m_TimeScaleText.text = "<<";
                 break;
             case 2:
-                Time.timeScale = 3;
-                m_TimeScaleText.text = "<<<";
-                break;
-            case 3:
                 Time.timeScale = 1;
                 m_TimeScaleText.text = "<";
                 break;

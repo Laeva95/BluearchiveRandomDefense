@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 21717
+  controlID: 24024
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 21742
+  controlID: 24002
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -849,9 +849,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: bf8341f3aa68e1d49931f30e040bd508, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 616bb315c7b19304985255d2cf140442, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 4254254660537496874, guid: bf8341f3aa68e1d49931f30e040bd508, type: 2}
+  - m_Target: {fileID: 3243046688542743557, guid: 616bb315c7b19304985255d2cf140442, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -925,7 +925,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 5a8dffffa88dffff3e8fffff4e8fffff4298ffff8c98ffff1e9affff2a9affffb49affff0e9bffffe0acffff70c3ffffc2caffffa4cbffff28f2ffff26fbffffe65f0000006000002e600000627e000042820000aa830000888400008c850000d8d7000034de0000826301009c630100ca630100
+      m_ExpandedIDs: 785bffffc25bffff585dffff665dffff54beffff64f9ffffb4f9ffff26fbffff24680000986d0000746e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -990,22 +990,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Manager
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Manager
+  - Assets/Prefabs
   m_LastFoldersGridSize: 16
   m_LastProjectPath: E:\2021.3.13f1\BluearchiveRandomDefense\BluearchiveRandomDefense
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: cae70000
-    m_LastClickedID: 59338
-    m_ExpandedIDs: 00000000c4600000c6600000c8600000ca600000cc600000ce600000d0600000d2600000d4600000d660000000ca9a3b
+    m_SelectedIDs: f6600000
+    m_LastClickedID: 24822
+    m_ExpandedIDs: 00000000dc600000de600000e0600000e2600000e4600000e6600000e8600000ea60000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c4600000c6600000c8600000ca600000cc600000ce600000d0600000d2600000d4600000d660000000ca9a3b
+    m_ExpandedIDs: 00000000dc600000de600000e0600000e2600000e4600000e6600000e8600000ea60000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1060,22 +1060,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: d47d00004466000000000000866e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: StageScene
-      m_OriginalName: StageScene
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 29328
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:

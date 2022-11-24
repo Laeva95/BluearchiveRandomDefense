@@ -49,24 +49,39 @@ public class SoundManager : MonoBehaviour
     // 사운드 재생 함수
     public void SoundPlay(SOUND_NAME _NAME)
     {
-        // for문을 통해 오디오 소스 각각에 접근
-        for (int i = 0; i < m_Audio.Length; i++)
+        if (_NAME != SOUND_NAME.UnitSpawn1 && _NAME != SOUND_NAME.UnitSpawn2)
         {
-            // 현재 오디오 소스가 재생 중일 경우 다음 오디오 소스를 확인
-            if (m_Audio[i].isPlaying)
+            // for문을 통해 오디오 소스 각각에 접근
+            for (int i = 0; i < m_Audio.Length - 1; i++)
             {
-                continue;
-            }
-            // 오디오 소스가 재생 중이지 않을 경우
-            // 매개변수로 들어온 정보에 따라 오디오소스의 클립 변경
-            m_Audio[i].clip = m_Clips[(int)_NAME];
+                // 현재 오디오 소스가 재생 중일 경우 다음 오디오 소스를 확인
+                if (m_Audio[i].isPlaying)
+                {
+                    continue;
+                }
+                // 오디오 소스가 재생 중이지 않을 경우
+                // 매개변수로 들어온 정보에 따라 오디오소스의 클립 변경
+                m_Audio[i].clip = m_Clips[(int)_NAME];
 
-            if (m_Audio[i].clip != null)
+                if (m_Audio[i].clip != null)
+                {
+                    // 변경된 클립 재생 후 리턴
+                    m_Audio[i].Play();
+                    return;
+                }
+            }
+        }
+        else
+        {
+            m_Audio[m_Audio.Length - 1].clip = m_Clips[(int)_NAME];
+
+            if (m_Audio[m_Audio.Length - 1].clip != null)
             {
                 // 변경된 클립 재생 후 리턴
-                m_Audio[i].Play();
+                m_Audio[m_Audio.Length - 1].Play();
                 return;
             }
         }
+
     }
 }

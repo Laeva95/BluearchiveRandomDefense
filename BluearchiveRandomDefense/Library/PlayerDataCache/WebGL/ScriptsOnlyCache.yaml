@@ -117,6 +117,9 @@ ScriptsOnlyBuild:
     fullTypeName: StartUI
     methodName: DescriptionCloseBtn
   - assembly: Assembly-CSharp
+    fullTypeName: UnitSpawnManager
+    methodName: RareSellBtn
+  - assembly: Assembly-CSharp
     fullTypeName: GameManager
     methodName: TimeScaling
   - assembly: Assembly-CSharp
@@ -125,6 +128,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: UpgradeBtn0
+  - assembly: Assembly-CSharp
+    fullTypeName: SellButton
+    methodName: SellUnitBtn
   - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: UpgradeBtn1
@@ -181,41 +187,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3470}
     - Class: 114
-      Script: {instanceID: 4414}
+      Script: {instanceID: 3736}
     - Class: 114
-      Script: {instanceID: 4874}
+      Script: {instanceID: 4416}
     - Class: 114
-      Script: {instanceID: 5268}
+      Script: {instanceID: 4876}
     - Class: 114
-      Script: {instanceID: 5348}
+      Script: {instanceID: 5270}
     - Class: 114
-      Script: {instanceID: 5992}
+      Script: {instanceID: 5350}
     - Class: 114
-      Script: {instanceID: 6080}
+      Script: {instanceID: 5994}
     - Class: 114
-      Script: {instanceID: 6726}
+      Script: {instanceID: 6082}
     - Class: 114
-      Script: {instanceID: 6824}
+      Script: {instanceID: 6728}
     - Class: 114
-      Script: {instanceID: 6926}
+      Script: {instanceID: 6826}
     - Class: 114
-      Script: {instanceID: 6934}
+      Script: {instanceID: 6928}
     - Class: 114
-      Script: {instanceID: 6942}
+      Script: {instanceID: 6936}
     - Class: 114
-      Script: {instanceID: 6960}
+      Script: {instanceID: 6944}
     - Class: 114
-      Script: {instanceID: 7352}
+      Script: {instanceID: 6962}
     - Class: 114
-      Script: {instanceID: 7986}
+      Script: {instanceID: 7354}
     - Class: 114
-      Script: {instanceID: 8546}
+      Script: {instanceID: 7988}
     - Class: 114
-      Script: {instanceID: 9182}
+      Script: {instanceID: 8548}
     - Class: 114
-      Script: {instanceID: 9414}
+      Script: {instanceID: 9184}
     - Class: 114
-      Script: {instanceID: 59346}
+      Script: {instanceID: 9416}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -274,23 +280,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3470}
     - Class: 114
-      Script: {instanceID: 4414}
+      Script: {instanceID: 4416}
     - Class: 114
-      Script: {instanceID: 4742}
+      Script: {instanceID: 4744}
     - Class: 114
-      Script: {instanceID: 5082}
+      Script: {instanceID: 5084}
     - Class: 114
-      Script: {instanceID: 5992}
+      Script: {instanceID: 5994}
     - Class: 114
-      Script: {instanceID: 6726}
+      Script: {instanceID: 6728}
     - Class: 114
-      Script: {instanceID: 6926}
+      Script: {instanceID: 6928}
     - Class: 114
-      Script: {instanceID: 6934}
+      Script: {instanceID: 6936}
     - Class: 114
-      Script: {instanceID: 7352}
+      Script: {instanceID: 7354}
     - Class: 114
-      Script: {instanceID: 8042}
+      Script: {instanceID: 8044}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -376,7 +382,7 @@ ScriptsOnlyBuild:
     className: UnityOnMouseExitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 61bf27095ef6431918c61d0791902abc
+      Hash: 2bf7f858d39630d96e219c1e473dbb61
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitTier4
@@ -442,7 +448,7 @@ ScriptsOnlyBuild:
     className: SkeletonAsset
   - hash:
       serializedVersion: 2
-      Hash: 61bf27095ef6431918c61d0791902abc
+      Hash: 2bf7f858d39630d96e219c1e473dbb61
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitTier2
@@ -454,7 +460,7 @@ ScriptsOnlyBuild:
     className: UnityOnBecameVisibleMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 61bf27095ef6431918c61d0791902abc
+      Hash: 2bf7f858d39630d96e219c1e473dbb61
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitTier7
@@ -568,7 +574,7 @@ ScriptsOnlyBuild:
     className: MonsterSpawnManager
   - hash:
       serializedVersion: 2
-      Hash: 61bf27095ef6431918c61d0791902abc
+      Hash: 2bf7f858d39630d96e219c1e473dbb61
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitTier0
@@ -626,6 +632,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: VariablesAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 01a6b6e64011dcd2ec96702d73c3cb74
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SoundManager
   - hash:
       serializedVersion: 2
       Hash: 2574ac7d50617d23cdefe4ad22f5e1ad
@@ -928,7 +940,7 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: 61bf27095ef6431918c61d0791902abc
+      Hash: 2bf7f858d39630d96e219c1e473dbb61
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitTier3
@@ -982,7 +994,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: 61bf27095ef6431918c61d0791902abc
+      Hash: 2bf7f858d39630d96e219c1e473dbb61
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitTier5
@@ -1012,7 +1024,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 61bf27095ef6431918c61d0791902abc
+      Hash: 2bf7f858d39630d96e219c1e473dbb61
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitTier6
@@ -1132,7 +1144,7 @@ ScriptsOnlyBuild:
     className: RuleTile
   - hash:
       serializedVersion: 2
-      Hash: 3a94cb13f2036ea21b55935487d664a3
+      Hash: 8f2000fa58b7d1cc33f852b556259089
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StartUI
@@ -1306,7 +1318,7 @@ ScriptsOnlyBuild:
     className: SpriteLibrarySourceAsset
   - hash:
       serializedVersion: 2
-      Hash: 61bf27095ef6431918c61d0791902abc
+      Hash: 2bf7f858d39630d96e219c1e473dbb61
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitTier1
@@ -1346,12 +1358,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 01a6b6e64011dcd2ec96702d73c3cb74
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SoundManager
   platform: 20
   scenePathNames:
   - Assets/Scenes/StartScene.unity

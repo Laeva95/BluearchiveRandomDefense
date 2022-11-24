@@ -25,7 +25,8 @@ public class Monster : MonoBehaviour
     SpriteRenderer m_Spren;
     Transform[] m_Point;
     UnitSpawnManager m_UnitManager;
-    public GameObject m_FocusObj;
+    [SerializeField]
+    GameObject m_FocusObj;
 
     public MonsterSO m_MonsterSO;
 
@@ -41,7 +42,7 @@ public class Monster : MonoBehaviour
         m_HP = m_MonsterSO.m_HP[GameManager.Instance.m_Stage];
         m_Armor = m_MonsterSO.m_Armor[GameManager.Instance.m_Stage];
         m_Gold = m_MonsterSO.m_Gold[GameManager.Instance.m_Stage];
-        m_MoveSpeed = m_MonsterSO.m_MoveSpeed[GameManager.Instance.m_Stage];
+        m_MoveSpeed = m_MonsterSO.m_MoveSpeed[GameManager.Instance.m_Stage] * 0.8f;
         m_type = m_MonsterSO.m_type[GameManager.Instance.m_Stage];
         m_IsBoss = m_MonsterSO.m_IsBoss[GameManager.Instance.m_Stage];
         m_Spren.color = Color.white;
@@ -219,10 +220,18 @@ public class Monster : MonoBehaviour
         {
             m_UnitManager.m_FocusMonster.m_FocusObj.SetActive(false);
         }
+        if (m_UnitManager.m_FocusTile != null)
+        {
+            m_UnitManager.m_FocusTile.m_Unit.OnFocusUnit(false);
+        }
         m_FocusObj.SetActive(true);
         m_UnitManager.FocusMonsterSelect(this);
         m_UnitManager.m_UnitSet.SetActive(false);
         m_UnitManager.m_MonsterSet.SetActive(true);
         m_UnitManager.MonsterTextUpdate();
+    }
+    public void OnFocusMonster(bool _bool)
+    {
+        m_FocusObj.SetActive(_bool);
     }
 }

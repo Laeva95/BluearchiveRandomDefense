@@ -16,22 +16,24 @@ public class Tile : MonoBehaviour
     {
         if (m_UnitManager.m_FocusMonster != null)
         {
-            m_UnitManager.m_FocusMonster.m_FocusObj.SetActive(false);
+            m_UnitManager.m_FocusMonster.OnFocusMonster(false);
+            m_UnitManager.m_MonsterSet.SetActive(false);
         }
-        m_UnitManager.m_MonsterSet.SetActive(false);
+
         if (m_UnitManager.m_FocusTile == null)
         {
             if (m_Unit != null)
             {
                 m_UnitManager.FocusTileSelect(this);
                 m_UnitManager.m_UnitSet.SetActive(true);
+                m_Unit.OnFocusUnit(true);
                 m_UnitManager.UnitTextUpdate();
             }
             else
             {
-                if (GameManager.Instance.m_Gold >= 75)
+                if (GameManager.Instance.m_Gold >= 50)
                 {
-                    GameManager.Instance.m_Gold -= 75;
+                    GameManager.Instance.m_Gold -= 50;
                     GameManager.Instance.GoldTextUpdate();
                     SpawnUnit();
                 }
@@ -51,6 +53,7 @@ public class Tile : MonoBehaviour
                     SwapUnit();
                 }
             }
+            m_Unit.OnFocusUnit(false);
         }
     }
     void SpawnUnit()

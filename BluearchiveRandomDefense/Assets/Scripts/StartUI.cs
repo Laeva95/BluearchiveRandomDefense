@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class StartUI : MonoBehaviour
 {
@@ -9,7 +10,13 @@ public class StartUI : MonoBehaviour
     GameObject m_DescriptionObj;
     [SerializeField]
     GameObject m_TableObj;
+    [SerializeField]
+    TextMeshProUGUI m_BestStageText;
 
+    private void Start()
+    {
+        m_BestStageText.text = $"최고기록: {PlayerPrefs.GetInt("BestStage", 0)} Stage";
+    }
     public void StartBtn()
     {
         SceneManager.LoadScene(1);
