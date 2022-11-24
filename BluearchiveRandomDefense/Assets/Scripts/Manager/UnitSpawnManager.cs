@@ -50,6 +50,30 @@ public class UnitSpawnManager : MonoBehaviour
     {
         UpgradeTextUpdate();
     }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Alpha7))
+    //    {
+    //        SpawnUnit(7);
+    //    }
+    //}
+    //// 디버그용
+    //public GameObject SpawnUnit(int _tier)
+    //{
+    //    int ranTypePercent = Random.Range(0, 3);
+
+    //    ATTACKTYPE type = CheckType(ranTypePercent);
+
+    //    int index = CheckIndex(_tier, type);
+
+    //    GameObject obj = Spawn(_tier);
+    //    Unit unit = obj.GetComponent<Unit>();
+    //    unit.SetStatus(type, index);
+    //    unit.SetLevel(m_Levels[(int)type]);
+    //    InsertList(type, unit);
+
+    //    return obj;
+    //}
     public GameObject SpawnUnit()
     {
         float ranTierPercent = Random.Range(0f, 100f);
@@ -69,23 +93,6 @@ public class UnitSpawnManager : MonoBehaviour
 
         return obj;
     }
-    // 디버그용
-    //public GameObject SpawnUnit(int _tier)
-    //{
-    //    int ranTypePercent = Random.Range(0, 3);
-
-    //    ATTACKTYPE type = CheckType(ranTypePercent);
-
-    //    int index = CheckIndex(_tier, type);
-
-    //    GameObject obj = Spawn(_tier);
-    //    Unit unit = obj.GetComponent<Unit>();
-    //    unit.SetStatus(type, index);
-    //    unit.SetLevel(m_Levels[(int)type]);
-    //    InsertList(type, unit);
-
-    //    return obj;
-    //}
     GameObject Spawn(int _tier)
     {
         return Instantiate(m_UnitObj[_tier], gameObject.transform.position, Quaternion.identity);

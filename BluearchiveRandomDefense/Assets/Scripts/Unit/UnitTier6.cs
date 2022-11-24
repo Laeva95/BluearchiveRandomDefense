@@ -8,7 +8,7 @@ public class UnitTier6 : Unit
     {
         m_Tier = UNITTIER.Ω≈»≠;
         m_Range = 20f;
-        m_AttackDelay = 0.5f;
+        m_AttackDelay = 0.33f;
         m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
     }
     public override IEnumerator Attack()
@@ -19,7 +19,7 @@ public class UnitTier6 : Unit
 
             if (monsterObj != null)
             {
-                Collider2D[] monstersObj = Physics2D.OverlapCircleAll(monsterObj.transform.position, 3f, LayerMask.GetMask("Monster"));
+                Collider2D[] monstersObj = Physics2D.OverlapCircleAll(monsterObj.transform.position, 5f, LayerMask.GetMask("Monster"));
                 for (int i = 0; i < monstersObj.Length; i++)
                 {
                     if (monstersObj[i] != null)

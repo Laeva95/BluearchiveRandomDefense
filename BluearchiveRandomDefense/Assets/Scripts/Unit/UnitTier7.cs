@@ -9,9 +9,9 @@ public class UnitTier7 : Unit
     {
         m_Tier = UNITTIER.≈¬√ ;
         m_Range = 20f;
-        m_AttackDelay = 0.5f;
+        m_AttackDelay = 0.25f;
         m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
-        m_AllAttackDelaySec = new WaitForSeconds(3f);
+        m_AllAttackDelaySec = new WaitForSeconds(1.5f);
     }
     public override IEnumerator Attack()
     {
@@ -57,7 +57,7 @@ public class UnitTier7 : Unit
                     monster.OnDamage(m_Type, TotalDamage(), m_Tier);
                 }
             }
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 8; i++)
             {
                 GameObject obj = SpawnEffect(m_Type);
                 switch (i)
@@ -73,6 +73,18 @@ public class UnitTier7 : Unit
                         break;
                     case 3:
                         obj.transform.position = new Vector3(-8, -8);
+                        break;
+                    case 4:
+                        obj.transform.position = new Vector3(-9, 0);
+                        break;
+                    case 5:
+                        obj.transform.position = new Vector3(9, 0);
+                        break;
+                    case 6:
+                        obj.transform.position = new Vector3(0, -9);
+                        break;
+                    case 7:
+                        obj.transform.position = new Vector3(0, 9);
                         break;
                 }
             }
