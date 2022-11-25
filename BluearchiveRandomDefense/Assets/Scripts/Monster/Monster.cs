@@ -15,6 +15,7 @@ public class Monster : MonoBehaviour
     [SerializeField]
     int m_Stage;
     int m_HP;
+    int m_MaxHP;
     int m_Armor;
     int m_Gold;
     float m_MoveSpeed;
@@ -39,7 +40,8 @@ public class Monster : MonoBehaviour
     private void OnEnable()
     {
         m_Stage = GameManager.Instance.m_Stage + 1;
-        m_HP = m_MonsterSO.m_HP[GameManager.Instance.m_Stage];
+        m_MaxHP = m_MonsterSO.m_HP[GameManager.Instance.m_Stage];
+        m_HP = m_MaxHP;
         m_Armor = m_MonsterSO.m_Armor[GameManager.Instance.m_Stage];
         m_Gold = m_MonsterSO.m_Gold[GameManager.Instance.m_Stage];
         m_MoveSpeed = m_MonsterSO.m_MoveSpeed[GameManager.Instance.m_Stage];
@@ -47,6 +49,7 @@ public class Monster : MonoBehaviour
         m_Color = SetColor(m_type);
         m_Spren.color = m_Color;
         m_FocusObj.SetActive(false);
+        transform.localScale = m_MonsterSO.m_IsBoss[GameManager.Instance.m_Stage] == true ? Vector2.one * 1.5f : Vector2.one;
 
         MonsterSpawnManager.m_MonsterCount++;
 
@@ -81,7 +84,7 @@ public class Monster : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
         }
     }
-    public void OnDamage(ATTACKTYPE _attackType, int _damage, UNITTIER _tier)
+    public bool OnDamage(ATTACKTYPE _attackType, int _damage, UNITTIER _tier)
     {
         _damage -= m_Armor;
 
@@ -149,7 +152,9 @@ public class Monster : MonoBehaviour
         if (m_HP <= 0)
         {
             MonsterDead();
+            return true;
         }
+        return false;
     }
     void MonsterDead()
     {
@@ -184,7 +189,11 @@ public class Monster : MonoBehaviour
     }
     public string GetHPText()
     {
-        return string.Format("{0:N0}", m_HP.ToString());
+        return Utils.Calculation(m_HP);
+    }
+    public string GetMaxHPText()
+    {
+        return Utils.Calculation(m_MaxHP);
     }
     public string GetArmorText()
     {

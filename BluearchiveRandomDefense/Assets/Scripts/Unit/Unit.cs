@@ -31,10 +31,12 @@ public abstract class Unit : MonoBehaviour
     protected float m_Range;
     protected float m_AttackDelay;
     protected string m_Name;
+    protected int m_KillPoint;
     protected SpriteRenderer m_Halo;
     protected WaitForSeconds m_AttackDelaySec;
     protected TextMeshProUGUI m_NameText;
     protected Animator m_Ani;
+    protected UnitSpawnManager m_UnitManager;
 
     [SerializeField]
     protected UnitSO m_UnitSO;
@@ -49,6 +51,12 @@ public abstract class Unit : MonoBehaviour
         m_NameText = GetComponentInChildren<TextMeshProUGUI>();
         m_Ani = GetComponent<Animator>();
         m_Type = ATTACKTYPE.Æø¹ßÇü;
+        m_UnitManager = FindObjectOfType<UnitSpawnManager>();
+    }
+    protected virtual void OnEnable()
+    {
+        m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
+        m_KillPoint = 0;
     }
     public virtual IEnumerator Attack()
     {
@@ -60,7 +68,17 @@ public abstract class Unit : MonoBehaviour
             {
                 Monster monster = monsterObj.gameObject.GetComponent<Monster>();
 
-                monster.OnDamage(m_Type, TotalDamage(), m_Tier);
+                if (monster.OnDamage(m_Type, TotalDamage(), m_Tier))
+                {
+                    m_KillPoint++;
+                    if (m_UnitManager.m_FocusTile != null)
+                    {
+                        if (m_UnitManager.m_FocusTile.m_Unit == this)
+                        {
+                            m_UnitManager.UnitTextUpdate();
+                        }
+                    }
+                }
 
                 SoundManager.Instance.SoundPlay(SOUND_NAME.UnitAttack1);
                 m_Ani.SetTrigger("Attack");
@@ -128,6 +146,10 @@ public abstract class Unit : MonoBehaviour
     public string GetDamageText()
     {
         return $"{m_Damage} + {m_Damage * (m_Level)}";
+    }
+    public string GetKillPointText()
+    {
+        return $"{m_KillPoint}";
     }
     public string GetNameText()
     {

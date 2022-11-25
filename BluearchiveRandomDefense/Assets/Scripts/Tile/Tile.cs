@@ -76,9 +76,15 @@ public class Tile : MonoBehaviour
             }
         }
     }
-    void SpawnUnit()
+    public void SpawnUnit()
     {
         GameObject obj = m_UnitManager.SpawnUnit(this);
+        obj.transform.position = transform.position;
+        m_Unit = obj.GetComponent<Unit>();
+    }
+    public void SpawnUnit(int _tier)
+    {
+        GameObject obj = m_UnitManager.SpawnUnit(this, _tier);
         obj.transform.position = transform.position;
         m_Unit = obj.GetComponent<Unit>();
     }

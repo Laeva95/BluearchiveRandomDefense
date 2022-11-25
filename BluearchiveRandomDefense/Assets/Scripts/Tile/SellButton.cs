@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class SellButton : MonoBehaviour
 {
-    [SerializeField]
     UnitSpawnManager m_UnitManager;
+    TextAlarmManager m_TextAlarm;
 
+    private void Awake()
+    {
+        m_UnitManager = FindObjectOfType<UnitSpawnManager>();
+        m_TextAlarm = FindObjectOfType<TextAlarmManager>();
+    }
     public void SellUnitBtn()
     {
         if (m_UnitManager.m_FocusTile != null)
@@ -15,6 +20,14 @@ public class SellButton : MonoBehaviour
             {
                 return;
             }
+            if ((int)m_UnitManager.m_FocusTile.m_Unit.GetTier() >= (int)UNITTIER.전설)
+            {
+                return;
+            }
+
+            string tierColor = m_UnitManager.TierTextColorSelect(m_UnitManager.m_FocusTile.m_Unit.GetTier());
+            string typeColor = m_UnitManager.TypeTextColorSelect(m_UnitManager.m_FocusTile.m_Unit.GetAttackType());
+            m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color={tierColor}>{m_UnitManager.m_FocusTile.m_Unit.GetTierText()}</color> <color={typeColor}>{m_UnitManager.m_FocusTile.m_Unit.GetNameText()}</color>");
 
             CheckSellUnitTier(m_UnitManager.m_FocusTile.m_Unit);
 
@@ -22,6 +35,7 @@ public class SellButton : MonoBehaviour
             {
                 m_UnitManager.m_FocusMonster.OnFocusMonster(false);
             }
+
             if (m_UnitManager.m_FocusTile.m_Unit != null)
             {
                 m_UnitManager.m_FocusTile.m_Unit.OnFocusUnit(false);
@@ -86,6 +100,75 @@ public class SellButton : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+    bool CheckChangeUnit(Unit _unit, ref int _tier)
+    {
+        bool isChange = false;
+        switch (_unit.GetTier())
+        {
+            case UNITTIER.일반:
+            case UNITTIER.레어:
+            case UNITTIER.고대:
+            case UNITTIER.유물:
+            case UNITTIER.서사:
+                isChange = false;
+                break;
+            case UNITTIER.전설:
+                if (GameManager.Instance.m_Gold >= 500)
+                {
+                    GameManager.Instance.m_Gold -= 500;
+                    isChange = true;
+                    _tier = (int)UNITTIER.전설;
+                    RemoveAtList(_unit.GetAttackType(), _unit);
+                    _unit.GetTile().m_Unit = null;
+                    ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit05Key);
+                }
+                break;
+            case UNITTIER.신화:
+                if (GameManager.Instance.m_Gold >= 750)
+                {
+                    GameManager.Instance.m_Gold -= 750;
+                    isChange = true;
+                    _tier = (int)UNITTIER.신화;
+                    RemoveAtList(_unit.GetAttackType(), _unit);
+                    _unit.GetTile().m_Unit = null;
+                    ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit06Key);
+                }
+                break;
+            case UNITTIER.태초:
+                isChange = false;
+                break;
+        }
+        return isChange;
+    }
+    public void ChangeUnitBtn()
+    {
+        if (m_UnitManager.m_FocusTile != null)
+        {
+            if (m_UnitManager.m_FocusTile.m_Unit == null)
+            {
+                return;
+            }
+
+            int tier = 0;
+
+            if (!CheckChangeUnit(m_UnitManager.m_FocusTile.m_Unit, ref tier))
+            {
+                return;
+            }
+
+            if (m_UnitManager.m_FocusMonster != null)
+            {
+                m_UnitManager.m_FocusMonster.OnFocusMonster(false);
+            }
+
+            m_UnitManager.m_FocusTile.SpawnUnit(tier);
+            m_UnitManager.m_FocusTile.m_Unit.OnFocusUnit(true);
+            m_UnitManager.FocusTileSelect(m_UnitManager.m_FocusTile);
+            m_UnitManager.m_UnitSet.SetActive(true);
+            m_UnitManager.UnitTextUpdate();
+            GameManager.Instance.GoldTextUpdate();
         }
     }
 }

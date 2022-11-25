@@ -363,6 +363,7 @@
 "Assets/Scripts/Manager/MonsterSpawnManager.cs"
 "Assets/Scripts/Manager/ObjectPoolingManager.cs"
 "Assets/Scripts/Manager/SoundManager.cs"
+"Assets/Scripts/Manager/TextAlarmManager.cs"
 "Assets/Scripts/Manager/UnitSpawnManager.cs"
 "Assets/Scripts/Monster/Monster.cs"
 "Assets/Scripts/Monster/MonsterSO.cs"
@@ -379,6 +380,7 @@
 "Assets/Scripts/Unit/UnitTier5.cs"
 "Assets/Scripts/Unit/UnitTier6.cs"
 "Assets/Scripts/Unit/UnitTier7.cs"
+"Assets/Scripts/Utils/Utils.cs"
 -langversion:9.0
 
 /deterministic

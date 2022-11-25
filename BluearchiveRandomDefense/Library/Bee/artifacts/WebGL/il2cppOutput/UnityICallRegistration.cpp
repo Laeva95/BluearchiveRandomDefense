@@ -130,6 +130,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_AudioSource_set_clip();
 		Register_UnityEngine_AudioSource_set_clip();
 
+		//System.Void UnityEngine.AudioSource::set_volume(System.Single)
+		void Register_UnityEngine_AudioSource_set_volume();
+		Register_UnityEngine_AudioSource_set_volume();
+
 		//UnityEngine.AudioClip UnityEngine.AudioSource::get_clip()
 		void Register_UnityEngine_AudioSource_get_clip();
 		Register_UnityEngine_AudioSource_get_clip();

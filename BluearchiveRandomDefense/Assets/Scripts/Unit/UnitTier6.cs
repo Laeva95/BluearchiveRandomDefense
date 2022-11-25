@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class UnitTier6 : Unit
 {
-    private void OnEnable()
+    protected override void OnEnable()
     {
         m_Tier = UNITTIER.Ω≈»≠;
         m_Range = 20f;
         m_AttackDelay = 0.33f;
-        m_AttackDelaySec = new WaitForSeconds(m_AttackDelay);
+        base.OnEnable();
 
         StartCoroutine(Attack());
     }
@@ -22,13 +22,25 @@ public class UnitTier6 : Unit
             if (monsterObj != null)
             {
                 Collider2D[] monstersObj = Physics2D.OverlapCircleAll(monsterObj.transform.position, 5f, LayerMask.GetMask("Monster"));
+                bool isKill = false;
                 for (int i = 0; i < monstersObj.Length; i++)
                 {
                     if (monstersObj[i] != null)
                     {
                         Monster monster = monstersObj[i].GetComponent<Monster>();
 
-                        monster.OnDamage(m_Type, TotalDamage(), m_Tier);
+                        if (monster.OnDamage(m_Type, TotalDamage(), m_Tier))
+                        {
+                            m_KillPoint++;
+                            isKill = true;
+                        }
+                    }
+                }
+                if (isKill && m_UnitManager.m_FocusTile != null)
+                {
+                    if (m_UnitManager.m_FocusTile.m_Unit == this)
+                    {
+                        m_UnitManager.UnitTextUpdate();
                     }
                 }
                 GameObject obj = SpawnEffect(m_Type);

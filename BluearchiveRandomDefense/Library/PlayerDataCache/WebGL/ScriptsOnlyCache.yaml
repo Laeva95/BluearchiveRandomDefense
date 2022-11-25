@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - SellButton
     - SoundManager
     - StartUI
+    - TextAlarmManager
     - Tile
     - UnitSO
     - UnitSpawnManager
@@ -25,6 +26,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
@@ -51,8 +53,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -64,6 +68,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
   serializedClasses:
     Unity.TextMeshPro:
@@ -85,6 +90,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
     - UnityEngine.Events.PersistentListenerMode
+    - UnityEngine.RectOffset
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
@@ -114,6 +120,9 @@ ScriptsOnlyBuild:
     fullTypeName: StartUI
     methodName: DescriptionCloseBtn
   - assembly: Assembly-CSharp
+    fullTypeName: SoundManager
+    methodName: SoundOnToggleBtn
+  - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: RareSellBtn
   - assembly: Assembly-CSharp
@@ -137,6 +146,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: SellType1Btn
+  - assembly: Assembly-CSharp
+    fullTypeName: SellButton
+    methodName: ChangeUnitBtn
   - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: AncientSellBtn
@@ -209,6 +221,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5350}
     - Class: 114
+      Script: {instanceID: 5562}
+    - Class: 114
       Script: {instanceID: 5994}
     - Class: 114
       Script: {instanceID: 6082}
@@ -234,6 +248,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 9184}
     - Class: 114
       Script: {instanceID: 9416}
+    - Class: 114
+      Script: {instanceID: 166598}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -646,7 +662,7 @@ ScriptsOnlyBuild:
     className: VariablesAsset
   - hash:
       serializedVersion: 2
-      Hash: 01a6b6e64011dcd2ec96702d73c3cb74
+      Hash: 8accd82eccf4c8eb571fd840598dfdf3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoundManager
@@ -832,7 +848,7 @@ ScriptsOnlyBuild:
     className: AnimatedTile
   - hash:
       serializedVersion: 2
-      Hash: 6b230bd7c22b340ae0a5c9888c2d7238
+      Hash: 1a9a7c30561c9eade658aef829d95104
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitSpawnManager
@@ -1240,7 +1256,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 19dedb426c7c5d322f86fffb98fe0c90
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SellButton
@@ -1370,6 +1386,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: e000c918b406996fd776ed49827986bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TextAlarmManager
   platform: 20
   scenePathNames:
   - Assets/Scenes/StartScene.unity

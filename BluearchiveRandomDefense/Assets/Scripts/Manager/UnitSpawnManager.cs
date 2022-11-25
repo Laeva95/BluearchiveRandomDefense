@@ -15,12 +15,15 @@ public class UnitSpawnManager : MonoBehaviour
     public const float tier6 = 99.95f;       // 0.1%
     public const float tier7 = 100f;        // 0.05%
 
+    public const float minFloat = 0f;
+    public const float maxFloat = 100f;
+
     [SerializeField]
     GameObject[] m_UnitObj;
 
     public GameObject m_UnitSet, m_MonsterSet;
     [SerializeField]
-    TextMeshProUGUI m_UnitNameText, m_UnitTypeText, m_UnitTierText, m_UnitDamageText, m_UnitRangeText;
+    TextMeshProUGUI m_UnitNameText, m_UnitTypeText, m_UnitTierText, m_UnitDamageText, m_UnitRangeText, m_UnitKillPointText;
     [SerializeField]
     Image m_UnitSprite;
     [SerializeField]
@@ -44,7 +47,7 @@ public class UnitSpawnManager : MonoBehaviour
     ObjectPoolingManager.m_Unit06Key,
     ObjectPoolingManager.m_Unit07Key
     };
-    public int[] m_Levels = new int[] {0,0,0};
+    int[] m_Levels = new int[] {0,0,0};
     public List<Unit> m_Type0Unit = new List<Unit>();
     public List<Unit> m_Type1Unit = new List<Unit>();
     public List<Unit> m_Type2Unit = new List<Unit>();
@@ -52,42 +55,41 @@ public class UnitSpawnManager : MonoBehaviour
     public Tile m_FocusTile = null;
     public Monster m_FocusMonster = null;
     SellButton m_Sell;
+    TextAlarmManager m_TextAlarm;
 
     private void Awake()
     {
         m_Sell = FindObjectOfType<SellButton>();
+        m_TextAlarm = FindObjectOfType<TextAlarmManager>();
     }
     private void Start()
     {
         UpgradeTextUpdate();
     }
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Alpha7))
-    //    {
-    //        SpawnUnit(7);
-    //    }
-    //}
-    //// 디버그용
-    //public GameObject SpawnUnit(int _tier)
-    //{
-    //    int ranTypePercent = Random.Range(0, 3);
 
-    //    ATTACKTYPE type = CheckType(ranTypePercent);
+    public GameObject SpawnUnit(Tile _tile, int _tier)
+    {
+        int ranTypePercent = Random.Range(0, 3);
 
-    //    int index = CheckIndex(_tier, type);
+        ATTACKTYPE type = CheckType(ranTypePercent);
 
-    //    GameObject obj = Spawn(_tier);
-    //    Unit unit = obj.GetComponent<Unit>();
-    //    unit.SetStatus(type, index);
-    //    unit.SetLevel(m_Levels[(int)type]);
-    //    InsertList(type, unit);
+        int index = CheckIndex(_tier, type);
 
-    //    return obj;
-    //}
+        GameObject obj = Spawn(_tier);
+        Unit unit = obj.GetComponent<Unit>();
+        unit.SetStatus(type, index, _tile);
+        unit.SetLevel(m_Levels[(int)type]);
+        InsertList(type, unit);
+
+        string tierColor = TierTextColorSelect(unit.GetTier());
+        string typeColor = TypeTextColorSelect(unit.GetAttackType());
+        m_TextAlarm.AlarmTextUpdate($"<color=orange>교환:</color> <color={tierColor}>{unit.GetTierText()}</color> <color={typeColor}>{unit.GetNameText()}</color>");
+
+        return obj;
+    }
     public GameObject SpawnUnit(Tile _tile)
     {
-        float ranTierPercent = Random.Range(0f, 100f);
+        float ranTierPercent = Random.Range(minFloat, maxFloat);
         int ranTypePercent = Random.Range(0, 3);
 
         int tier = CheckTier(ranTierPercent);
@@ -101,6 +103,10 @@ public class UnitSpawnManager : MonoBehaviour
         unit.SetLevel(m_Levels[(int)type]);
         InsertList(type, unit);
         SpawnSoundPlay(tier);
+
+        string tierColor = TierTextColorSelect(unit.GetTier());
+        string typeColor = TypeTextColorSelect(unit.GetAttackType());
+        m_TextAlarm.AlarmTextUpdate($"소환: <color={tierColor}>{unit.GetTierText()}</color> <color={typeColor}>{unit.GetNameText()}</color>");
 
         return obj;
     }
@@ -331,6 +337,7 @@ public class UnitSpawnManager : MonoBehaviour
         {
             GameManager.Instance.m_Gold -= (50 + m_Levels[0] * 15);
             Upgrade(ATTACKTYPE.폭발형);
+            m_TextAlarm.AlarmTextUpdate($"<color=grey>강화:</color> <color=red>폭발형</color> <color=grey>강화</color>");
         }
     }
     public void UpgradeBtn1()
@@ -339,6 +346,7 @@ public class UnitSpawnManager : MonoBehaviour
         {
             GameManager.Instance.m_Gold -= (50 + m_Levels[1] * 15);
             Upgrade(ATTACKTYPE.신비형);
+            m_TextAlarm.AlarmTextUpdate($"<color=grey>강화:</color> <color=blue>신비형</color> <color=grey>강화</color>");
         }
     }
     public void UpgradeBtn2()
@@ -347,6 +355,7 @@ public class UnitSpawnManager : MonoBehaviour
         {
             GameManager.Instance.m_Gold -= (50 + m_Levels[2] * 15);
             Upgrade(ATTACKTYPE.관통형);
+            m_TextAlarm.AlarmTextUpdate($"<color=grey>강화:</color> <color=yellow>관통형</color> <color=grey>강화</color>");
         }
     }
     public void UpgradeTextUpdate()
@@ -360,13 +369,13 @@ public class UnitSpawnManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    m_LevelTexts[i].text = $"폭발형\n강화\nLevel {m_Levels[i]}";
+                    m_LevelTexts[i].text = $"Level {m_Levels[i]}";
                     break;
                 case 1:
-                    m_LevelTexts[i].text = $"신비형\n강화\nLevel {m_Levels[i]}";
+                    m_LevelTexts[i].text = $"Level {m_Levels[i]}";
                     break;
                 case 2:
-                    m_LevelTexts[i].text = $"관통형\n강화\nLevel {m_Levels[i]}";
+                    m_LevelTexts[i].text = $"Level {m_Levels[i]}";
                     break;
             }
         }
@@ -393,6 +402,8 @@ public class UnitSpawnManager : MonoBehaviour
                 m_UnitTierText.text = m_FocusTile.m_Unit.GetTierText();
                 m_UnitDamageText.text = $"공격력: {m_FocusTile.m_Unit.GetDamageText()}";
                 m_UnitRangeText.text = $"사거리: {m_FocusTile.m_Unit.GetRangeText()}";
+                m_UnitKillPointText.text = $"킬 수: {m_FocusTile.m_Unit.GetKillPointText()}";
+
                 switch (m_FocusTile.m_Unit.GetAttackType())
                 {
                     case ATTACKTYPE.폭발형:
@@ -435,12 +446,66 @@ public class UnitSpawnManager : MonoBehaviour
             }
         }
     }
+
+    public string TypeTextColorSelect(ATTACKTYPE _type)
+    {
+        string str = "";
+
+        switch (_type)
+        {
+            case ATTACKTYPE.폭발형:
+                str = "red";
+                break;
+            case ATTACKTYPE.신비형:
+                str = "blue";
+                break;
+            case ATTACKTYPE.관통형:
+                str = "yellow";
+                break;
+        }
+
+        return str;
+    }
+    public string TierTextColorSelect(UNITTIER _tier)
+    {
+        string str = "";
+
+        switch (_tier)
+        {
+            case UNITTIER.일반:
+                str = "white";
+                break;
+            case UNITTIER.레어:
+                str = "green";
+                break;
+            case UNITTIER.고대:
+                str = "#ff0090";
+                break;
+            case UNITTIER.유물:
+                str = "red";
+                break;
+            case UNITTIER.서사:
+                str = "grey";
+                break;
+            case UNITTIER.전설:
+                str = "blue";
+                break;
+            case UNITTIER.신화:
+                str = "black";
+                break;
+            case UNITTIER.태초:
+                str = "cyan";
+                break;
+        }
+
+        return str;
+    }
     public void MonsterTextUpdate()
     {
         if (m_FocusMonster != null)
         {
             m_MonsterSprite.sprite = m_FocusMonster.GetSprite();
-            m_MonsterHPText.text = $"HP: {m_FocusMonster.GetHPText()}";
+            m_MonsterHPText.text = $"HP: {m_FocusMonster.GetHPText()} / {m_FocusMonster.GetMaxHPText()}";
             m_MonsterArmorText.text = $"방어력: {m_FocusMonster.GetArmorText()}";
             m_MonsterStageText.text = $"스테이지: {m_FocusMonster.GetStageText()}";
             m_MonsterTypeText.text = m_FocusMonster.GetTypeText();
@@ -458,7 +523,6 @@ public class UnitSpawnManager : MonoBehaviour
             }
         }
     }
-
     void SpawnSoundPlay(int _tier)
     {
         if (_tier < 5)
@@ -475,25 +539,29 @@ public class UnitSpawnManager : MonoBehaviour
         UnitsSell(m_Type0Unit, (int)UNITTIER.레어);
         UnitsSell(m_Type1Unit, (int)UNITTIER.레어);
         UnitsSell(m_Type2Unit, (int)UNITTIER.레어);
-
+        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=green>레어</color> 이하 일괄 <color=red>판매</color>");
     }
     public void AncientSellBtn()
     {
         UnitsSell(m_Type0Unit, (int)UNITTIER.고대);
         UnitsSell(m_Type1Unit, (int)UNITTIER.고대);
         UnitsSell(m_Type2Unit, (int)UNITTIER.고대);
+        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=#ff0090>고대</color> 이하 일괄 <color=red>판매</color>");
     }
     public void SellType0Btn()
     {
         UnitsSell(m_Type0Unit, (int)UNITTIER.서사);
+        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=red>폭발형</color> 일괄 <color=red>판매</color>");
     }
     public void SellType1Btn()
     {
         UnitsSell(m_Type1Unit, (int)UNITTIER.서사);
+        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=blue>신비형</color> 일괄 <color=red>판매</color>");
     }
     public void SellType2Btn()
     {
         UnitsSell(m_Type2Unit, (int)UNITTIER.서사);
+        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=yellow>관통형</color> 일괄 <color=red>판매</color>");
     }
     void UnitsSell(List<Unit> _list, int _tier)
     {

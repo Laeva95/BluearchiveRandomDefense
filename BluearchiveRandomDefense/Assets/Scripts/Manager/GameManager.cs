@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public int m_Stage;
     public int m_Gold;
-    bool m_IsSwap;
+    bool m_IsSwap = true;
     [SerializeField]
     TextMeshProUGUI m_GoldText;
     [SerializeField]
