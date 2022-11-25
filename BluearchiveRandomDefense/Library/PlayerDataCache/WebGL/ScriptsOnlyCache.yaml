@@ -25,7 +25,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
@@ -118,14 +117,26 @@ ScriptsOnlyBuild:
     fullTypeName: UnitSpawnManager
     methodName: RareSellBtn
   - assembly: Assembly-CSharp
+    fullTypeName: UnitSpawnManager
+    methodName: SellType0Btn
+  - assembly: Assembly-CSharp
     fullTypeName: GameManager
-    methodName: TimeScaling
+    methodName: UnitSwapingBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: GameManager
+    methodName: TimeScalingBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: UnitSpawnManager
+    methodName: SellType2Btn
   - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: UpgradeBtn2
   - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: UpgradeBtn0
+  - assembly: Assembly-CSharp
+    fullTypeName: UnitSpawnManager
+    methodName: SellType1Btn
   - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: AncientSellBtn
@@ -1295,7 +1306,7 @@ ScriptsOnlyBuild:
     className: StateMachine
   - hash:
       serializedVersion: 2
-      Hash: 4302e2a9da33034969b27b9e6fafa113
+      Hash: 0489f93fca6be33e2da9d43884776a61
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager

@@ -163,10 +163,10 @@ extern void Application_get_isPlaying_m25B0ABDFEF54F5370CD3F263A813540843D00F34 
 extern void Application_get_isFocused_mFEEC52E355AA7AAA6B7250520CA544D80BE77524 (void);
 // 0x00000069 System.Boolean UnityEngine.Application::get_isBatchMode()
 extern void Application_get_isBatchMode_mDE2DA11B2DAC8D8239BACD75A56A6EE6BAA4DC36 (void);
-// 0x0000006A System.Void UnityEngine.Application::set_targetFrameRate(System.Int32)
-extern void Application_set_targetFrameRate_mB90EEA60DAE55CD71C38D4B7DFDBE2B34EA6B46F (void);
-// 0x0000006B UnityEngine.RuntimePlatform UnityEngine.Application::get_platform()
+// 0x0000006A UnityEngine.RuntimePlatform UnityEngine.Application::get_platform()
 extern void Application_get_platform_m59EF7D6155D18891B24767F83F388160B1FF2138 (void);
+// 0x0000006B System.Boolean UnityEngine.Application::get_isMobilePlatform()
+extern void Application_get_isMobilePlatform_mE0BBFDE72BBFE5877581FA67DDBBFC397608AFCA (void);
 // 0x0000006C System.Void UnityEngine.Application::CallLowMemory()
 extern void Application_CallLowMemory_m527D80B8FB34FA8B3730765171F9C7826100148A (void);
 // 0x0000006D System.Void UnityEngine.Application::CallLogCallback(System.String,System.String,UnityEngine.LogType,System.Boolean)
@@ -3704,8 +3704,8 @@ static Il2CppMethodPointer s_methodPointers[1899] =
 	Application_get_isPlaying_m25B0ABDFEF54F5370CD3F263A813540843D00F34,
 	Application_get_isFocused_mFEEC52E355AA7AAA6B7250520CA544D80BE77524,
 	Application_get_isBatchMode_mDE2DA11B2DAC8D8239BACD75A56A6EE6BAA4DC36,
-	Application_set_targetFrameRate_mB90EEA60DAE55CD71C38D4B7DFDBE2B34EA6B46F,
 	Application_get_platform_m59EF7D6155D18891B24767F83F388160B1FF2138,
+	Application_get_isMobilePlatform_mE0BBFDE72BBFE5877581FA67DDBBFC397608AFCA,
 	Application_CallLowMemory_m527D80B8FB34FA8B3730765171F9C7826100148A,
 	Application_CallLogCallback_m8E71361EED127C3D753168559078020878A0592C,
 	Application_Internal_ApplicationWantsToQuit_mB7CD318CF9B29D34E26D2E25F460957D41D26854,
@@ -6167,8 +6167,8 @@ static const int32_t s_InvokerIndices[1899] =
 	5090,
 	5090,
 	5090,
-	5030,
 	5102,
+	5090,
 	5135,
 	3999,
 	5090,

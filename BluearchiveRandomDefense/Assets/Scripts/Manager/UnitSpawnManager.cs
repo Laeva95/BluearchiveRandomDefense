@@ -472,18 +472,33 @@ public class UnitSpawnManager : MonoBehaviour
     }
     public void RareSellBtn()
     {
-        UnitsSell((int)UNITTIER.레어);
+        UnitsSell(m_Type0Unit, (int)UNITTIER.레어);
+        UnitsSell(m_Type1Unit, (int)UNITTIER.레어);
+        UnitsSell(m_Type2Unit, (int)UNITTIER.레어);
 
     }
     public void AncientSellBtn()
     {
-        UnitsSell((int)UNITTIER.고대);
+        UnitsSell(m_Type0Unit, (int)UNITTIER.고대);
+        UnitsSell(m_Type1Unit, (int)UNITTIER.고대);
+        UnitsSell(m_Type2Unit, (int)UNITTIER.고대);
     }
-    void UnitsSell(int _tier)
+    public void SellType0Btn()
     {
-        CheckSellList(m_Type0Unit, _tier);
-        CheckSellList(m_Type1Unit, _tier);
-        CheckSellList(m_Type2Unit, _tier);
+        UnitsSell(m_Type0Unit, (int)UNITTIER.서사);
+    }
+    public void SellType1Btn()
+    {
+        UnitsSell(m_Type1Unit, (int)UNITTIER.서사);
+    }
+    public void SellType2Btn()
+    {
+        UnitsSell(m_Type2Unit, (int)UNITTIER.서사);
+    }
+    void UnitsSell(List<Unit> _list, int _tier)
+    {
+        CheckSellList(_list, _tier);
+
         if (m_FocusMonster != null)
         {
             m_FocusMonster.OnFocusMonster(false);

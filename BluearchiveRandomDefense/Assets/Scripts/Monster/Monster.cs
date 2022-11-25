@@ -19,6 +19,7 @@ public class Monster : MonoBehaviour
     int m_Gold;
     float m_MoveSpeed;
     ARMORTYPE m_type;
+    Color m_Color;
     WaitForSeconds m_OnDamageEffectSec = new WaitForSeconds(0.1f);
     SpriteRenderer m_Spren;
     public Transform[] m_Point;
@@ -37,13 +38,14 @@ public class Monster : MonoBehaviour
 
     private void OnEnable()
     {
+        m_Stage = GameManager.Instance.m_Stage + 1;
         m_HP = m_MonsterSO.m_HP[GameManager.Instance.m_Stage];
         m_Armor = m_MonsterSO.m_Armor[GameManager.Instance.m_Stage];
         m_Gold = m_MonsterSO.m_Gold[GameManager.Instance.m_Stage];
         m_MoveSpeed = m_MonsterSO.m_MoveSpeed[GameManager.Instance.m_Stage];
-        m_type = m_MonsterSO.m_type[GameManager.Instance.m_Stage];
-        m_Spren.color = Color.white;
-        m_Stage = GameManager.Instance.m_Stage + 1;
+        m_type = SetArmorType(m_Stage);
+        m_Color = SetColor(m_type);
+        m_Spren.color = m_Color;
         m_FocusObj.SetActive(false);
 
         MonsterSpawnManager.m_MonsterCount++;
@@ -64,7 +66,7 @@ public class Monster : MonoBehaviour
         while (gameObject.activeSelf)
         {
             Vector3 dir = (m_Point[nextPoint].position - transform.position).normalized;
-            transform.position += dir * m_MoveSpeed * 0.0166667f;
+            transform.position += dir * m_MoveSpeed * Time.deltaTime;
 
             m_Spren.flipX = dir.x >= 0;
 
@@ -76,7 +78,7 @@ public class Monster : MonoBehaviour
                     nextPoint = 0;
                 }
             }
-            yield return new WaitForSeconds(0.0166667f);
+            yield return new WaitForSeconds(Time.deltaTime);
         }
     }
     public void OnDamage(ATTACKTYPE _attackType, int _damage, UNITTIER _tier)
@@ -174,7 +176,7 @@ public class Monster : MonoBehaviour
 
         yield return m_OnDamageEffectSec;
 
-        m_Spren.color = Color.white;
+        m_Spren.color = m_Color;
     }
     public string GetStageText()
     {
@@ -232,5 +234,49 @@ public class Monster : MonoBehaviour
     public void OnFocusMonster(bool _bool)
     {
         m_FocusObj.SetActive(_bool);
+    }
+    Color SetColor(ARMORTYPE _type)
+    {
+        Color color = Color.white;
+        switch (_type)
+        {
+            case ARMORTYPE.∞Ê¿Â∞©:
+                color = new Color(1f, 0.5f, 0.5f, 1);
+                break;
+            case ARMORTYPE.∆Øºˆ¿Â∞©:
+                color = new Color(0.5f, 0.5f, 1f, 1);
+                break;
+            case ARMORTYPE.¡ﬂ¿Â∞©:
+                color = new Color(1f, 1f, 0.5f, 1);
+                break;
+        }
+        return color;
+    }
+    ARMORTYPE SetArmorType(int _stage)
+    {
+        ARMORTYPE type = ARMORTYPE.∞Ê¿Â∞©;
+
+        if (_stage != 101)
+        {
+            type = m_MonsterSO.m_type[GameManager.Instance.m_Stage];
+        }
+        else
+        {
+            int ran = Random.Range(0, 3);
+            switch (ran)
+            {
+                case 0:
+                    type = ARMORTYPE.∞Ê¿Â∞©;
+                    break;
+                case 1:
+                    type = ARMORTYPE.∆Øºˆ¿Â∞©;
+                    break;
+                case 2:
+                    type = ARMORTYPE.¡ﬂ¿Â∞©;
+                    break;
+            }
+        }
+
+        return type;
     }
 }

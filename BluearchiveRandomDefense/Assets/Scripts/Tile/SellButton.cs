@@ -57,25 +57,25 @@ public class SellButton : MonoBehaviour
                 ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit00Key);
                 break;
             case UNITTIER.레어:
-                GameManager.Instance.m_Gold += 30;
+                GameManager.Instance.m_Gold += 25;
                 RemoveAtList(_unit.GetAttackType(), _unit);
                 _unit.GetTile().m_Unit = null;
                 ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit01Key);
                 break;
             case UNITTIER.고대:
-                GameManager.Instance.m_Gold += 45;
+                GameManager.Instance.m_Gold += 40;
                 RemoveAtList(_unit.GetAttackType(), _unit);
                 _unit.GetTile().m_Unit = null;
                 ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit02Key);
                 break;
             case UNITTIER.유물:
-                GameManager.Instance.m_Gold += 80;
+                GameManager.Instance.m_Gold += 75;
                 RemoveAtList(_unit.GetAttackType(), _unit);
                 _unit.GetTile().m_Unit = null;
                 ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit03Key);
                 break;
             case UNITTIER.서사:
-                GameManager.Instance.m_Gold += 150;
+                GameManager.Instance.m_Gold += 100;
                 RemoveAtList(_unit.GetAttackType(), _unit);
                 _unit.GetTile().m_Unit = null;
                 ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit04Key);

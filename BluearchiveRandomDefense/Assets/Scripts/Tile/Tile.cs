@@ -45,15 +45,35 @@ public class Tile : MonoBehaviour
             {
                 m_UnitManager.FocusTileSelect(null);
                 m_UnitManager.m_UnitSet.SetActive(false);
+                m_Unit?.OnFocusUnit(false);
             }
             else
             {
                 if (m_UnitManager.m_FocusTile.m_Unit != null)
                 {
-                    SwapUnit();
+                    if (GameManager.Instance.CanSwapCheck())
+                    {
+                        SwapUnit();
+                        m_Unit?.OnFocusUnit(false);
+                    }
+                    else
+                    {
+                        m_UnitManager.m_FocusTile.m_Unit.OnFocusUnit(false);
+                        if (m_Unit != null)
+                        {
+                            m_UnitManager.FocusTileSelect(this);
+                            m_UnitManager.m_UnitSet.SetActive(true);
+                            m_Unit.OnFocusUnit(true);
+                            m_UnitManager.UnitTextUpdate();
+                        }
+                        else
+                        {
+                            m_UnitManager.m_UnitSet.SetActive(false);
+                            m_UnitManager.FocusTileSelect(null);
+                        }
+                    }
                 }
             }
-            m_Unit?.OnFocusUnit(false);
         }
     }
     void SpawnUnit()
