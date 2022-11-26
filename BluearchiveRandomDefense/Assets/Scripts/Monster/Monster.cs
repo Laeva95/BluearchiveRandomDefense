@@ -40,9 +40,9 @@ public class Monster : MonoBehaviour
     private void OnEnable()
     {
         m_Stage = GameManager.Instance.m_Stage + 1;
-        m_MaxHP = m_MonsterSO.m_HP[GameManager.Instance.m_Stage];
+        m_MaxHP = (int)(m_MonsterSO.m_HP[GameManager.Instance.m_Stage] * (1 + (GameManager.Instance.m_BonusStage * 0.1f)));
         m_HP = m_MaxHP;
-        m_Armor = m_MonsterSO.m_Armor[GameManager.Instance.m_Stage];
+        m_Armor = (int)(m_MonsterSO.m_Armor[GameManager.Instance.m_Stage] * (1 + (GameManager.Instance.m_BonusStage * 0.1f)));
         m_Gold = m_MonsterSO.m_Gold[GameManager.Instance.m_Stage];
         m_MoveSpeed = m_MonsterSO.m_MoveSpeed[GameManager.Instance.m_Stage];
         m_type = SetArmorType(m_Stage);
@@ -265,7 +265,7 @@ public class Monster : MonoBehaviour
     {
         ARMORTYPE type = ARMORTYPE.∞Ê¿Â∞©;
 
-        if (_stage != 101)
+        if (_stage < 101)
         {
             type = m_MonsterSO.m_type[GameManager.Instance.m_Stage];
         }

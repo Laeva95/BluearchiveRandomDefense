@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -19,7 +20,7 @@ public class StartUI : MonoBehaviour
     }
     private void Start()
     {
-        m_BestStageText.text = $"최고기록: {PlayerPrefs.GetInt("BestStage", 0)} Stage";
+        m_BestStageText.text = $"최고기록: {StageDataLoad()} Stage";
     }
     public void StartBtn()
     {
@@ -40,6 +41,28 @@ public class StartUI : MonoBehaviour
     public void TableCloseBtn()
     {
         m_TableObj.SetActive(false);
+    }
+
+    int StageDataLoad()
+    {
+        SaveData loadData = new SaveData();
+
+        int stage = 0;
+
+        if (!File.Exists(Path.Combine(Application.persistentDataPath, "ClearStage.json")))
+        {
+            stage = 0;
+        }
+        else
+        {
+            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "ClearStage.json"));
+
+            loadData = JsonUtility.FromJson<SaveData>(json);
+
+            stage = loadData.stage;
+        }
+
+        return stage;
     }
     void SetResolution()
     {

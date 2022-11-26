@@ -1,13 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+[System.Serializable]
+public class SaveData
+{
+    public int stage;
+
+    public SaveData()
+    {
+
+    }
+    public SaveData(int _stage)
+    {
+        stage = _stage;
+    }
+}
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     public int m_Stage;
+    public int m_BonusStage;
     public int m_Gold;
     bool m_IsSwap = true;
     [SerializeField]
@@ -46,6 +62,7 @@ public class GameManager : MonoBehaviour
         }
 
         m_Stage = 0;
+        m_BonusStage = 0;
         m_Gold = 150;
         GoldTextUpdate();
         StartCoroutine(SetResolutionCoroutine());
@@ -61,8 +78,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
 
         m_GameOverObj.SetActive(true);
-        m_GameOverText.text = $"당신의 최고기록은 {m_Stage} Stage입니다.";
-        PlayerPrefs.SetInt("BestStage", m_Stage);
+        m_GameOverText.text = $"당신의 최고기록은 {m_Stage + m_BonusStage} Stage입니다.";
+        StageDataSave(m_Stage + m_BonusStage);
 
         yield return new WaitForSecondsRealtime(5f);
 
@@ -74,7 +91,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator GameClearCoroutine()
     {
-        PlayerPrefs.SetInt("BestStage", 101);
+        StageDataSave(101);
 
         Time.timeScale = 0;
 
@@ -82,7 +99,16 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(5f);
 
-        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+        m_GameClearObj.SetActive(false);
+    }
+    void StageDataSave(int _stage)
+    {
+        SaveData saveData = new SaveData(_stage);
+
+        string json = JsonUtility.ToJson(saveData, true);
+
+        File.WriteAllText(Path.Combine(Application.persistentDataPath, "ClearStage.json"), json);
     }
     public void GoldTextUpdate()
     {
@@ -116,11 +142,15 @@ public class GameManager : MonoBehaviour
         {
             case 1:
                 Time.timeScale = 2;
-                m_TimeScaleText.text = "<<";
+                m_TimeScaleText.text = "x2";
                 break;
             case 2:
+                Time.timeScale = 4;
+                m_TimeScaleText.text = "x4";
+                break;
+            case 4:
                 Time.timeScale = 1;
-                m_TimeScaleText.text = "<";
+                m_TimeScaleText.text = "x1";
                 break;
             default:
                 break;

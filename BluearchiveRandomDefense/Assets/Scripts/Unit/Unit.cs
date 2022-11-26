@@ -81,7 +81,20 @@ public abstract class Unit : MonoBehaviour
                 }
 
                 SoundManager.Instance.SoundPlay(SOUND_NAME.UnitAttack1);
-                m_Ani.SetTrigger("Attack");
+                if (m_UnitManager.m_FocusTile != null)
+                {
+                    if (m_UnitManager.m_FocusTile.m_Unit != null)
+                    {
+                        if (m_UnitManager.m_FocusTile.m_Unit != this)
+                        {
+                            m_Ani.SetTrigger("Attack");
+                        }
+                    }
+                }
+                else
+                {
+                    m_Ani.SetTrigger("Attack");
+                }
             }
 
             yield return m_AttackDelaySec;

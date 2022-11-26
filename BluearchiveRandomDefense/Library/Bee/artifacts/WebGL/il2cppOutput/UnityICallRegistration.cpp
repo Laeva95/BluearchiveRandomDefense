@@ -102,6 +102,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Application_get_isPlaying();
 		Register_UnityEngine_Application_get_isPlaying();
 
+		//System.String UnityEngine.Application::get_persistentDataPath()
+		void Register_UnityEngine_Application_get_persistentDataPath();
+		Register_UnityEngine_Application_get_persistentDataPath();
+
 		//UnityEngine.RuntimePlatform UnityEngine.Application::get_platform()
 		void Register_UnityEngine_Application_get_platform();
 		Register_UnityEngine_Application_get_platform();
@@ -1340,6 +1344,18 @@ void RegisterAllStrippedInternalCalls()
 
 	//End Registrations for type : UnityEngine.Input
 
+	//Start Registrations for type : UnityEngine.JsonUtility
+
+		//System.Object UnityEngine.JsonUtility::FromJsonInternal(System.String,System.Object,System.Type)
+		void Register_UnityEngine_JsonUtility_FromJsonInternal();
+		Register_UnityEngine_JsonUtility_FromJsonInternal();
+
+		//System.String UnityEngine.JsonUtility::ToJsonInternal(System.Object,System.Boolean)
+		void Register_UnityEngine_JsonUtility_ToJsonInternal();
+		Register_UnityEngine_JsonUtility_ToJsonInternal();
+
+	//End Registrations for type : UnityEngine.JsonUtility
+
 	//Start Registrations for type : UnityEngine.LayerMask
 
 		//System.Int32 UnityEngine.LayerMask::NameToLayer(System.String)
@@ -1903,18 +1919,6 @@ void RegisterAllStrippedInternalCalls()
 		Register_UnityEngine_PlayerConnectionInternal_UnregisterInternal();
 
 	//End Registrations for type : UnityEngine.PlayerConnectionInternal
-
-	//Start Registrations for type : UnityEngine.PlayerPrefs
-
-		//System.Boolean UnityEngine.PlayerPrefs::TrySetInt(System.String,System.Int32)
-		void Register_UnityEngine_PlayerPrefs_TrySetInt();
-		Register_UnityEngine_PlayerPrefs_TrySetInt();
-
-		//System.Int32 UnityEngine.PlayerPrefs::GetInt(System.String,System.Int32)
-		void Register_UnityEngine_PlayerPrefs_GetInt();
-		Register_UnityEngine_PlayerPrefs_GetInt();
-
-	//End Registrations for type : UnityEngine.PlayerPrefs
 
 	//Start Registrations for type : UnityEngine.PropertyNameUtils
 

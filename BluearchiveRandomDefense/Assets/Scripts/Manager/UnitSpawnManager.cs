@@ -83,7 +83,8 @@ public class UnitSpawnManager : MonoBehaviour
 
         string tierColor = TierTextColorSelect(unit.GetTier());
         string typeColor = TypeTextColorSelect(unit.GetAttackType());
-        m_TextAlarm.AlarmTextUpdate($"<color=orange>교환:</color> <color={tierColor}>{unit.GetTierText()}</color> <color={typeColor}>{unit.GetNameText()}</color>");
+        m_TextAlarm.AlarmTextUpdate
+            ($"<color=orange>교환:</color> <color={tierColor}>{unit.GetTierText()}</color> <color={typeColor}>{unit.GetNameText()}</color>");
 
         return obj;
     }
@@ -106,7 +107,9 @@ public class UnitSpawnManager : MonoBehaviour
 
         string tierColor = TierTextColorSelect(unit.GetTier());
         string typeColor = TypeTextColorSelect(unit.GetAttackType());
-        m_TextAlarm.AlarmTextUpdate($"소환: <color={tierColor}>{unit.GetTierText()}</color> <color={typeColor}>{unit.GetNameText()}</color>");
+        string textEffect = $"<color={tierColor}>{UnitSpawnTextEffect(unit.GetTier())}</color>";
+        m_TextAlarm.AlarmTextUpdate
+            ($"소환: <color={tierColor}>{unit.GetTierText()}</color> <color={typeColor}>{unit.GetNameText()}</color>{textEffect}");
 
         return obj;
     }
@@ -337,7 +340,7 @@ public class UnitSpawnManager : MonoBehaviour
         {
             GameManager.Instance.m_Gold -= (50 + m_Levels[0] * 15);
             Upgrade(ATTACKTYPE.폭발형);
-            m_TextAlarm.AlarmTextUpdate($"<color=grey>강화:</color> <color=red>폭발형</color> <color=grey>강화</color>");
+            m_TextAlarm.AlarmTextUpdate($"<color=grey>강화:</color> <color=red>폭발형</color> Level {m_Levels[0]}");
         }
     }
     public void UpgradeBtn1()
@@ -346,7 +349,7 @@ public class UnitSpawnManager : MonoBehaviour
         {
             GameManager.Instance.m_Gold -= (50 + m_Levels[1] * 15);
             Upgrade(ATTACKTYPE.신비형);
-            m_TextAlarm.AlarmTextUpdate($"<color=grey>강화:</color> <color=blue>신비형</color> <color=grey>강화</color>");
+            m_TextAlarm.AlarmTextUpdate($"<color=grey>강화:</color> <color=blue>신비형</color> Level {m_Levels[1]}");
         }
     }
     public void UpgradeBtn2()
@@ -355,7 +358,7 @@ public class UnitSpawnManager : MonoBehaviour
         {
             GameManager.Instance.m_Gold -= (50 + m_Levels[2] * 15);
             Upgrade(ATTACKTYPE.관통형);
-            m_TextAlarm.AlarmTextUpdate($"<color=grey>강화:</color> <color=yellow>관통형</color> <color=grey>강화</color>");
+            m_TextAlarm.AlarmTextUpdate($"<color=grey>강화:</color> <color=yellow>관통형</color> Level {m_Levels[2]}");
         }
     }
     public void UpgradeTextUpdate()
@@ -495,6 +498,36 @@ public class UnitSpawnManager : MonoBehaviour
                 break;
             case UNITTIER.태초:
                 str = "cyan";
+                break;
+        }
+
+        return str;
+    }
+    string UnitSpawnTextEffect(UNITTIER _tier)
+    {
+        string str = "";
+
+        switch (_tier)
+        {
+            case UNITTIER.일반:
+            case UNITTIER.레어:
+            case UNITTIER.고대:
+                str = "";
+                break;
+            case UNITTIER.유물:
+                str = "●";
+                break;
+            case UNITTIER.서사:
+                str = "●";
+                break;
+            case UNITTIER.전설:
+                str = "★";
+                break;
+            case UNITTIER.신화:
+                str = "★★";
+                break;
+            case UNITTIER.태초:
+                str = "★★★";
                 break;
         }
 
