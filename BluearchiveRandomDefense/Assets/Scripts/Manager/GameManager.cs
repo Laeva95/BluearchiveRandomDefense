@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
 
         m_GameOverObj.SetActive(true);
-        m_GameOverText.text = $"당신의 최고기록은 {m_Stage + m_BonusStage} Stage입니다.";
+        m_GameOverText.text = $"당신의 기록은 {m_Stage + m_BonusStage} Stage입니다.";
         StageDataSave(m_Stage + m_BonusStage);
 
         yield return new WaitForSecondsRealtime(5f);
@@ -104,11 +104,31 @@ public class GameManager : MonoBehaviour
     }
     void StageDataSave(int _stage)
     {
-        SaveData saveData = new SaveData(_stage);
+        SaveData loadData = new SaveData();
 
-        string json = JsonUtility.ToJson(saveData, true);
+        int bestStage = 0;
 
-        File.WriteAllText(Path.Combine(Application.persistentDataPath, "ClearStage.json"), json);
+        if (!File.Exists(Path.Combine(Application.persistentDataPath, "ClearStage.json")))
+        {
+            bestStage = 0;
+        }
+        else
+        {
+            string loadJson = File.ReadAllText(Path.Combine(Application.persistentDataPath, "ClearStage.json"));
+
+            loadData = JsonUtility.FromJson<SaveData>(loadJson);
+
+            bestStage = loadData.stage;
+        }
+
+        if (_stage > bestStage)
+        {
+            SaveData saveData = new SaveData(_stage);
+
+            string saveJson = JsonUtility.ToJson(saveData, true);
+
+            File.WriteAllText(Path.Combine(Application.persistentDataPath, "ClearStage.json"), saveJson);
+        }
     }
     public void GoldTextUpdate()
     {
