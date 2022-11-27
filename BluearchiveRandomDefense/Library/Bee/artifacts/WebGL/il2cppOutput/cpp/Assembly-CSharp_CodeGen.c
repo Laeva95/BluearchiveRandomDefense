@@ -250,10 +250,10 @@ extern void UnitSpawnManager_SellType0Btn_mB982DDC6A8CD4FD34CD9C2310897F860FABD7
 extern void UnitSpawnManager_SellType1Btn_mBE1FEEE527C964EEE4551AEE6EF19E932DE19FBC (void);
 // 0x00000077 System.Void UnitSpawnManager::SellType2Btn()
 extern void UnitSpawnManager_SellType2Btn_mBCBBA6E39F71D8D91B76307DE396B762B4AD59A9 (void);
-// 0x00000078 System.Void UnitSpawnManager::UnitsSell(System.Collections.Generic.List`1<Unit>,System.Int32)
-extern void UnitSpawnManager_UnitsSell_m4804CCC5D9F8D2B7334A04849F6DAEFD1656F25D (void);
-// 0x00000079 System.Void UnitSpawnManager::CheckSellList(System.Collections.Generic.List`1<Unit>,System.Int32)
-extern void UnitSpawnManager_CheckSellList_m4C5B85D1C1B647FA73561E8BC41B0DFAF31E81FD (void);
+// 0x00000078 System.Int32 UnitSpawnManager::UnitsSell(System.Collections.Generic.List`1<Unit>,System.Int32)
+extern void UnitSpawnManager_UnitsSell_m1B2CC4CF108E9C52A5C8652636FEC911C070A854 (void);
+// 0x00000079 System.Int32 UnitSpawnManager::CheckSellList(System.Collections.Generic.List`1<Unit>,System.Int32)
+extern void UnitSpawnManager_CheckSellList_mD5D7630F79CB2252D2EE04F71B14E99743148A72 (void);
 // 0x0000007A System.Void UnitSpawnManager::.ctor()
 extern void UnitSpawnManager__ctor_m25B85C228A1465B49A0E456C1C41CF793262A456 (void);
 // 0x0000007B System.Void Monster::Awake()
@@ -334,201 +334,209 @@ extern void StartUI_DescriptionCloseBtn_mE59CBEA7D4B7DD9ECCBF06A6B9B0F89C63ACCDC
 extern void StartUI_TableBtn_m7047B7524C1EEC805A3E3B4B2DEB5DBC6816AD8F (void);
 // 0x000000A1 System.Void StartUI::TableCloseBtn()
 extern void StartUI_TableCloseBtn_mD72B91C852BCCF1C7A0AADB7DF9F685293F17F81 (void);
-// 0x000000A2 System.Int32 StartUI::StageDataLoad()
+// 0x000000A2 System.Void StartUI::CollectionBtn()
+extern void StartUI_CollectionBtn_m06EAA5C793623B925CEDFEECA7A19EEAFE3BE5EC (void);
+// 0x000000A3 System.Void StartUI::CollectionCloseBtn()
+extern void StartUI_CollectionCloseBtn_mD4E1A7197896D98DBBEE3A0ED446255F4DEE04D9 (void);
+// 0x000000A4 System.Void StartUI::CollectionPageRightBtn()
+extern void StartUI_CollectionPageRightBtn_mF10CE4CD835CF3F5A71BFFE045EDF548DF457822 (void);
+// 0x000000A5 System.Void StartUI::CollectionPageLeftBtn()
+extern void StartUI_CollectionPageLeftBtn_mA254F83B8EA677D73C0BAB48287310ED7615ACEA (void);
+// 0x000000A6 System.Int32 StartUI::StageDataLoad()
 extern void StartUI_StageDataLoad_mB40169750983E8158B8C6DE5D289E21CA93E58D6 (void);
-// 0x000000A3 System.Void StartUI::SetResolution()
+// 0x000000A7 System.Void StartUI::SetResolution()
 extern void StartUI_SetResolution_mA1D049AD31BC4FF72084654BD94B856F52C9DB45 (void);
-// 0x000000A4 System.Collections.IEnumerator StartUI::SetResolutionCoroutine()
+// 0x000000A8 System.Collections.IEnumerator StartUI::SetResolutionCoroutine()
 extern void StartUI_SetResolutionCoroutine_m432D0C47476578689F0CD66405BB8E93E810F12C (void);
-// 0x000000A5 System.Void StartUI::.ctor()
+// 0x000000A9 System.Void StartUI::.ctor()
 extern void StartUI__ctor_m363381B3FEE5046566056EBEE6E96D3421C23A2B (void);
-// 0x000000A6 System.Void StartUI/<SetResolutionCoroutine>d__12::.ctor(System.Int32)
-extern void U3CSetResolutionCoroutineU3Ed__12__ctor_m71F0AC5DC648CC555A406A73F87CC69F710A2343 (void);
-// 0x000000A7 System.Void StartUI/<SetResolutionCoroutine>d__12::System.IDisposable.Dispose()
-extern void U3CSetResolutionCoroutineU3Ed__12_System_IDisposable_Dispose_m959BFB0D8FD38279054EC110A9E3B7C766F28FEE (void);
-// 0x000000A8 System.Boolean StartUI/<SetResolutionCoroutine>d__12::MoveNext()
-extern void U3CSetResolutionCoroutineU3Ed__12_MoveNext_mA791DEB9CAA1503CC33DCCC02500F247E8619DD0 (void);
-// 0x000000A9 System.Object StartUI/<SetResolutionCoroutine>d__12::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
-extern void U3CSetResolutionCoroutineU3Ed__12_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m32FED2F44B493A426BCB70263E323045BBFE4595 (void);
-// 0x000000AA System.Void StartUI/<SetResolutionCoroutine>d__12::System.Collections.IEnumerator.Reset()
-extern void U3CSetResolutionCoroutineU3Ed__12_System_Collections_IEnumerator_Reset_mD478910B200A121A6301096E72619B745794C233 (void);
-// 0x000000AB System.Object StartUI/<SetResolutionCoroutine>d__12::System.Collections.IEnumerator.get_Current()
-extern void U3CSetResolutionCoroutineU3Ed__12_System_Collections_IEnumerator_get_Current_m7772700123B09A473121630E141A15D9FFBD26C9 (void);
-// 0x000000AC System.Void SellButton::Awake()
+// 0x000000AA System.Void StartUI/<SetResolutionCoroutine>d__18::.ctor(System.Int32)
+extern void U3CSetResolutionCoroutineU3Ed__18__ctor_m60414340F948D7DAF8B0C1444D2F5B433B93C600 (void);
+// 0x000000AB System.Void StartUI/<SetResolutionCoroutine>d__18::System.IDisposable.Dispose()
+extern void U3CSetResolutionCoroutineU3Ed__18_System_IDisposable_Dispose_m263BA5EFEAE4F95966DBAAF03E091BF0F9A66B98 (void);
+// 0x000000AC System.Boolean StartUI/<SetResolutionCoroutine>d__18::MoveNext()
+extern void U3CSetResolutionCoroutineU3Ed__18_MoveNext_m01158D530092B7A3C26DD42E9253384056137C62 (void);
+// 0x000000AD System.Object StartUI/<SetResolutionCoroutine>d__18::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+extern void U3CSetResolutionCoroutineU3Ed__18_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mAB857CA420AC4A43EEAF725E693CF638E1CC31A6 (void);
+// 0x000000AE System.Void StartUI/<SetResolutionCoroutine>d__18::System.Collections.IEnumerator.Reset()
+extern void U3CSetResolutionCoroutineU3Ed__18_System_Collections_IEnumerator_Reset_mBCD8398241C4C7B306415CB1B8A571698AD2E7CE (void);
+// 0x000000AF System.Object StartUI/<SetResolutionCoroutine>d__18::System.Collections.IEnumerator.get_Current()
+extern void U3CSetResolutionCoroutineU3Ed__18_System_Collections_IEnumerator_get_Current_mFC6163AA8C9538D77B5452DEC676FC555465610B (void);
+// 0x000000B0 System.Void SellButton::Awake()
 extern void SellButton_Awake_mB9EB0B5C893B1FD5A6ABE7A61328BE38E928AC12 (void);
-// 0x000000AD System.Void SellButton::SellUnitBtn()
+// 0x000000B1 System.Void SellButton::SellUnitBtn()
 extern void SellButton_SellUnitBtn_m4267D409408054968C4D1FB7636DC64B90F2A252 (void);
-// 0x000000AE System.Void SellButton::RemoveAtList(ATTACKTYPE,Unit)
+// 0x000000B2 System.Void SellButton::RemoveAtList(ATTACKTYPE,Unit)
 extern void SellButton_RemoveAtList_m38078C0F658F4EFE29392BCC43AE76595152DED0 (void);
-// 0x000000AF System.Void SellButton::CheckSellUnitTier(Unit)
-extern void SellButton_CheckSellUnitTier_mA945688621D711DC29B22CB3460F76D01618BFD7 (void);
-// 0x000000B0 System.Boolean SellButton::CheckChangeUnit(Unit,System.Int32&)
+// 0x000000B3 System.Int32 SellButton::CheckSellUnitTier(Unit)
+extern void SellButton_CheckSellUnitTier_mD2DD7A12BABC8F8673416745CC194661C6E0A6A4 (void);
+// 0x000000B4 System.Boolean SellButton::CheckChangeUnit(Unit,System.Int32&)
 extern void SellButton_CheckChangeUnit_m02EC76F8EC8F103050E8FC42253EF268E13DA520 (void);
-// 0x000000B1 System.Void SellButton::ChangeUnitBtn()
+// 0x000000B5 System.Void SellButton::ChangeUnitBtn()
 extern void SellButton_ChangeUnitBtn_mBD53242E5011539ADAA045DCF51D3E9B05035BE3 (void);
-// 0x000000B2 System.Void SellButton::.ctor()
+// 0x000000B6 System.Void SellButton::.ctor()
 extern void SellButton__ctor_m1A673300D677A82CBA38C439DC18D778B9695586 (void);
-// 0x000000B3 System.Void Tile::Awake()
+// 0x000000B7 System.Void Tile::Awake()
 extern void Tile_Awake_m8CE361BE2F7DD3BFD42DDCF775CF4F89FCEDCABF (void);
-// 0x000000B4 System.Void Tile::OnMouseDown()
+// 0x000000B8 System.Void Tile::OnMouseDown()
 extern void Tile_OnMouseDown_m15CC374FC44376602BDD7405A7125F9AB2542ED0 (void);
-// 0x000000B5 System.Void Tile::SpawnUnit()
+// 0x000000B9 System.Void Tile::SpawnUnit()
 extern void Tile_SpawnUnit_mD8A34767C14D3B4142F9595957E2535968056937 (void);
-// 0x000000B6 System.Void Tile::SpawnUnit(System.Int32)
+// 0x000000BA System.Void Tile::SpawnUnit(System.Int32)
 extern void Tile_SpawnUnit_m333FE129B99E546D5C3B9F5FAC90F866F8D22557 (void);
-// 0x000000B7 System.Void Tile::SwapUnit()
+// 0x000000BB System.Void Tile::SwapUnit()
 extern void Tile_SwapUnit_m94AEB7860D7CE2E7676CBB1C9DD8F90D7A3AA173 (void);
-// 0x000000B8 System.Void Tile::.ctor()
+// 0x000000BC System.Void Tile::.ctor()
 extern void Tile__ctor_mB2C904B47040471552C938AE751AC0BF80B369E7 (void);
-// 0x000000B9 System.Void Unit::Awake()
+// 0x000000BD System.Void Unit::Awake()
 extern void Unit_Awake_m5B225DE622DA60BD3169D4E2705B9E098591C5DC (void);
-// 0x000000BA System.Void Unit::OnEnable()
+// 0x000000BE System.Void Unit::OnEnable()
 extern void Unit_OnEnable_m2736455DC1CFE6AA22C860C628E66C6AF7C651AD (void);
-// 0x000000BB System.Collections.IEnumerator Unit::Attack()
+// 0x000000BF System.Collections.IEnumerator Unit::Attack()
 extern void Unit_Attack_mC355BEC77A17991C14919C56FB1DB350E801646C (void);
-// 0x000000BC System.Void Unit::SetStatus(ATTACKTYPE,System.Int32,Tile)
+// 0x000000C0 System.Void Unit::SetStatus(ATTACKTYPE,System.Int32,Tile)
 extern void Unit_SetStatus_m34E4C9BA8F618BD0399E2C3E40BFB58FEB8B5D15 (void);
-// 0x000000BD System.Void Unit::SetLevel(System.Int32)
+// 0x000000C1 System.Void Unit::SetLevel(System.Int32)
 extern void Unit_SetLevel_m413CB9A36FA20D06210D8A6F7A81DC52572E039D (void);
-// 0x000000BE System.Int32 Unit::TotalDamage()
+// 0x000000C2 System.Int32 Unit::TotalDamage()
 extern void Unit_TotalDamage_mC7B5C20F8D34A0C7BC7F10B0ABF07D5858B52088 (void);
-// 0x000000BF System.Void Unit::OnDisable()
+// 0x000000C3 System.Void Unit::OnDisable()
 extern void Unit_OnDisable_mEF4AB56167A9B041CEF8A33B7433C678F19D4A25 (void);
-// 0x000000C0 UnityEngine.GameObject Unit::SpawnEffect(ATTACKTYPE)
+// 0x000000C4 UnityEngine.GameObject Unit::SpawnEffect(ATTACKTYPE)
 extern void Unit_SpawnEffect_mFB7638FC66BB39344B54D002E0A0A9F228004638 (void);
-// 0x000000C1 System.String Unit::GetDamageText()
+// 0x000000C5 System.String Unit::GetDamageText()
 extern void Unit_GetDamageText_m6C3FCD795A0A3AE3F42FB6C8489A099F22BF994A (void);
-// 0x000000C2 System.String Unit::GetKillPointText()
+// 0x000000C6 System.String Unit::GetKillPointText()
 extern void Unit_GetKillPointText_m8A233060B51EC509D37832F753AEFE385E32071C (void);
-// 0x000000C3 System.String Unit::GetNameText()
+// 0x000000C7 System.String Unit::GetNameText()
 extern void Unit_GetNameText_m1C7C0F20DA4CC04A22D7706864ACAD9210D4E0FD (void);
-// 0x000000C4 System.String Unit::GetRangeText()
+// 0x000000C8 System.String Unit::GetRangeText()
 extern void Unit_GetRangeText_m8EAAFFD39EAA6986CF5BC913F5DCB2F6C6775F67 (void);
-// 0x000000C5 System.String Unit::GetTypeText()
+// 0x000000C9 System.String Unit::GetTypeText()
 extern void Unit_GetTypeText_mBD9F27E4BAFB30063749FF2A8C4363CDBB79B3B6 (void);
-// 0x000000C6 System.String Unit::GetTierText()
+// 0x000000CA System.String Unit::GetTierText()
 extern void Unit_GetTierText_m6654632358629E0E20323A06636D93570C7CFEBB (void);
-// 0x000000C7 UNITTIER Unit::GetTier()
+// 0x000000CB UNITTIER Unit::GetTier()
 extern void Unit_GetTier_m8EA00F548C995A12B757559DB554FBB1ADEBED19 (void);
-// 0x000000C8 ATTACKTYPE Unit::GetAttackType()
+// 0x000000CC ATTACKTYPE Unit::GetAttackType()
 extern void Unit_GetAttackType_m5AD0A3431A5100C8A9153C59974E2A5D5AC94763 (void);
-// 0x000000C9 UnityEngine.Sprite Unit::GetSprite()
+// 0x000000CD UnityEngine.Sprite Unit::GetSprite()
 extern void Unit_GetSprite_mC4A9D9742AFA004501AAF6BF281037513D125338 (void);
-// 0x000000CA Tile Unit::GetTile()
+// 0x000000CE Tile Unit::GetTile()
 extern void Unit_GetTile_mFEAE8A88A7F2662011FA8DB84DD0E0B8DA06AB58 (void);
-// 0x000000CB System.Void Unit::OnFocusUnit(System.Boolean)
+// 0x000000CF System.Void Unit::OnFocusUnit(System.Boolean)
 extern void Unit_OnFocusUnit_m7159C35D24FFBA6E5FEE2BCCDB575A9DBBF92C27 (void);
-// 0x000000CC System.Void Unit::SetTileNull()
+// 0x000000D0 System.Void Unit::SetTileNull()
 extern void Unit_SetTileNull_mBB75B6AA5598CD9AFD0D527100C3E776A6886C24 (void);
-// 0x000000CD System.Void Unit::SetTile(Tile)
+// 0x000000D1 System.Void Unit::SetTile(Tile)
 extern void Unit_SetTile_m50FC7DCB2253F33E10042520201D5653A987C0B2 (void);
-// 0x000000CE System.Void Unit::.ctor()
+// 0x000000D2 System.Void Unit::.ctor()
 extern void Unit__ctor_m431B8E6991113DC517AFAEF468B91A16BFAFF172 (void);
-// 0x000000CF System.Void Unit/<Attack>d__18::.ctor(System.Int32)
+// 0x000000D3 System.Void Unit/<Attack>d__18::.ctor(System.Int32)
 extern void U3CAttackU3Ed__18__ctor_mE419018F7AD6A53E19A1A7E0F24EEE0EC2A66F66 (void);
-// 0x000000D0 System.Void Unit/<Attack>d__18::System.IDisposable.Dispose()
+// 0x000000D4 System.Void Unit/<Attack>d__18::System.IDisposable.Dispose()
 extern void U3CAttackU3Ed__18_System_IDisposable_Dispose_mEF696F48DFBC0D64FB01077B3FC5A5377FC91CF3 (void);
-// 0x000000D1 System.Boolean Unit/<Attack>d__18::MoveNext()
+// 0x000000D5 System.Boolean Unit/<Attack>d__18::MoveNext()
 extern void U3CAttackU3Ed__18_MoveNext_m495A0BCC386CC84532CF9A2650FA8B2F942D520F (void);
-// 0x000000D2 System.Object Unit/<Attack>d__18::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+// 0x000000D6 System.Object Unit/<Attack>d__18::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
 extern void U3CAttackU3Ed__18_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mEA37463E84B400B54A2547AF2D7489A799F538EB (void);
-// 0x000000D3 System.Void Unit/<Attack>d__18::System.Collections.IEnumerator.Reset()
+// 0x000000D7 System.Void Unit/<Attack>d__18::System.Collections.IEnumerator.Reset()
 extern void U3CAttackU3Ed__18_System_Collections_IEnumerator_Reset_m48284CFF5B29E9BB484E5EC470AE29539CE3F81E (void);
-// 0x000000D4 System.Object Unit/<Attack>d__18::System.Collections.IEnumerator.get_Current()
+// 0x000000D8 System.Object Unit/<Attack>d__18::System.Collections.IEnumerator.get_Current()
 extern void U3CAttackU3Ed__18_System_Collections_IEnumerator_get_Current_mDB0792FC9DBD2B17E6D50E30174806AAD8D5A1C5 (void);
-// 0x000000D5 System.Void UnitSO::.ctor()
+// 0x000000D9 System.Void UnitSO::.ctor()
 extern void UnitSO__ctor_m7C92198A5747C0325D931DCDD5D2F134DD1E9DD4 (void);
-// 0x000000D6 System.Void UnitTier0::OnEnable()
+// 0x000000DA System.Void UnitTier0::OnEnable()
 extern void UnitTier0_OnEnable_m846E35FCD9A589DBC3BBB1B3480927F7BCC3B577 (void);
-// 0x000000D7 System.Void UnitTier0::.ctor()
+// 0x000000DB System.Void UnitTier0::.ctor()
 extern void UnitTier0__ctor_m84D3982D3E717569577F89E2DD17F1D190F58FBF (void);
-// 0x000000D8 System.Void UnitTier1::OnEnable()
+// 0x000000DC System.Void UnitTier1::OnEnable()
 extern void UnitTier1_OnEnable_m173EE3F1608BABB29F080646B0B5021416377D70 (void);
-// 0x000000D9 System.Void UnitTier1::.ctor()
+// 0x000000DD System.Void UnitTier1::.ctor()
 extern void UnitTier1__ctor_mB487A678529967B20673856004EDC3B2B78D2363 (void);
-// 0x000000DA System.Void UnitTier2::OnEnable()
+// 0x000000DE System.Void UnitTier2::OnEnable()
 extern void UnitTier2_OnEnable_m71FBDDB60EDBA33E5AD30D491A52F60232A34F11 (void);
-// 0x000000DB System.Void UnitTier2::.ctor()
+// 0x000000DF System.Void UnitTier2::.ctor()
 extern void UnitTier2__ctor_mD28E31EC787DFE63E9A09E6B0B0A3A3DF4B0FB3C (void);
-// 0x000000DC System.Void UnitTier3::OnEnable()
+// 0x000000E0 System.Void UnitTier3::OnEnable()
 extern void UnitTier3_OnEnable_mAFF621F43C694B7451783ADE4F12BA86EE914627 (void);
-// 0x000000DD System.Void UnitTier3::.ctor()
+// 0x000000E1 System.Void UnitTier3::.ctor()
 extern void UnitTier3__ctor_m6F089D59C5A2A19E63F961E00A2E36A95CE5C663 (void);
-// 0x000000DE System.Void UnitTier4::OnEnable()
+// 0x000000E2 System.Void UnitTier4::OnEnable()
 extern void UnitTier4_OnEnable_mC8B61B7F411DCCB693644ED2966776D51DC95835 (void);
-// 0x000000DF System.Void UnitTier4::.ctor()
+// 0x000000E3 System.Void UnitTier4::.ctor()
 extern void UnitTier4__ctor_mA6078AAA4BA91BCDC54535866623375EEC0B2B9A (void);
-// 0x000000E0 System.Void UnitTier5::OnEnable()
+// 0x000000E4 System.Void UnitTier5::OnEnable()
 extern void UnitTier5_OnEnable_m7BA0FBDB4C08023AC5830D9197BBD2EA7096D5FD (void);
-// 0x000000E1 System.Collections.IEnumerator UnitTier5::Attack()
+// 0x000000E5 System.Collections.IEnumerator UnitTier5::Attack()
 extern void UnitTier5_Attack_m835B06EBF8040E95B1ACDCE8121C612A12DF31A8 (void);
-// 0x000000E2 System.Void UnitTier5::.ctor()
+// 0x000000E6 System.Void UnitTier5::.ctor()
 extern void UnitTier5__ctor_mCB93DD8BE83F79B874B2F8C653FD7D1603CDA6B9 (void);
-// 0x000000E3 System.Void UnitTier5/<Attack>d__1::.ctor(System.Int32)
+// 0x000000E7 System.Void UnitTier5/<Attack>d__1::.ctor(System.Int32)
 extern void U3CAttackU3Ed__1__ctor_mFD0ECF99150C1A23268FC3B980A50731B438C692 (void);
-// 0x000000E4 System.Void UnitTier5/<Attack>d__1::System.IDisposable.Dispose()
+// 0x000000E8 System.Void UnitTier5/<Attack>d__1::System.IDisposable.Dispose()
 extern void U3CAttackU3Ed__1_System_IDisposable_Dispose_mA1D088B0786ADE0E3951FBA85AECF23EFD620618 (void);
-// 0x000000E5 System.Boolean UnitTier5/<Attack>d__1::MoveNext()
+// 0x000000E9 System.Boolean UnitTier5/<Attack>d__1::MoveNext()
 extern void U3CAttackU3Ed__1_MoveNext_m4CAEBE8EFDBC1482EB2A64B0D7B5C9194B36BB7E (void);
-// 0x000000E6 System.Object UnitTier5/<Attack>d__1::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+// 0x000000EA System.Object UnitTier5/<Attack>d__1::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
 extern void U3CAttackU3Ed__1_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mFFB3CC88B6FED6999859B8AF15AA7FDE7FA1F122 (void);
-// 0x000000E7 System.Void UnitTier5/<Attack>d__1::System.Collections.IEnumerator.Reset()
+// 0x000000EB System.Void UnitTier5/<Attack>d__1::System.Collections.IEnumerator.Reset()
 extern void U3CAttackU3Ed__1_System_Collections_IEnumerator_Reset_m7EE1055F5634720DAFD82A45D7A25FE9561970D3 (void);
-// 0x000000E8 System.Object UnitTier5/<Attack>d__1::System.Collections.IEnumerator.get_Current()
+// 0x000000EC System.Object UnitTier5/<Attack>d__1::System.Collections.IEnumerator.get_Current()
 extern void U3CAttackU3Ed__1_System_Collections_IEnumerator_get_Current_m24F900757A1C5B3AAF3314744B194F742B097C51 (void);
-// 0x000000E9 System.Void UnitTier6::OnEnable()
+// 0x000000ED System.Void UnitTier6::OnEnable()
 extern void UnitTier6_OnEnable_m561A01EDED99743E0DA809DE61FC8711B99E12BE (void);
-// 0x000000EA System.Collections.IEnumerator UnitTier6::Attack()
+// 0x000000EE System.Collections.IEnumerator UnitTier6::Attack()
 extern void UnitTier6_Attack_mB17D9BEF9D6777FCE85B9F7B5A321E82010F375F (void);
-// 0x000000EB System.Void UnitTier6::.ctor()
+// 0x000000EF System.Void UnitTier6::.ctor()
 extern void UnitTier6__ctor_m11F66F9F747325ABB8944DF6C04033FBA0E207E8 (void);
-// 0x000000EC System.Void UnitTier6/<Attack>d__1::.ctor(System.Int32)
+// 0x000000F0 System.Void UnitTier6/<Attack>d__1::.ctor(System.Int32)
 extern void U3CAttackU3Ed__1__ctor_m2B794EEF693EE2CF9C0866B92AB6CC4B00460CD0 (void);
-// 0x000000ED System.Void UnitTier6/<Attack>d__1::System.IDisposable.Dispose()
+// 0x000000F1 System.Void UnitTier6/<Attack>d__1::System.IDisposable.Dispose()
 extern void U3CAttackU3Ed__1_System_IDisposable_Dispose_mD52FA060A06A538BE7DE98ACB88A1D20A1EDA558 (void);
-// 0x000000EE System.Boolean UnitTier6/<Attack>d__1::MoveNext()
+// 0x000000F2 System.Boolean UnitTier6/<Attack>d__1::MoveNext()
 extern void U3CAttackU3Ed__1_MoveNext_mA758CC16A047C614779261FAB1DA9ECCC0672530 (void);
-// 0x000000EF System.Object UnitTier6/<Attack>d__1::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+// 0x000000F3 System.Object UnitTier6/<Attack>d__1::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
 extern void U3CAttackU3Ed__1_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mDE88982B9BC87C0FA2A314C1144DF8531025D753 (void);
-// 0x000000F0 System.Void UnitTier6/<Attack>d__1::System.Collections.IEnumerator.Reset()
+// 0x000000F4 System.Void UnitTier6/<Attack>d__1::System.Collections.IEnumerator.Reset()
 extern void U3CAttackU3Ed__1_System_Collections_IEnumerator_Reset_m7853459A0528CCA86DCD8642A0BC1882E16C2F2A (void);
-// 0x000000F1 System.Object UnitTier6/<Attack>d__1::System.Collections.IEnumerator.get_Current()
+// 0x000000F5 System.Object UnitTier6/<Attack>d__1::System.Collections.IEnumerator.get_Current()
 extern void U3CAttackU3Ed__1_System_Collections_IEnumerator_get_Current_mF8506109F7A3101FD940061B7668A9179336C988 (void);
-// 0x000000F2 System.Void UnitTier7::OnEnable()
+// 0x000000F6 System.Void UnitTier7::OnEnable()
 extern void UnitTier7_OnEnable_m1261354F056FCFC1164BF7F15E2DBD29D793EB8C (void);
-// 0x000000F3 System.Collections.IEnumerator UnitTier7::Attack()
+// 0x000000F7 System.Collections.IEnumerator UnitTier7::Attack()
 extern void UnitTier7_Attack_mD38FAE059DAF5C00011F1D1B249BD5EAAD8483B6 (void);
-// 0x000000F4 System.Collections.IEnumerator UnitTier7::AllAttack()
+// 0x000000F8 System.Collections.IEnumerator UnitTier7::AllAttack()
 extern void UnitTier7_AllAttack_m795815AC6179695539936E752A3C25F7E24D019E (void);
-// 0x000000F5 System.Void UnitTier7::.ctor()
+// 0x000000F9 System.Void UnitTier7::.ctor()
 extern void UnitTier7__ctor_m690EC86A0F3C654B10F4FA67118CA6BFF9F2AFE4 (void);
-// 0x000000F6 System.Void UnitTier7/<Attack>d__2::.ctor(System.Int32)
+// 0x000000FA System.Void UnitTier7/<Attack>d__2::.ctor(System.Int32)
 extern void U3CAttackU3Ed__2__ctor_m7FDFDE3484BFC0474E1607F7FFC5F85FC3500987 (void);
-// 0x000000F7 System.Void UnitTier7/<Attack>d__2::System.IDisposable.Dispose()
+// 0x000000FB System.Void UnitTier7/<Attack>d__2::System.IDisposable.Dispose()
 extern void U3CAttackU3Ed__2_System_IDisposable_Dispose_mF73A3A60BC51EA8DDFEFE72394FD74EB31443104 (void);
-// 0x000000F8 System.Boolean UnitTier7/<Attack>d__2::MoveNext()
+// 0x000000FC System.Boolean UnitTier7/<Attack>d__2::MoveNext()
 extern void U3CAttackU3Ed__2_MoveNext_m4DA8A4293CA35E268D23212666F598237B112F62 (void);
-// 0x000000F9 System.Object UnitTier7/<Attack>d__2::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+// 0x000000FD System.Object UnitTier7/<Attack>d__2::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
 extern void U3CAttackU3Ed__2_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mD22D506ADFB5A2F9E1A37C987DB5137FAA6BC4BF (void);
-// 0x000000FA System.Void UnitTier7/<Attack>d__2::System.Collections.IEnumerator.Reset()
+// 0x000000FE System.Void UnitTier7/<Attack>d__2::System.Collections.IEnumerator.Reset()
 extern void U3CAttackU3Ed__2_System_Collections_IEnumerator_Reset_m42A19540700279FE9B79AB5E52296E8003E1AAA2 (void);
-// 0x000000FB System.Object UnitTier7/<Attack>d__2::System.Collections.IEnumerator.get_Current()
+// 0x000000FF System.Object UnitTier7/<Attack>d__2::System.Collections.IEnumerator.get_Current()
 extern void U3CAttackU3Ed__2_System_Collections_IEnumerator_get_Current_m8997A30504AA40B07E97DF9298318F289A48E847 (void);
-// 0x000000FC System.Void UnitTier7/<AllAttack>d__3::.ctor(System.Int32)
+// 0x00000100 System.Void UnitTier7/<AllAttack>d__3::.ctor(System.Int32)
 extern void U3CAllAttackU3Ed__3__ctor_mAE8FA0B74A2C32E2E0412764C4B5B63B62EF73AF (void);
-// 0x000000FD System.Void UnitTier7/<AllAttack>d__3::System.IDisposable.Dispose()
+// 0x00000101 System.Void UnitTier7/<AllAttack>d__3::System.IDisposable.Dispose()
 extern void U3CAllAttackU3Ed__3_System_IDisposable_Dispose_m0FA45F3B852E754879591DAE4A8C9CF9CADD5F76 (void);
-// 0x000000FE System.Boolean UnitTier7/<AllAttack>d__3::MoveNext()
+// 0x00000102 System.Boolean UnitTier7/<AllAttack>d__3::MoveNext()
 extern void U3CAllAttackU3Ed__3_MoveNext_m335077D080588AAB55E9AE171F523CCF1038626B (void);
-// 0x000000FF System.Object UnitTier7/<AllAttack>d__3::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+// 0x00000103 System.Object UnitTier7/<AllAttack>d__3::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
 extern void U3CAllAttackU3Ed__3_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mA013431AB6BFF6222EC33214A67F45017F150212 (void);
-// 0x00000100 System.Void UnitTier7/<AllAttack>d__3::System.Collections.IEnumerator.Reset()
+// 0x00000104 System.Void UnitTier7/<AllAttack>d__3::System.Collections.IEnumerator.Reset()
 extern void U3CAllAttackU3Ed__3_System_Collections_IEnumerator_Reset_m73E9041BA3946C0E7FFAA114AC2719B6A26A26A9 (void);
-// 0x00000101 System.Object UnitTier7/<AllAttack>d__3::System.Collections.IEnumerator.get_Current()
+// 0x00000105 System.Object UnitTier7/<AllAttack>d__3::System.Collections.IEnumerator.get_Current()
 extern void U3CAllAttackU3Ed__3_System_Collections_IEnumerator_get_Current_m711A93AAC6870DFC55E0F11310944CAE9B1CC87F (void);
-// 0x00000102 System.String Utils::Calculation(System.Int32)
+// 0x00000106 System.String Utils::Calculation(System.Int32)
 extern void Utils_Calculation_m737A8164F210983C94EDCB00025A2684FFEBC0D8 (void);
-static Il2CppMethodPointer s_methodPointers[258] = 
+static Il2CppMethodPointer s_methodPointers[262] = 
 {
 	EffectDespawn_OnEnable_m5846466044EFFCFDB89E6A470D46DBD695A11E6B,
 	EffectDespawn_DespawnCoroutine_mFDC1C608DD1552CAAFD8633BDC17F831C09065A3,
@@ -649,8 +657,8 @@ static Il2CppMethodPointer s_methodPointers[258] =
 	UnitSpawnManager_SellType0Btn_mB982DDC6A8CD4FD34CD9C2310897F860FABD79AD,
 	UnitSpawnManager_SellType1Btn_mBE1FEEE527C964EEE4551AEE6EF19E932DE19FBC,
 	UnitSpawnManager_SellType2Btn_mBCBBA6E39F71D8D91B76307DE396B762B4AD59A9,
-	UnitSpawnManager_UnitsSell_m4804CCC5D9F8D2B7334A04849F6DAEFD1656F25D,
-	UnitSpawnManager_CheckSellList_m4C5B85D1C1B647FA73561E8BC41B0DFAF31E81FD,
+	UnitSpawnManager_UnitsSell_m1B2CC4CF108E9C52A5C8652636FEC911C070A854,
+	UnitSpawnManager_CheckSellList_mD5D7630F79CB2252D2EE04F71B14E99743148A72,
 	UnitSpawnManager__ctor_m25B85C228A1465B49A0E456C1C41CF793262A456,
 	Monster_Awake_mDCAC2CA2BDC6479E32223D296EB7A314B63D49FC,
 	Monster_OnEnable_mCA2893566D61FC8F824BE57880630291F942DAF6,
@@ -691,20 +699,24 @@ static Il2CppMethodPointer s_methodPointers[258] =
 	StartUI_DescriptionCloseBtn_mE59CBEA7D4B7DD9ECCBF06A6B9B0F89C63ACCDC0,
 	StartUI_TableBtn_m7047B7524C1EEC805A3E3B4B2DEB5DBC6816AD8F,
 	StartUI_TableCloseBtn_mD72B91C852BCCF1C7A0AADB7DF9F685293F17F81,
+	StartUI_CollectionBtn_m06EAA5C793623B925CEDFEECA7A19EEAFE3BE5EC,
+	StartUI_CollectionCloseBtn_mD4E1A7197896D98DBBEE3A0ED446255F4DEE04D9,
+	StartUI_CollectionPageRightBtn_mF10CE4CD835CF3F5A71BFFE045EDF548DF457822,
+	StartUI_CollectionPageLeftBtn_mA254F83B8EA677D73C0BAB48287310ED7615ACEA,
 	StartUI_StageDataLoad_mB40169750983E8158B8C6DE5D289E21CA93E58D6,
 	StartUI_SetResolution_mA1D049AD31BC4FF72084654BD94B856F52C9DB45,
 	StartUI_SetResolutionCoroutine_m432D0C47476578689F0CD66405BB8E93E810F12C,
 	StartUI__ctor_m363381B3FEE5046566056EBEE6E96D3421C23A2B,
-	U3CSetResolutionCoroutineU3Ed__12__ctor_m71F0AC5DC648CC555A406A73F87CC69F710A2343,
-	U3CSetResolutionCoroutineU3Ed__12_System_IDisposable_Dispose_m959BFB0D8FD38279054EC110A9E3B7C766F28FEE,
-	U3CSetResolutionCoroutineU3Ed__12_MoveNext_mA791DEB9CAA1503CC33DCCC02500F247E8619DD0,
-	U3CSetResolutionCoroutineU3Ed__12_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m32FED2F44B493A426BCB70263E323045BBFE4595,
-	U3CSetResolutionCoroutineU3Ed__12_System_Collections_IEnumerator_Reset_mD478910B200A121A6301096E72619B745794C233,
-	U3CSetResolutionCoroutineU3Ed__12_System_Collections_IEnumerator_get_Current_m7772700123B09A473121630E141A15D9FFBD26C9,
+	U3CSetResolutionCoroutineU3Ed__18__ctor_m60414340F948D7DAF8B0C1444D2F5B433B93C600,
+	U3CSetResolutionCoroutineU3Ed__18_System_IDisposable_Dispose_m263BA5EFEAE4F95966DBAAF03E091BF0F9A66B98,
+	U3CSetResolutionCoroutineU3Ed__18_MoveNext_m01158D530092B7A3C26DD42E9253384056137C62,
+	U3CSetResolutionCoroutineU3Ed__18_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mAB857CA420AC4A43EEAF725E693CF638E1CC31A6,
+	U3CSetResolutionCoroutineU3Ed__18_System_Collections_IEnumerator_Reset_mBCD8398241C4C7B306415CB1B8A571698AD2E7CE,
+	U3CSetResolutionCoroutineU3Ed__18_System_Collections_IEnumerator_get_Current_mFC6163AA8C9538D77B5452DEC676FC555465610B,
 	SellButton_Awake_mB9EB0B5C893B1FD5A6ABE7A61328BE38E928AC12,
 	SellButton_SellUnitBtn_m4267D409408054968C4D1FB7636DC64B90F2A252,
 	SellButton_RemoveAtList_m38078C0F658F4EFE29392BCC43AE76595152DED0,
-	SellButton_CheckSellUnitTier_mA945688621D711DC29B22CB3460F76D01618BFD7,
+	SellButton_CheckSellUnitTier_mD2DD7A12BABC8F8673416745CC194661C6E0A6A4,
 	SellButton_CheckChangeUnit_m02EC76F8EC8F103050E8FC42253EF268E13DA520,
 	SellButton_ChangeUnitBtn_mBD53242E5011539ADAA045DCF51D3E9B05035BE3,
 	SellButton__ctor_m1A673300D677A82CBA38C439DC18D778B9695586,
@@ -789,7 +801,7 @@ static Il2CppMethodPointer s_methodPointers[258] =
 	U3CAllAttackU3Ed__3_System_Collections_IEnumerator_get_Current_m711A93AAC6870DFC55E0F11310944CAE9B1CC87F,
 	Utils_Calculation_m737A8164F210983C94EDCB00025A2684FFEBC0D8,
 };
-static const int32_t s_InvokerIndices[258] = 
+static const int32_t s_InvokerIndices[262] = 
 {
 	3425,
 	3333,
@@ -910,8 +922,8 @@ static const int32_t s_InvokerIndices[258] =
 	3425,
 	3425,
 	3425,
-	1546,
-	1546,
+	1086,
+	1086,
 	3425,
 	3425,
 	3425,
@@ -952,6 +964,10 @@ static const int32_t s_InvokerIndices[258] =
 	3425,
 	3425,
 	3425,
+	3425,
+	3425,
+	3425,
+	3425,
 	3314,
 	3425,
 	3333,
@@ -965,7 +981,7 @@ static const int32_t s_InvokerIndices[258] =
 	3425,
 	3425,
 	1426,
-	2790,
+	2326,
 	950,
 	3425,
 	3425,
@@ -1054,7 +1070,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	258,
+	262,
 	s_methodPointers,
 	0,
 	NULL,

@@ -27,9 +27,11 @@ public class SellButton : MonoBehaviour
 
             string tierColor = m_UnitManager.TierTextColorSelect(m_UnitManager.m_FocusTile.m_Unit.GetTier());
             string typeColor = m_UnitManager.TypeTextColorSelect(m_UnitManager.m_FocusTile.m_Unit.GetAttackType());
-            m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color={tierColor}>{m_UnitManager.m_FocusTile.m_Unit.GetTierText()}</color> <color={typeColor}>{m_UnitManager.m_FocusTile.m_Unit.GetNameText()}</color>");
+            string alarm = $"<color=red>판매:</color> <color={tierColor}>{m_UnitManager.m_FocusTile.m_Unit.GetTierText()}</color> <color={typeColor}>{m_UnitManager.m_FocusTile.m_Unit.GetNameText()}</color>";
 
-            CheckSellUnitTier(m_UnitManager.m_FocusTile.m_Unit);
+            int gold = CheckSellUnitTier(m_UnitManager.m_FocusTile.m_Unit);
+
+            m_TextAlarm.AlarmTextUpdate(alarm + $" <color=#0080ff>+{gold}</color>");
 
             if (m_UnitManager.m_FocusMonster != null)
             {
@@ -60,36 +62,37 @@ public class SellButton : MonoBehaviour
                 break;
         }
     }
-    public void CheckSellUnitTier(Unit _unit)
+    public int CheckSellUnitTier(Unit _unit)
     {
+        int gold = 0;
         switch (_unit.GetTier())
         {
             case UNITTIER.일반:
-                GameManager.Instance.m_Gold += 15;
+                gold = 15;
                 RemoveAtList(_unit.GetAttackType(), _unit);
                 _unit.GetTile().m_Unit = null;
                 ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit00Key);
                 break;
             case UNITTIER.레어:
-                GameManager.Instance.m_Gold += 25;
+                gold = 25;
                 RemoveAtList(_unit.GetAttackType(), _unit);
                 _unit.GetTile().m_Unit = null;
                 ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit01Key);
                 break;
             case UNITTIER.고대:
-                GameManager.Instance.m_Gold += 40;
+                gold = 40;
                 RemoveAtList(_unit.GetAttackType(), _unit);
                 _unit.GetTile().m_Unit = null;
                 ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit02Key);
                 break;
             case UNITTIER.유물:
-                GameManager.Instance.m_Gold += 75;
+                gold = 75;
                 RemoveAtList(_unit.GetAttackType(), _unit);
                 _unit.GetTile().m_Unit = null;
                 ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit03Key);
                 break;
             case UNITTIER.서사:
-                GameManager.Instance.m_Gold += 100;
+                gold = 100;
                 RemoveAtList(_unit.GetAttackType(), _unit);
                 _unit.GetTile().m_Unit = null;
                 ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit04Key);
@@ -101,6 +104,9 @@ public class SellButton : MonoBehaviour
             default:
                 break;
         }
+        GameManager.Instance.m_Gold += gold;
+
+        return gold;
     }
     bool CheckChangeUnit(Unit _unit, ref int _tier)
     {

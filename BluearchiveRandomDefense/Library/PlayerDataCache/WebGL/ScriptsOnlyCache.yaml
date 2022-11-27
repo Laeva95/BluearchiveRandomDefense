@@ -53,10 +53,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -115,10 +113,22 @@ ScriptsOnlyBuild:
     methodName: DescriptionBtn
   - assembly: Assembly-CSharp
     fullTypeName: StartUI
+    methodName: CollectionBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: StartUI
+    methodName: CollectionPageLeftBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: StartUI
     methodName: StartBtn
   - assembly: Assembly-CSharp
     fullTypeName: StartUI
     methodName: DescriptionCloseBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: StartUI
+    methodName: CollectionCloseBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: StartUI
+    methodName: CollectionPageRightBtn
   - assembly: Assembly-CSharp
     fullTypeName: SoundManager
     methodName: SoundOnToggleBtn
@@ -325,6 +335,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4744}
     - Class: 114
       Script: {instanceID: 5084}
+    - Class: 114
+      Script: {instanceID: 5562}
     - Class: 114
       Script: {instanceID: 5994}
     - Class: 114
@@ -1184,7 +1196,7 @@ ScriptsOnlyBuild:
     className: RuleTile
   - hash:
       serializedVersion: 2
-      Hash: 8f2000fa58b7d1cc33f852b556259089
+      Hash: 397272e11749f801179767a90a16811d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StartUI

@@ -569,36 +569,41 @@ public class UnitSpawnManager : MonoBehaviour
     }
     public void RareSellBtn()
     {
-        UnitsSell(m_Type0Unit, (int)UNITTIER.레어);
-        UnitsSell(m_Type1Unit, (int)UNITTIER.레어);
-        UnitsSell(m_Type2Unit, (int)UNITTIER.레어);
-        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=green>레어</color> 이하 일괄 <color=red>판매</color>");
+        int gold = 0;
+        gold += UnitsSell(m_Type0Unit, (int)UNITTIER.레어);
+        gold += UnitsSell(m_Type1Unit, (int)UNITTIER.레어);
+        gold += UnitsSell(m_Type2Unit, (int)UNITTIER.레어);
+        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=green>레어</color> 이하 일괄 <color=red>판매</color><color=#0080ff> +{gold}</color>");
     }
     public void AncientSellBtn()
     {
-        UnitsSell(m_Type0Unit, (int)UNITTIER.고대);
-        UnitsSell(m_Type1Unit, (int)UNITTIER.고대);
-        UnitsSell(m_Type2Unit, (int)UNITTIER.고대);
-        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=#ff0090>고대</color> 이하 일괄 <color=red>판매</color>");
+        int gold = 0;
+        gold += UnitsSell(m_Type0Unit, (int)UNITTIER.고대);
+        gold += UnitsSell(m_Type1Unit, (int)UNITTIER.고대);
+        gold += UnitsSell(m_Type2Unit, (int)UNITTIER.고대);
+        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=#ff0090>고대</color> 이하 일괄 <color=red>판매</color><color=#0080ff> +{gold}</color>");
     }
     public void SellType0Btn()
     {
-        UnitsSell(m_Type0Unit, (int)UNITTIER.서사);
-        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=red>폭발형</color> 일괄 <color=red>판매</color>");
+        int gold = 0;
+        gold += UnitsSell(m_Type0Unit, (int)UNITTIER.서사);
+        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=red>폭발형</color> 일괄 <color=red>판매</color><color=#0080ff> +{gold}</color>");
     }
     public void SellType1Btn()
     {
-        UnitsSell(m_Type1Unit, (int)UNITTIER.서사);
-        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=blue>신비형</color> 일괄 <color=red>판매</color>");
+        int gold = 0;
+        gold += UnitsSell(m_Type1Unit, (int)UNITTIER.서사);
+        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=blue>신비형</color> 일괄 <color=red>판매</color><color=#0080ff> +{gold}</color>");
     }
     public void SellType2Btn()
     {
-        UnitsSell(m_Type2Unit, (int)UNITTIER.서사);
-        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=yellow>관통형</color> 일괄 <color=red>판매</color>");
+        int gold = 0;
+        gold += UnitsSell(m_Type2Unit, (int)UNITTIER.서사);
+        m_TextAlarm.AlarmTextUpdate($"<color=red>판매:</color> <color=yellow>관통형</color> 일괄 <color=red>판매</color><color=#0080ff> +{gold}</color>");
     }
-    void UnitsSell(List<Unit> _list, int _tier)
+    int UnitsSell(List<Unit> _list, int _tier)
     {
-        CheckSellList(_list, _tier);
+        int gold = CheckSellList(_list, _tier);
 
         if (m_FocusMonster != null)
         {
@@ -615,19 +620,24 @@ public class UnitSpawnManager : MonoBehaviour
         m_UnitSet.SetActive(false);
         m_MonsterSet.SetActive(false);
         GameManager.Instance.GoldTextUpdate();
+
+        return gold;
     }
-    void CheckSellList(List<Unit> _list, int _tier)
+    int CheckSellList(List<Unit> _list, int _tier)
     {
+        int gold = 0;
         if (_list.Count == 0)
         {
-            return;
+            return 0;
         }
         for (int i = _list.Count - 1; i >= 0; i--)
         {
             if ((int)_list[i].GetTier() <= _tier)
             {
-                m_Sell.CheckSellUnitTier(_list[i]);
+                gold += m_Sell.CheckSellUnitTier(_list[i]);
             }
         }
+
+        return gold;
     }
 }

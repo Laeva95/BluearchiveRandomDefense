@@ -12,6 +12,10 @@ public class StartUI : MonoBehaviour
     [SerializeField]
     GameObject m_TableObj;
     [SerializeField]
+    GameObject m_CollectionObj;
+    [SerializeField]
+    GameObject[] m_CollectionPages;
+    [SerializeField]
     TextMeshProUGUI m_BestStageText;
 
     private void Awake()
@@ -41,6 +45,56 @@ public class StartUI : MonoBehaviour
     public void TableCloseBtn()
     {
         m_TableObj.SetActive(false);
+    }
+    public void CollectionBtn()
+    {
+        m_CollectionObj.SetActive(true);
+    }
+    public void CollectionCloseBtn()
+    {
+        m_CollectionObj.SetActive(false);
+    }
+    public void CollectionPageRightBtn()
+    {
+        for (int i = 0; i < m_CollectionPages.Length; i++)
+        {
+            if (m_CollectionPages[i].activeSelf)
+            {
+                if (i + 1 == m_CollectionPages.Length)
+                {
+                    m_CollectionPages[i].SetActive(false);
+                    m_CollectionPages[0].SetActive(true);
+                    return;
+                }
+                else
+                {
+                    m_CollectionPages[i].SetActive(false);
+                    m_CollectionPages[i + 1].SetActive(true);
+                    return;
+                }
+            }
+        }
+    }
+    public void CollectionPageLeftBtn()
+    {
+        for (int i = 0; i < m_CollectionPages.Length; i++)
+        {
+            if (m_CollectionPages[i].activeSelf)
+            {
+                if (i - 1 == -1)
+                {
+                    m_CollectionPages[i].SetActive(false);
+                    m_CollectionPages[m_CollectionPages.Length - 1].SetActive(true);
+                    return;
+                }
+                else
+                {
+                    m_CollectionPages[i].SetActive(false);
+                    m_CollectionPages[i - 1].SetActive(true);
+                    return;
+                }
+            }
+        }
     }
 
     int StageDataLoad()
