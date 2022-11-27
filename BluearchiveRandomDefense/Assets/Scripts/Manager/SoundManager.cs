@@ -89,6 +89,11 @@ public class SoundManager : MonoBehaviour
     }
     public void SoundOnToggleBtn()
     {
+        if (GameManager.Instance.m_IsOpening)
+        {
+            return;
+        }
+
         m_IsSoundOn = !m_IsSoundOn;
         if (m_IsSoundOn)
         {

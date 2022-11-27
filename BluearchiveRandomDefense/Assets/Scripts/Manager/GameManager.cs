@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public int m_BonusStage;
     public int m_Gold;
     bool m_IsSwap = true;
+    public bool m_IsOpening = false;
     [SerializeField]
     TextMeshProUGUI m_GoldText;
     [SerializeField]
@@ -35,12 +36,19 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     GameObject m_GameClearObj;
+    [SerializeField]
+    GameObject m_BtnSetObj;
+    public GameObject m_ResetCheckObj;
 
     [SerializeField]
     TextMeshProUGUI m_TimeScaleText;
     [SerializeField]
     TextMeshProUGUI m_UnitSwapText;
+    [SerializeField]
+    TextMeshProUGUI m_BtnSetText;
 
+    [SerializeField]
+    Animator m_BtnSetAni;
     public static GameManager Instance
     {
         get
@@ -158,6 +166,10 @@ public class GameManager : MonoBehaviour
     }
     public void TimeScalingBtn()
     {
+        if (m_IsOpening)
+        {
+            return;
+        }
         switch (Time.timeScale)
         {
             case 1:
@@ -178,6 +190,10 @@ public class GameManager : MonoBehaviour
     }
     public void UnitSwapingBtn()
     {
+        if (m_IsOpening)
+        {
+            return;
+        }
         m_IsSwap = !m_IsSwap;
         if (m_IsSwap)
         {
@@ -197,5 +213,53 @@ public class GameManager : MonoBehaviour
     public bool CanSwapCheck()
     {
         return m_IsSwap;
+    }
+    public void BtnSetEnableBtn()
+    {
+        if (m_IsOpening)
+        {
+            return;
+        }
+        if (!m_BtnSetObj.activeSelf)
+        {
+            m_BtnSetText.text = "Open";
+            StartCoroutine(BtnSetOpenCoroutine());
+        }
+        else
+        {
+            m_BtnSetText.text = "Close";
+            StartCoroutine(BtnSetCloseCoroutine());
+        }
+    }
+    IEnumerator BtnSetOpenCoroutine()
+    {
+        m_IsOpening = true;
+        m_BtnSetObj.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+        m_IsOpening = false;
+    }
+    IEnumerator BtnSetCloseCoroutine()
+    {
+        m_IsOpening = true;
+        m_BtnSetAni.SetTrigger("Close");
+
+        yield return new WaitForSeconds(0.5f);
+
+        m_BtnSetObj.SetActive(false);
+        m_IsOpening = false;
+    }
+    public void ResetCheckBtn()
+    {
+        if (m_IsOpening)
+        {
+            return;
+        }
+
+        m_ResetCheckObj.SetActive(!m_ResetCheckObj.activeSelf);
+    }
+    public void ResetBtn()
+    {
+        SceneManager.LoadScene(1);
     }
 }

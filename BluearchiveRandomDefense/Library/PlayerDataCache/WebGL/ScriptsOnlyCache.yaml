@@ -26,6 +26,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
@@ -52,8 +53,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -120,6 +123,9 @@ ScriptsOnlyBuild:
     fullTypeName: SoundManager
     methodName: SoundOnToggleBtn
   - assembly: Assembly-CSharp
+    fullTypeName: GameManager
+    methodName: BtnSetEnableBtn
+  - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: RareSellBtn
   - assembly: Assembly-CSharp
@@ -127,10 +133,19 @@ ScriptsOnlyBuild:
     methodName: SellType0Btn
   - assembly: Assembly-CSharp
     fullTypeName: GameManager
+    methodName: ResetCheckBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: GameManager
     methodName: UnitSwapingBtn
   - assembly: Assembly-CSharp
     fullTypeName: GameManager
+    methodName: ResetCheckBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: GameManager
     methodName: TimeScalingBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: GameManager
+    methodName: ResetBtn
   - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: SellType2Btn
@@ -1325,7 +1340,7 @@ ScriptsOnlyBuild:
     className: StateMachine
   - hash:
       serializedVersion: 2
-      Hash: dee0ba9b8f0be744f33a8b0939f60e2e
+      Hash: caf56d46b85a2007518ebad82df15514
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager

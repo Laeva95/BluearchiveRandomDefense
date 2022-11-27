@@ -31,7 +31,7 @@ public class Tile : MonoBehaviour
             }
             else
             {
-                if (GameManager.Instance.m_Gold >= 50)
+                if (GameManager.Instance.m_Gold >= 50 && !GameManager.Instance.m_ResetCheckObj.activeSelf)
                 {
                     GameManager.Instance.m_Gold -= 50;
                     GameManager.Instance.GoldTextUpdate();
