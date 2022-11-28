@@ -2722,7 +2722,7 @@ MonoBehaviour:
   m_text: " \uD655\uB960\n\n\uC77C\uBC18  <color=#008000>\uB808\uC5B4</color>  <color=#ff0090>\uACE0\uB300</color> 
     <color=#FF0000>\uC720\uBB3C</color>  <color=#808080>\uC11C\uC0AC</color>  <color=#0000ff>\uC804\uC124</color> 
     <color=#000000>\uC2E0\uD654</color>  <color=#00ffff>\uD0DC\uCD08</color>\n47%  
-    31% 12.3%  6.6%  2.2% 0.75% 0.1%  0.05%\n\n \uC0C1\uC131\n           <color=#FF0000>\uACBD\uC7A5\uAC11</color>  
+    31%  12.3% 6.6% 2.15% 0.75% 0.15% 0.05%\n\n \uC0C1\uC131\n           <color=#FF0000>\uACBD\uC7A5\uAC11</color>  
     <color=#0000ff>\uD2B9\uC218\uC7A5\uAC11</color>   <color=#ffff00>\uC911\uC7A5\uAC11</color>\n 
     <color=#FF0000>\uD3ED\uBC1C\uD615</color>    100%      33%       66%\n  <color=#0000ff>\uC2E0\uBE44\uD615</color>   
     66%       100%      33%\n  <color=#ffff00>\uAD00\uD1B5\uD615</color>    33%      
@@ -5121,7 +5121,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1.6v
+  m_text: 1.7v
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0bac3093ff2d38947a43d476400fe0a6, type: 2}
   m_sharedMaterial: {fileID: -5004445102228487465, guid: 0bac3093ff2d38947a43d476400fe0a6, type: 2}

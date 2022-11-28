@@ -26,7 +26,9 @@ public class GameManager : MonoBehaviour
     public int m_BonusStage;
     public int m_Gold;
     public int m_IsEffect;
+    int m_TimeScale = 1;
     bool m_IsSwap = true;
+    bool m_IsGameOver = false;
     public bool m_IsOpening = false;
     [SerializeField]
     TextMeshProUGUI m_GoldText;
@@ -39,6 +41,8 @@ public class GameManager : MonoBehaviour
     GameObject m_GameClearObj;
     [SerializeField]
     GameObject m_BtnSetObj;
+    [SerializeField]
+    GameObject m_PauseObj;
     public GameObject m_ResetCheckObj;
 
     [SerializeField]
@@ -80,7 +84,13 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SetResolutionCoroutine());
         Time.timeScale = 1;
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
     public void GameOver()
     {
         StartCoroutine(GameOverCoroutine());
@@ -88,6 +98,7 @@ public class GameManager : MonoBehaviour
     IEnumerator GameOverCoroutine()
     {
         Time.timeScale = 0;
+        m_IsGameOver = true;
 
         m_GameOverObj.SetActive(true);
         m_GameOverText.text = $"당신의 기록은 {m_Stage + m_BonusStage} Stage입니다.";
@@ -106,12 +117,17 @@ public class GameManager : MonoBehaviour
         StageDataSave(101);
 
         Time.timeScale = 0;
+        m_IsGameOver = true;
 
         m_GameClearObj.SetActive(true);
 
         yield return new WaitForSecondsRealtime(5f);
 
-        Time.timeScale = 1;
+        if (!m_PauseObj.activeSelf)
+        {
+            Time.timeScale = m_TimeScale;
+        }
+        m_IsGameOver = false;
         m_GameClearObj.SetActive(false);
     }
     void StageDataSave(int _stage)
@@ -177,15 +193,18 @@ public class GameManager : MonoBehaviour
         switch (Time.timeScale)
         {
             case 1:
-                Time.timeScale = 2;
+                m_TimeScale = 2;
+                Time.timeScale = m_TimeScale;
                 m_TimeScaleText.text = "x2";
                 break;
             case 2:
-                Time.timeScale = 4;
+                m_TimeScale = 4;
+                Time.timeScale = m_TimeScale;
                 m_TimeScaleText.text = "x4";
                 break;
             case 4:
-                Time.timeScale = 1;
+                m_TimeScale = 1;
+                Time.timeScale = m_TimeScale;
                 m_TimeScaleText.text = "x1";
                 break;
             default:
@@ -208,6 +227,33 @@ public class GameManager : MonoBehaviour
             m_UnitSwapText.text = "Off";
         }
     }
+    public void Pause()
+    {
+        m_PauseObj.SetActive(!m_PauseObj.activeSelf);
+        if (m_PauseObj.activeSelf)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            if (!m_IsGameOver)
+            {
+                switch (m_TimeScale)
+                {
+                    case 1:
+                        Time.timeScale = m_TimeScale;
+                        break;
+                    case 2:
+                        Time.timeScale = m_TimeScale;
+                        break;
+                    case 4:
+                        Time.timeScale = m_TimeScale;
+                        break;
+                        
+                }
+            }
+        }
+    }
 
     IEnumerator SetResolutionCoroutine()
     {
@@ -216,7 +262,7 @@ public class GameManager : MonoBehaviour
     }
     public bool CanSwapCheck()
     {
-        return m_IsSwap;
+        return (m_IsSwap && Time.timeScale != 0);
     }
     public void BtnSetEnableBtn()
     {

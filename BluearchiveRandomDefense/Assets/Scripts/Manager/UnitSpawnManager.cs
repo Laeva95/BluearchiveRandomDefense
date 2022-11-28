@@ -10,9 +10,9 @@ public class UnitSpawnManager : MonoBehaviour
     public const float tier1 = 78f;       // 31%
     public const float tier2 = 90.3f;       // 12.3%
     public const float tier3 = 96.9f;       // 6.6%
-    public const float tier4 = 99.1f;       // 2.2%
-    public const float tier5 = 99.85f;       // 0.75%
-    public const float tier6 = 99.95f;       // 0.1%
+    public const float tier4 = 99.05f;       // 2.15%
+    public const float tier5 = 99.8f;       // 0.75%
+    public const float tier6 = 99.95f;       // 0.15%
     public const float tier7 = 100f;        // 0.05%
 
     public const float minFloat = 0f;
