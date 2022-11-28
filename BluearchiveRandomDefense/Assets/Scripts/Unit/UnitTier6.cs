@@ -23,6 +23,13 @@ public class UnitTier6 : Unit
             {
                 Collider2D[] monstersObj = Physics2D.OverlapCircleAll(monsterObj.transform.position, 5f, LayerMask.GetMask("Monster"));
                 bool isKill = false;
+
+                if (GameManager.Instance.m_IsEffect < 2)
+                {
+                    GameObject obj = SpawnEffect(m_Type);
+                    obj.transform.position = monsterObj.transform.position;
+                }
+
                 for (int i = 0; i < monstersObj.Length; i++)
                 {
                     if (monstersObj[i] != null)
@@ -43,8 +50,6 @@ public class UnitTier6 : Unit
                         m_UnitManager.UnitTextUpdate();
                     }
                 }
-                GameObject obj = SpawnEffect(m_Type);
-                obj.transform.position = monsterObj.transform.position;
 
                 SoundManager.Instance.SoundPlay(SOUND_NAME.UnitAttack2);
                 if (m_UnitManager.m_FocusTile != null)

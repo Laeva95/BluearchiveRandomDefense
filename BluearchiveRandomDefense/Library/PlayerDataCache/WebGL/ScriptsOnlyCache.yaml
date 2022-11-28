@@ -53,8 +53,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -145,11 +147,20 @@ ScriptsOnlyBuild:
     fullTypeName: GameManager
     methodName: ResetCheckBtn
   - assembly: Assembly-CSharp
+    fullTypeName: SellButton
+    methodName: OpenInfomationBtn
+  - assembly: Assembly-CSharp
     fullTypeName: GameManager
     methodName: UnitSwapingBtn
   - assembly: Assembly-CSharp
     fullTypeName: GameManager
     methodName: ResetCheckBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: SellButton
+    methodName: CloseInfomationBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: GameManager
+    methodName: EffectSettingBtn
   - assembly: Assembly-CSharp
     fullTypeName: GameManager
     methodName: TimeScalingBtn
@@ -1280,7 +1291,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 1bd7cea4c954bd8ccd0e4f017aa2a20c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SellButton
@@ -1352,7 +1363,7 @@ ScriptsOnlyBuild:
     className: StateMachine
   - hash:
       serializedVersion: 2
-      Hash: caf56d46b85a2007518ebad82df15514
+      Hash: c76153f62fb543fb68f53ae217608fc0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager

@@ -1822,6 +1822,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_ParticleSystem_MainModule_set_startColor_Injected();
 		Register_UnityEngine_ParticleSystem_MainModule_set_startColor_Injected();
 
+		//System.Void UnityEngine.ParticleSystem/MainModule::set_startSize_Injected(UnityEngine.ParticleSystem/MainModule&,UnityEngine.ParticleSystem/MinMaxCurve&)
+		void Register_UnityEngine_ParticleSystem_MainModule_set_startSize_Injected();
+		Register_UnityEngine_ParticleSystem_MainModule_set_startSize_Injected();
+
 	//End Registrations for type : UnityEngine.ParticleSystem/MainModule
 
 	//Start Registrations for type : UnityEngine.ParticleSystemRenderer

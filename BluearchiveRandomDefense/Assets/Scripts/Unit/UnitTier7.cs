@@ -26,6 +26,13 @@ public class UnitTier7 : Unit
             {
                 Collider2D[] monstersObj = Physics2D.OverlapCircleAll(monsterObj.transform.position, 5f, LayerMask.GetMask("Monster"));
                 bool isKill = false;
+
+                if (GameManager.Instance.m_IsEffect < 2)
+                {
+                    GameObject obj = SpawnEffect(m_Type);
+                    obj.transform.position = monsterObj.transform.position;
+                }
+
                 for (int i = 0; i < monstersObj.Length; i++)
                 {
                     if (monstersObj[i] != null)
@@ -46,8 +53,6 @@ public class UnitTier7 : Unit
                         m_UnitManager.UnitTextUpdate();
                     }
                 }
-                GameObject obj = SpawnEffect(m_Type);
-                obj.transform.position = monsterObj.transform.position;
 
                 SoundManager.Instance.SoundPlay(SOUND_NAME.UnitAttack2);
 
@@ -79,6 +84,7 @@ public class UnitTier7 : Unit
         {
             Collider2D[] monstersObj = Physics2D.OverlapCircleAll(transform.position, 25f, LayerMask.GetMask("Monster"));
             bool isKill = false;
+
             for (int i = 0; i < monstersObj.Length; i++)
             {
                 if (monstersObj != null)
@@ -99,35 +105,38 @@ public class UnitTier7 : Unit
                     m_UnitManager.UnitTextUpdate();
                 }
             }
-            for (int i = 0; i < 8; i++)
+            if (GameManager.Instance.m_IsEffect < 2)
             {
-                GameObject obj = SpawnEffect(m_Type);
-                switch (i)
+                for (int i = 0; i < 8; i++)
                 {
-                    case 0:
-                        obj.transform.position = new Vector3(8, 8);
-                        break;
-                    case 1:
-                        obj.transform.position = new Vector3(-8, 8);
-                        break;
-                    case 2:
-                        obj.transform.position = new Vector3(8, -8);
-                        break;
-                    case 3:
-                        obj.transform.position = new Vector3(-8, -8);
-                        break;
-                    case 4:
-                        obj.transform.position = new Vector3(-9, 0);
-                        break;
-                    case 5:
-                        obj.transform.position = new Vector3(9, 0);
-                        break;
-                    case 6:
-                        obj.transform.position = new Vector3(0, -9);
-                        break;
-                    case 7:
-                        obj.transform.position = new Vector3(0, 9);
-                        break;
+                    GameObject obj = SpawnEffect(m_Type);
+                    switch (i)
+                    {
+                        case 0:
+                            obj.transform.position = new Vector3(8, 8);
+                            break;
+                        case 1:
+                            obj.transform.position = new Vector3(-8, 8);
+                            break;
+                        case 2:
+                            obj.transform.position = new Vector3(8, -8);
+                            break;
+                        case 3:
+                            obj.transform.position = new Vector3(-8, -8);
+                            break;
+                        case 4:
+                            obj.transform.position = new Vector3(-9, 0);
+                            break;
+                        case 5:
+                            obj.transform.position = new Vector3(9, 0);
+                            break;
+                        case 6:
+                            obj.transform.position = new Vector3(0, -9);
+                            break;
+                        case 7:
+                            obj.transform.position = new Vector3(0, 9);
+                            break;
+                    }
                 }
             }
             yield return m_AllAttackDelaySec;

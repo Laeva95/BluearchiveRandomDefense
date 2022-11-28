@@ -26,7 +26,7 @@ public class MonsterSpawnManager : MonoBehaviour
     IEnumerator MonsterSpawnCoroutine()
     {
         yield return new WaitForSeconds(5f);
-        while (gameObject.activeSelf && GameManager.Instance.m_Stage <= 100)
+        while (gameObject.activeSelf && GameManager.Instance.m_Stage <= 150)
         {
             MonsterSpawnCountCal(GameManager.Instance.m_Stage);
 
@@ -82,18 +82,17 @@ public class MonsterSpawnManager : MonoBehaviour
             case 89:
             case 94:
             case 100:
+            case 114:
+            case 129:
+            case 139:
                 m_MonsterSpawnCount = 1;
                 m_Timer = 60;
                 break;
-            case 95:
-            case 96:
-            case 97:
-            case 98:
-            case 99:
-                m_MonsterSpawnCount = 10;
-                m_Timer = 30;
+            case 150:
+                m_MonsterSpawnCount = 1;
+                m_Timer = 90;
                 break;
-            case 101:
+            case 151:
                 m_MonsterSpawnCount = 10;
                 m_Timer = 0;
                 break;

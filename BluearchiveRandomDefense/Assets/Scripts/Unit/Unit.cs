@@ -140,6 +140,16 @@ public abstract class Unit : MonoBehaviour
         GameObject obj =  ObjectPoolingManager.Instance.GetQueue(ObjectPoolingManager.m_Effect00Key);
         ParticleSystem particle = obj.GetComponent<ParticleSystem>();
         ParticleSystem.MainModule module = particle.main;
+
+        if (GameManager.Instance.m_IsEffect == 1)
+        {
+            module.startSize = 1;
+        }
+        else
+        {
+            module.startSize = 2;
+        }
+
         switch (_type)
         {
             case ATTACKTYPE.Æø¹ßÇü:

@@ -6,6 +6,8 @@ public class SellButton : MonoBehaviour
 {
     UnitSpawnManager m_UnitManager;
     TextAlarmManager m_TextAlarm;
+    [SerializeField]
+    GameObject m_InfomationObj;
 
     private void Awake()
     {
@@ -121,9 +123,9 @@ public class SellButton : MonoBehaviour
                 isChange = false;
                 break;
             case UNITTIER.전설:
-                if (GameManager.Instance.m_Gold >= 500)
+                if (GameManager.Instance.m_Gold >= 400)
                 {
-                    GameManager.Instance.m_Gold -= 500;
+                    GameManager.Instance.m_Gold -= 400;
                     isChange = true;
                     _tier = (int)UNITTIER.전설;
                     RemoveAtList(_unit.GetAttackType(), _unit);
@@ -176,5 +178,13 @@ public class SellButton : MonoBehaviour
             m_UnitManager.UnitTextUpdate();
             GameManager.Instance.GoldTextUpdate();
         }
+    }
+    public void OpenInfomationBtn()
+    {
+        m_InfomationObj.SetActive(true);
+    }
+    public void CloseInfomationBtn()
+    {
+        m_InfomationObj.SetActive(false);
     }
 }

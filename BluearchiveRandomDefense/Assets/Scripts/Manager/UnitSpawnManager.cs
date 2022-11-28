@@ -497,7 +497,7 @@ public class UnitSpawnManager : MonoBehaviour
                 str = "black";
                 break;
             case UNITTIER.≈¬√ :
-                str = "cyan";
+                str = "#00ffff";
                 break;
         }
 

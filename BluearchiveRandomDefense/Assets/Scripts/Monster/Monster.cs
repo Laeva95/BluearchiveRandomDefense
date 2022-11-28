@@ -7,6 +7,7 @@ public enum ARMORTYPE
     ∞Ê¿Â∞© = 0,
     ∆Øºˆ¿Â∞© = 1,
     ¡ﬂ¿Â∞© = 2,
+    π´¿€¿ß = 3,
 
 }
 
@@ -45,7 +46,7 @@ public class Monster : MonoBehaviour
         m_Armor = (int)(m_MonsterSO.m_Armor[GameManager.Instance.m_Stage] * (1 + (GameManager.Instance.m_BonusStage * 0.1f)));
         m_Gold = m_MonsterSO.m_Gold[GameManager.Instance.m_Stage];
         m_MoveSpeed = m_MonsterSO.m_MoveSpeed[GameManager.Instance.m_Stage];
-        m_type = SetArmorType(m_Stage);
+        m_type = SetArmorType(GameManager.Instance.m_Stage);
         m_Color = SetColor(m_type);
         m_Spren.color = m_Color;
         m_FocusObj.SetActive(false);
@@ -88,7 +89,7 @@ public class Monster : MonoBehaviour
     {
         _damage -= m_Armor;
 
-        if (_tier != UNITTIER.≈¬√ )
+        if ((int)_tier < (int)UNITTIER.≈¬√ )
         {
             switch (_attackType)
             {
@@ -170,7 +171,7 @@ public class Monster : MonoBehaviour
         SoundManager.Instance.SoundPlay(SOUND_NAME.MonsterDead);
         ObjectPoolingManager.Instance.InsertQueue(gameObject, ObjectPoolingManager.m_Monster00Key);
 
-        if (m_Stage == 101)
+        if (m_Stage == 151)
         {
             GameManager.Instance.GameClear();
         }
@@ -263,27 +264,34 @@ public class Monster : MonoBehaviour
     }
     ARMORTYPE SetArmorType(int _stage)
     {
-        ARMORTYPE type = ARMORTYPE.∞Ê¿Â∞©;
+        ARMORTYPE type = m_MonsterSO.m_type[_stage];
 
-        if (_stage < 101)
+        switch (type)
         {
-            type = m_MonsterSO.m_type[GameManager.Instance.m_Stage];
-        }
-        else
-        {
-            int ran = Random.Range(0, 3);
-            switch (ran)
-            {
-                case 0:
-                    type = ARMORTYPE.∞Ê¿Â∞©;
-                    break;
-                case 1:
-                    type = ARMORTYPE.∆Øºˆ¿Â∞©;
-                    break;
-                case 2:
-                    type = ARMORTYPE.¡ﬂ¿Â∞©;
-                    break;
-            }
+            case ARMORTYPE.∞Ê¿Â∞©:
+                type = ARMORTYPE.∞Ê¿Â∞©;
+                break;
+            case ARMORTYPE.∆Øºˆ¿Â∞©:
+                type = ARMORTYPE.∆Øºˆ¿Â∞©;
+                break;
+            case ARMORTYPE.¡ﬂ¿Â∞©:
+                type = ARMORTYPE.¡ﬂ¿Â∞©;
+                break;
+            case ARMORTYPE.π´¿€¿ß:
+                int ran2 = Random.Range(0, 3);
+                switch (ran2)
+                {
+                    case 0:
+                        type = ARMORTYPE.∞Ê¿Â∞©;
+                        break;
+                    case 1:
+                        type = ARMORTYPE.∆Øºˆ¿Â∞©;
+                        break;
+                    case 2:
+                        type = ARMORTYPE.¡ﬂ¿Â∞©;
+                        break;
+                }
+                break;
         }
 
         return type;

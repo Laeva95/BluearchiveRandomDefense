@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public int m_Stage;
     public int m_BonusStage;
     public int m_Gold;
+    public int m_IsEffect;
     bool m_IsSwap = true;
     public bool m_IsOpening = false;
     [SerializeField]
@@ -46,6 +47,8 @@ public class GameManager : MonoBehaviour
     TextMeshProUGUI m_UnitSwapText;
     [SerializeField]
     TextMeshProUGUI m_BtnSetText;
+    [SerializeField]
+    TextMeshProUGUI m_EffectSettingText;
 
     [SerializeField]
     Animator m_BtnSetAni;
@@ -71,6 +74,7 @@ public class GameManager : MonoBehaviour
 
         m_Stage = 0;
         m_BonusStage = 0;
+        m_IsEffect = 0;
         m_Gold = 150;
         GoldTextUpdate();
         StartCoroutine(SetResolutionCoroutine());
@@ -261,5 +265,33 @@ public class GameManager : MonoBehaviour
     public void ResetBtn()
     {
         SceneManager.LoadScene(1);
+    }
+    public void EffectSettingBtn()
+    {
+        if (m_IsOpening)
+        {
+            return;
+        }
+
+        switch (m_IsEffect)
+        {
+            case 0:
+                m_EffectSettingText.text = "Small";
+                m_EffectSettingText.fontSize = 22;
+                m_IsEffect = 1;
+                break;
+            case 1:
+                m_EffectSettingText.text = "Off";
+                m_EffectSettingText.fontSize = 25;
+                m_IsEffect = 2;
+                break;
+            case 2:
+                m_EffectSettingText.text = "On";
+                m_EffectSettingText.fontSize = 25;
+                m_IsEffect = 0;
+                break;
+            default:
+                break;
+        }
     }
 }
