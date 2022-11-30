@@ -102,6 +102,7 @@ public class SellButton : MonoBehaviour
             case UNITTIER.전설:
             case UNITTIER.신화:
             case UNITTIER.태초:
+            case UNITTIER.고유:
                 break;
             default:
                 break;
@@ -120,6 +121,8 @@ public class SellButton : MonoBehaviour
             case UNITTIER.고대:
             case UNITTIER.유물:
             case UNITTIER.서사:
+            case UNITTIER.태초:
+            case UNITTIER.고유:
                 isChange = false;
                 break;
             case UNITTIER.전설:
@@ -143,9 +146,6 @@ public class SellButton : MonoBehaviour
                     _unit.GetTile().m_Unit = null;
                     ObjectPoolingManager.Instance.InsertQueue(_unit.gameObject, ObjectPoolingManager.m_Unit06Key);
                 }
-                break;
-            case UNITTIER.태초:
-                isChange = false;
                 break;
         }
         return isChange;
@@ -171,7 +171,7 @@ public class SellButton : MonoBehaviour
                 m_UnitManager.m_FocusMonster.OnFocusMonster(false);
             }
 
-            m_UnitManager.m_FocusTile.SpawnUnit(tier);
+            m_UnitManager.m_FocusTile.SpawnUnit(tier, true);
             m_UnitManager.m_FocusTile.m_Unit.OnFocusUnit(true);
             m_UnitManager.FocusTileSelect(m_UnitManager.m_FocusTile);
             m_UnitManager.m_UnitSet.SetActive(true);

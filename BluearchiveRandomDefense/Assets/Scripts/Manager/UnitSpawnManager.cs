@@ -35,6 +35,8 @@ public class UnitSpawnManager : MonoBehaviour
     TextMeshProUGUI[] m_PriceTexts;
     [SerializeField]
     TextMeshProUGUI[] m_LevelTexts;
+    [SerializeField]
+    GameObject m_BuffBtn;
 
     int[] m_Keys = new int[] 
     { 
@@ -45,7 +47,8 @@ public class UnitSpawnManager : MonoBehaviour
     ObjectPoolingManager.m_Unit04Key,
     ObjectPoolingManager.m_Unit05Key,
     ObjectPoolingManager.m_Unit06Key,
-    ObjectPoolingManager.m_Unit07Key
+    ObjectPoolingManager.m_Unit07Key,
+    ObjectPoolingManager.m_Unit08Key
     };
     int[] m_Levels = new int[] {0,0,0};
     public List<Unit> m_Type0Unit = new List<Unit>();
@@ -57,6 +60,9 @@ public class UnitSpawnManager : MonoBehaviour
     SellButton m_Sell;
     TextAlarmManager m_TextAlarm;
 
+    public bool m_IsBuffSpawn = false;
+    bool[] m_IsBuffs = new bool[] { false, false, false};
+    
     private void Awake()
     {
         m_Sell = FindObjectOfType<SellButton>();
@@ -67,7 +73,7 @@ public class UnitSpawnManager : MonoBehaviour
         UpgradeTextUpdate();
     }
 
-    public GameObject SpawnUnit(Tile _tile, int _tier)
+    public GameObject SpawnUnit(Tile _tile, int _tier, bool _isChange)
     {
         int ranTypePercent = Random.Range(0, 3);
 
@@ -81,10 +87,11 @@ public class UnitSpawnManager : MonoBehaviour
         unit.SetLevel(m_Levels[(int)type]);
         InsertList(type, unit);
 
+        string spawnType = _isChange ? "<color=orange>교환:</color>" : "소환:";
         string tierColor = TierTextColorSelect(unit.GetTier());
         string typeColor = TypeTextColorSelect(unit.GetAttackType());
         m_TextAlarm.AlarmTextUpdate
-            ($"<color=orange>교환:</color> <color={tierColor}>{unit.GetTierText()}</color> <color={typeColor}>{unit.GetNameText()}</color>");
+            ($"{spawnType} <color={tierColor}>{unit.GetTierText()}</color> <color={typeColor}>{unit.GetNameText()}</color>");
 
         return obj;
     }
@@ -288,6 +295,20 @@ public class UnitSpawnManager : MonoBehaviour
                         break;
                 }
                 break;
+            case 8:
+                switch (_type)
+                {
+                    case ATTACKTYPE.폭발형:
+                        index = 24;
+                        break;
+                    case ATTACKTYPE.신비형:
+                        index = 25;
+                        break;
+                    case ATTACKTYPE.관통형:
+                        index = 26;
+                        break;
+                }
+                break;
         }
         return index;
     }
@@ -437,6 +458,7 @@ public class UnitSpawnManager : MonoBehaviour
                         m_UnitTierText.color = Color.gray;
                         break;
                     case UNITTIER.전설:
+                    case UNITTIER.고유:
                         m_UnitTierText.color = Color.blue;
                         break;
                     case UNITTIER.신화:
@@ -491,6 +513,7 @@ public class UnitSpawnManager : MonoBehaviour
                 str = "grey";
                 break;
             case UNITTIER.전설:
+            case UNITTIER.고유:
                 str = "blue";
                 break;
             case UNITTIER.신화:
@@ -512,6 +535,7 @@ public class UnitSpawnManager : MonoBehaviour
             case UNITTIER.일반:
             case UNITTIER.레어:
             case UNITTIER.고대:
+            case UNITTIER.고유:
                 str = "";
                 break;
             case UNITTIER.유물:
@@ -639,5 +663,47 @@ public class UnitSpawnManager : MonoBehaviour
         }
 
         return gold;
+    }
+
+    public void SpawnBuffUnit()
+    {
+        if (GameManager.Instance.m_Gold >= 2500)
+        {
+            GameManager.Instance.m_Gold -= 2500;
+            GameManager.Instance.GoldTextUpdate();
+            m_BuffBtn.SetActive(false);
+            m_IsBuffSpawn = true;
+            m_TextAlarm.AlarmTextUpdate
+    ($"<color=#ff0000>구매</color>: <color=#0000ff>고유</color> 학생 소환");
+        }
+    }
+    public void SetBuffs(ATTACKTYPE _type)
+    {
+        switch (_type)
+        {
+            case ATTACKTYPE.폭발형:
+                m_IsBuffs[0] = true;
+                break;
+            case ATTACKTYPE.신비형:
+                m_IsBuffs[1] = true;
+                break;
+            case ATTACKTYPE.관통형:
+                m_IsBuffs[2] = true;
+                break;
+        }
+    }
+    public bool GetBuffs(ATTACKTYPE _type)
+    {
+        switch (_type)
+        {
+            case ATTACKTYPE.폭발형:
+                return m_IsBuffs[0];
+            case ATTACKTYPE.신비형:
+                return m_IsBuffs[1];
+            case ATTACKTYPE.관통형:
+                return m_IsBuffs[2];
+            default:
+                return false;
+        }
     }
 }

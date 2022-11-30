@@ -324,6 +324,7 @@
 "Assets/Scripts/Unit/UnitTier5.cs"
 "Assets/Scripts/Unit/UnitTier6.cs"
 "Assets/Scripts/Unit/UnitTier7.cs"
+"Assets/Scripts/Unit/UnitTier8.cs"
 "Assets/Scripts/Utils/Utils.cs"
 -langversion:9.0
 

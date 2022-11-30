@@ -4883,3 +4883,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09239cd1b1df1b43861a5c343da6cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EffectKey: 100

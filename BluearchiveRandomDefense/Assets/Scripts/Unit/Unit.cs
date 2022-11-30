@@ -13,6 +13,7 @@ public enum UNITTIER
     전설 = 5,
     신화 = 6,
     태초 = 7,
+    고유 = 8,
 }
 public enum ATTACKTYPE
 {
@@ -127,7 +128,7 @@ public abstract class Unit : MonoBehaviour
     }
     public int TotalDamage()
     {
-        return m_Damage * (m_Level + 1);
+        return m_UnitManager.GetBuffs(ATTACKTYPE.폭발형) ? (int)(m_Damage * (m_Level + 1) * (1.25f)) : m_Damage * (m_Level + 1);
     }
     private void OnDisable()
     {
@@ -168,7 +169,9 @@ public abstract class Unit : MonoBehaviour
     }
     public string GetDamageText()
     {
-        return $"{m_Damage} + {m_Damage * (m_Level)}";
+        return m_UnitManager.GetBuffs(ATTACKTYPE.폭발형) ? 
+            $"{(int)(m_Damage * (1.25f))} + {(int)(m_Damage * (m_Level) * (1.25f))}":
+            $"{m_Damage} + {m_Damage * (m_Level)}";
     }
     public string GetKillPointText()
     {
@@ -227,6 +230,9 @@ public abstract class Unit : MonoBehaviour
                 break;
             case UNITTIER.태초:
                 tier = "태초";
+                break;
+            case UNITTIER.고유:
+                tier = "고유";
                 break;
         }
         return tier;

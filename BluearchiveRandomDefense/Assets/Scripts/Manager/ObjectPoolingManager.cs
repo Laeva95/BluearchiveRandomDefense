@@ -7,6 +7,7 @@ public class ObjectPoolingManager : MonoBehaviour
     [SerializeField] GameObject m_Monster00;
 
     [SerializeField] GameObject m_Effect00;
+    [SerializeField] GameObject m_Effect01;
 
     [SerializeField] GameObject m_Unit00;
     [SerializeField] GameObject m_Unit01;
@@ -16,10 +17,12 @@ public class ObjectPoolingManager : MonoBehaviour
     [SerializeField] GameObject m_Unit05;
     [SerializeField] GameObject m_Unit06;
     [SerializeField] GameObject m_Unit07;
+    [SerializeField] GameObject m_Unit08;
 
     public const int m_Monster00Key = 0;
 
     public const int m_Effect00Key = 100;
+    public const int m_Effect01Key = 101;
 
     public const int m_Unit00Key = 10;
     public const int m_Unit01Key = 11;
@@ -29,10 +32,12 @@ public class ObjectPoolingManager : MonoBehaviour
     public const int m_Unit05Key = 15;
     public const int m_Unit06Key = 16;
     public const int m_Unit07Key = 17;
+    public const int m_Unit08Key = 18;
 
     private Queue<GameObject> m_Monster00Queue = new Queue<GameObject>();
 
     private Queue<GameObject> m_Effect00Queue = new Queue<GameObject>();
+    private Queue<GameObject> m_Effect01Queue = new Queue<GameObject>();
 
     private Queue<GameObject> m_Unit00Queue = new Queue<GameObject>();
     private Queue<GameObject> m_Unit01Queue = new Queue<GameObject>();
@@ -42,6 +47,7 @@ public class ObjectPoolingManager : MonoBehaviour
     private Queue<GameObject> m_Unit05Queue = new Queue<GameObject>();
     private Queue<GameObject> m_Unit06Queue = new Queue<GameObject>();
     private Queue<GameObject> m_Unit07Queue = new Queue<GameObject>();
+    private Queue<GameObject> m_Unit08Queue = new Queue<GameObject>();
 
 
 
@@ -71,6 +77,7 @@ public class ObjectPoolingManager : MonoBehaviour
         m_queueDic.Add(m_Monster00Key, m_Monster00Queue);
 
         m_queueDic.Add(m_Effect00Key, m_Effect00Queue);
+        m_queueDic.Add(m_Effect01Key, m_Effect01Queue);
 
         m_queueDic.Add(m_Unit00Key, m_Unit00Queue);
         m_queueDic.Add(m_Unit01Key, m_Unit01Queue);
@@ -80,11 +87,13 @@ public class ObjectPoolingManager : MonoBehaviour
         m_queueDic.Add(m_Unit05Key, m_Unit05Queue);
         m_queueDic.Add(m_Unit06Key, m_Unit06Queue);
         m_queueDic.Add(m_Unit07Key, m_Unit07Queue);
+        m_queueDic.Add(m_Unit08Key, m_Unit08Queue);
 
 
         InitQueue(m_Monster00, m_Monster00Queue, 10);
 
         InitQueue(m_Effect00, m_Effect00Queue, 10);
+        InitQueue(m_Effect01, m_Effect01Queue, 10);
 
         InitQueue(m_Unit00, m_Unit00Queue, 10);
         InitQueue(m_Unit01, m_Unit01Queue, 10);
@@ -94,6 +103,7 @@ public class ObjectPoolingManager : MonoBehaviour
         InitQueue(m_Unit05, m_Unit05Queue, 10);
         InitQueue(m_Unit06, m_Unit06Queue, 10);
         InitQueue(m_Unit07, m_Unit07Queue, 10);
+        InitQueue(m_Unit08, m_Unit08Queue, 10);
 
     }
 

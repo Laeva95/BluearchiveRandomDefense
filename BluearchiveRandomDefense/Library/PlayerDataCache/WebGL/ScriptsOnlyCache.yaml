@@ -22,6 +22,7 @@ ScriptsOnlyBuild:
     - UnitTier5
     - UnitTier6
     - UnitTier7
+    - UnitTier8
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -53,8 +54,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -65,9 +68,14 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.VerticalLayoutGroup
   serializedClasses:
     Unity.TextMeshPro:
     - TMPro.FaceInfo_Legacy
@@ -100,6 +108,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
+    - UnityEngine.UI.ScrollRect/ScrollRectEvent
+    - UnityEngine.UI.Scrollbar/ScrollEvent
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
@@ -114,6 +124,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: StartUI
     methodName: CollectionBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: StartUI
+    methodName: PatchNoteBtn
   - assembly: Assembly-CSharp
     fullTypeName: StartUI
     methodName: CollectionPageLeftBtn
@@ -165,6 +178,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: GameManager
     methodName: ResetBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: UnitSpawnManager
+    methodName: SpawnBuffUnit
   - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: SellType2Btn
@@ -281,6 +297,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 9188}
     - Class: 114
       Script: {instanceID: 9420}
+    - Class: 114
+      Script: {instanceID: 41490}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -339,7 +357,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3470}
     - Class: 114
+      Script: {instanceID: 3688}
+    - Class: 114
       Script: {instanceID: 4416}
+    - Class: 114
+      Script: {instanceID: 4442}
     - Class: 114
       Script: {instanceID: 4744}
     - Class: 114
@@ -357,7 +379,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7354}
     - Class: 114
+      Script: {instanceID: 7366}
+    - Class: 114
+      Script: {instanceID: 7898}
+    - Class: 114
       Script: {instanceID: 8046}
+    - Class: 114
+      Script: {instanceID: 8706}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -881,7 +909,7 @@ ScriptsOnlyBuild:
     className: AnimatedTile
   - hash:
       serializedVersion: 2
-      Hash: 1a9a7c30561c9eade658aef829d95104
+      Hash: e6e279154050443c73936822747a3486
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitSpawnManager
@@ -1091,7 +1119,7 @@ ScriptsOnlyBuild:
     className: UnitTier6
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 985db9c3a63611adb5b447724b700e21
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EffectDespawn
@@ -1193,7 +1221,7 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionExitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 0885652f48282c6648d65d6c5dc83b0b
+      Hash: bb50e9af78cd2a4ed013c07664e7bede
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ObjectPoolingManager
@@ -1205,7 +1233,7 @@ ScriptsOnlyBuild:
     className: RuleTile
   - hash:
       serializedVersion: 2
-      Hash: 397272e11749f801179767a90a16811d
+      Hash: 1ba0db8e68a149eb6ff828d3499c5eef
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StartUI
@@ -1425,6 +1453,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 2bf7f858d39630d96e219c1e473dbb61
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UnitTier8
   platform: 20
   scenePathNames:
   - Assets/Scenes/StartScene.unity

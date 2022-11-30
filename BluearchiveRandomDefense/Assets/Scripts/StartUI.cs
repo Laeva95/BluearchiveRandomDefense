@@ -16,6 +16,8 @@ public class StartUI : MonoBehaviour
     [SerializeField]
     GameObject[] m_CollectionPages;
     [SerializeField]
+    GameObject m_PatchNoteObj;
+    [SerializeField]
     TextMeshProUGUI m_BestStageText;
 
     private void Awake()
@@ -95,6 +97,10 @@ public class StartUI : MonoBehaviour
                 }
             }
         }
+    }
+    public void PatchNoteBtn()
+    {
+        m_PatchNoteObj.SetActive(!m_PatchNoteObj.activeSelf);
     }
 
     int StageDataLoad()

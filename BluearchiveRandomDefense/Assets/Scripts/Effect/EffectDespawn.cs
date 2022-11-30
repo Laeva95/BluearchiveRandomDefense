@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EffectDespawn : MonoBehaviour
 {
+    [SerializeField]
+    int EffectKey;
     void OnEnable()
     {
         StartCoroutine(DespawnCoroutine());
@@ -13,6 +15,6 @@ public class EffectDespawn : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        ObjectPoolingManager.Instance.InsertQueue(gameObject, ObjectPoolingManager.m_Effect00Key);
+        ObjectPoolingManager.Instance.InsertQueue(gameObject, EffectKey);
     }
 }
