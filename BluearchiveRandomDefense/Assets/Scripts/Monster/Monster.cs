@@ -44,8 +44,8 @@ public class Monster : MonoBehaviour
         m_MaxHP = (int)(m_MonsterSO.m_HP[GameManager.Instance.m_Stage] * (1 + (GameManager.Instance.m_BonusStage * 0.1f)));
         m_HP = m_MaxHP;
         m_Armor = m_UnitManager.GetBuffs(ATTACKTYPE.관통형) ?
-            (int)(m_MonsterSO.m_Armor[GameManager.Instance.m_Stage] * (1 + (GameManager.Instance.m_BonusStage * 0.1f)) * 0.5f):
-            (int)(m_MonsterSO.m_Armor[GameManager.Instance.m_Stage] * (1 + (GameManager.Instance.m_BonusStage * 0.1f)));
+            (int)(m_MonsterSO.m_Armor[GameManager.Instance.m_Stage] * (1 + (GameManager.Instance.m_BonusStage * 0.05f)) * 0.5f):
+            (int)(m_MonsterSO.m_Armor[GameManager.Instance.m_Stage] * (1 + (GameManager.Instance.m_BonusStage * 0.05f)));
         m_Gold = m_MonsterSO.m_Gold[GameManager.Instance.m_Stage];
         m_MoveSpeed = m_MonsterSO.m_MoveSpeed[GameManager.Instance.m_Stage];
         m_type = SetArmorType(GameManager.Instance.m_Stage);
@@ -91,16 +91,22 @@ public class Monster : MonoBehaviour
     {
         if (m_UnitManager.GetBuffs(ATTACKTYPE.신비형))
         {
-            if (Random.Range(0, 5) == 4)
+            if (Random.Range(0, 100) >= 80)
             {
-                _damage = (int)(_damage * 2f);
+                _damage = (int)(_damage * 2.5f);
+
                 if (GameManager.Instance.m_IsEffect != 2)
                 {
                     GameObject obj = ObjectPoolingManager.Instance.GetQueue(ObjectPoolingManager.m_Effect01Key);
                     obj.transform.position = transform.position;
+
                     if (GameManager.Instance.m_IsEffect == 1)
                     {
-                        obj.transform.localScale *= 0.5f;
+                        obj.transform.localScale = Vector3.one * 0.5f;
+                    }
+                    else
+                    { 
+                        obj.transform.localScale = Vector3.one;
                     }
                 }
             }

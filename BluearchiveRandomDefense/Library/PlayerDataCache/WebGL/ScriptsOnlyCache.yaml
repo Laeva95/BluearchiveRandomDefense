@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - CheatManager
     - EffectDespawn
     - GameManager
     - Monster
@@ -54,10 +55,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -203,6 +202,12 @@ ScriptsOnlyBuild:
     fullTypeName: SellButton
     methodName: SellUnitBtn
   - assembly: Assembly-CSharp
+    fullTypeName: CheatManager
+    methodName: CheatCancel
+  - assembly: Assembly-CSharp
+    fullTypeName: CheatManager
+    methodName: CheatConfirm
+  - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: UpgradeBtn1
   sceneClasses:
@@ -248,57 +253,59 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2600}
     - Class: 114
-      Script: {instanceID: 2756}
+      Script: {instanceID: 2708}
     - Class: 114
-      Script: {instanceID: 2850}
+      Script: {instanceID: 2758}
     - Class: 114
-      Script: {instanceID: 3370}
+      Script: {instanceID: 2852}
     - Class: 114
-      Script: {instanceID: 3374}
+      Script: {instanceID: 3372}
     - Class: 114
-      Script: {instanceID: 3470}
+      Script: {instanceID: 3376}
     - Class: 114
-      Script: {instanceID: 3736}
+      Script: {instanceID: 3472}
     - Class: 114
-      Script: {instanceID: 4416}
+      Script: {instanceID: 3738}
     - Class: 114
-      Script: {instanceID: 4876}
+      Script: {instanceID: 4418}
     - Class: 114
-      Script: {instanceID: 5270}
+      Script: {instanceID: 4878}
     - Class: 114
-      Script: {instanceID: 5350}
+      Script: {instanceID: 5272}
     - Class: 114
-      Script: {instanceID: 5562}
+      Script: {instanceID: 5352}
     - Class: 114
-      Script: {instanceID: 5994}
+      Script: {instanceID: 5564}
     - Class: 114
-      Script: {instanceID: 6082}
+      Script: {instanceID: 5996}
     - Class: 114
-      Script: {instanceID: 6728}
+      Script: {instanceID: 6084}
     - Class: 114
-      Script: {instanceID: 6826}
+      Script: {instanceID: 6730}
     - Class: 114
-      Script: {instanceID: 6928}
+      Script: {instanceID: 6828}
     - Class: 114
-      Script: {instanceID: 6936}
+      Script: {instanceID: 6930}
     - Class: 114
-      Script: {instanceID: 6944}
+      Script: {instanceID: 6938}
     - Class: 114
-      Script: {instanceID: 6962}
+      Script: {instanceID: 6946}
     - Class: 114
-      Script: {instanceID: 7354}
+      Script: {instanceID: 6964}
     - Class: 114
-      Script: {instanceID: 7988}
+      Script: {instanceID: 7356}
     - Class: 114
-      Script: {instanceID: 8550}
+      Script: {instanceID: 7990}
     - Class: 114
-      Script: {instanceID: 8768}
+      Script: {instanceID: 8552}
     - Class: 114
-      Script: {instanceID: 9188}
+      Script: {instanceID: 8770}
     - Class: 114
-      Script: {instanceID: 9420}
+      Script: {instanceID: 9190}
     - Class: 114
-      Script: {instanceID: 41490}
+      Script: {instanceID: 9422}
+    - Class: 114
+      Script: {instanceID: 34166}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -353,39 +360,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2340}
     - Class: 114
-      Script: {instanceID: 2850}
+      Script: {instanceID: 2852}
     - Class: 114
-      Script: {instanceID: 3470}
+      Script: {instanceID: 3472}
     - Class: 114
-      Script: {instanceID: 3688}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 4416}
+      Script: {instanceID: 4418}
     - Class: 114
-      Script: {instanceID: 4442}
+      Script: {instanceID: 4444}
     - Class: 114
-      Script: {instanceID: 4744}
+      Script: {instanceID: 4746}
     - Class: 114
-      Script: {instanceID: 5084}
+      Script: {instanceID: 5086}
     - Class: 114
-      Script: {instanceID: 5562}
+      Script: {instanceID: 5564}
     - Class: 114
-      Script: {instanceID: 5994}
+      Script: {instanceID: 5996}
     - Class: 114
-      Script: {instanceID: 6728}
+      Script: {instanceID: 6730}
     - Class: 114
-      Script: {instanceID: 6928}
+      Script: {instanceID: 6930}
     - Class: 114
-      Script: {instanceID: 6936}
+      Script: {instanceID: 6938}
     - Class: 114
-      Script: {instanceID: 7354}
+      Script: {instanceID: 7356}
     - Class: 114
-      Script: {instanceID: 7366}
+      Script: {instanceID: 7368}
     - Class: 114
-      Script: {instanceID: 7898}
+      Script: {instanceID: 7900}
     - Class: 114
-      Script: {instanceID: 8046}
+      Script: {instanceID: 8048}
     - Class: 114
-      Script: {instanceID: 8706}
+      Script: {instanceID: 8708}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -541,6 +548,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitTier2
+  - hash:
+      serializedVersion: 2
+      Hash: 2bf7f858d39630d96e219c1e473dbb61
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UnitTier8
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -909,7 +922,7 @@ ScriptsOnlyBuild:
     className: AnimatedTile
   - hash:
       serializedVersion: 2
-      Hash: e6e279154050443c73936822747a3486
+      Hash: 0c113fc4d7131210423af351f2b9d13e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitSpawnManager
@@ -1455,10 +1468,10 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 2bf7f858d39630d96e219c1e473dbb61
+      Hash: a071736b7aa2d83df4e5ef19cfb28ed5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: UnitTier8
+    className: CheatManager
   platform: 20
   scenePathNames:
   - Assets/Scenes/StartScene.unity

@@ -31,12 +31,18 @@ public class Tile : MonoBehaviour
             }
             else
             {
+                if (m_UnitManager.m_IsCheat)
+                {
+                    SpawnUnit(m_UnitManager.m_CheatTier, m_UnitManager.m_CheatType);
+                    return;
+                }
                 if (m_UnitManager.m_IsBuffSpawn)
                 {
                     SpawnUnit(8, false);
                     m_UnitManager.m_IsBuffSpawn = false;
                 }
-                else if (GameManager.Instance.m_Gold >= 50 && !GameManager.Instance.m_ResetCheckObj.activeSelf && Time.timeScale != 0)
+                else if (GameManager.Instance.m_Gold >= 50 && !GameManager.Instance.m_ResetCheckObj.activeSelf 
+                    && Time.timeScale != 0 && !m_UnitManager.m_CheatSetReady)
                 {
                     GameManager.Instance.m_Gold -= 50;
                     GameManager.Instance.GoldTextUpdate();
@@ -96,6 +102,12 @@ public class Tile : MonoBehaviour
         {
             m_UnitManager.SetBuffs(m_Unit.GetAttackType());
         }
+    }
+    public void SpawnUnit(int _tier, ATTACKTYPE _type)
+    {
+        GameObject obj = m_UnitManager.SpawnUnit(this, _tier, _type);
+        obj.transform.position = transform.position;
+        m_Unit = obj.GetComponent<Unit>();
     }
     void SwapUnit()
     {

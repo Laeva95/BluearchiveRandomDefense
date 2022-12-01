@@ -303,6 +303,7 @@
 -r:"Library/Bee/artifacts/2000b0aP.dag/Unity.VisualScripting.State.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aP.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Effect/EffectDespawn.cs"
+"Assets/Scripts/Manager/CheatManager.cs"
 "Assets/Scripts/Manager/GameManager.cs"
 "Assets/Scripts/Manager/MonsterSpawnManager.cs"
 "Assets/Scripts/Manager/ObjectPoolingManager.cs"

@@ -61,7 +61,11 @@ public class UnitSpawnManager : MonoBehaviour
     TextAlarmManager m_TextAlarm;
 
     public bool m_IsBuffSpawn = false;
+    public bool m_IsCheat = false;
+    public bool m_CheatSetReady = false;
     bool[] m_IsBuffs = new bool[] { false, false, false};
+    public int m_CheatTier = 0;
+    public ATTACKTYPE m_CheatType;
     
     private void Awake()
     {
@@ -111,6 +115,25 @@ public class UnitSpawnManager : MonoBehaviour
         unit.SetLevel(m_Levels[(int)type]);
         InsertList(type, unit);
         SpawnSoundPlay(tier);
+
+        string tierColor = TierTextColorSelect(unit.GetTier());
+        string typeColor = TypeTextColorSelect(unit.GetAttackType());
+        string textEffect = $"<color={tierColor}>{UnitSpawnTextEffect(unit.GetTier())}</color>";
+        m_TextAlarm.AlarmTextUpdate
+            ($"º“»Ø: <color={tierColor}>{unit.GetTierText()}</color> <color={typeColor}>{unit.GetNameText()}</color>{textEffect}");
+
+        return obj;
+    }
+    public GameObject SpawnUnit(Tile _tile, int _tier, ATTACKTYPE _type)
+    {
+        int index = CheckIndex(_tier, _type);
+
+        GameObject obj = Spawn(_tier);
+        Unit unit = obj.GetComponent<Unit>();
+        unit.SetStatus(_type, index, _tile);
+        unit.SetLevel(m_Levels[(int)_type]);
+        InsertList(_type, unit);
+        SpawnSoundPlay(_tier);
 
         string tierColor = TierTextColorSelect(unit.GetTier());
         string typeColor = TypeTextColorSelect(unit.GetAttackType());
@@ -523,7 +546,40 @@ public class UnitSpawnManager : MonoBehaviour
                 str = "#00ffff";
                 break;
         }
+        return str;
+    }
+    public string TierTextColorSelect(int _tier)
+    {
+        string str = "";
 
+        switch (_tier)
+        {
+            case 0:
+                str = "white";
+                break;
+            case 1:
+                str = "green";
+                break;
+            case 2:
+                str = "#ff0090";
+                break;
+            case 3:
+                str = "red";
+                break;
+            case 4:
+                str = "grey";
+                break;
+            case 5:
+            case 8:
+                str = "blue";
+                break;
+            case 6:
+                str = "black";
+                break;
+            case 7:
+                str = "#00ffff";
+                break;
+        }
         return str;
     }
     string UnitSpawnTextEffect(UNITTIER _tier)
