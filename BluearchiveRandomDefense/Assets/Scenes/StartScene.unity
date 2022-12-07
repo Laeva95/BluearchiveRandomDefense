@@ -4764,7 +4764,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: -50, y: 3000}
+  m_SizeDelta: {x: -50, y: 3528.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &744422020
 MonoBehaviour:
@@ -5891,7 +5891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2.0v
+  m_text: 2.1v
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0bac3093ff2d38947a43d476400fe0a6, type: 2}
   m_sharedMaterial: {fileID: -5004445102228487465, guid: 0bac3093ff2d38947a43d476400fe0a6, type: 2}
@@ -10278,6 +10278,7 @@ GameObject:
   - component: {fileID: 1555523345}
   - component: {fileID: 1555523347}
   - component: {fileID: 1555523346}
+  - component: {fileID: 1555523348}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -10302,8 +10303,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: -1500}
-  m_SizeDelta: {x: 900, y: 3000}
+  m_AnchoredPosition: {x: 450, y: -1764.005}
+  m_SizeDelta: {x: 900, y: 3528.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555523346
 MonoBehaviour:
@@ -10325,43 +10326,45 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD328\uCE58 2.0\r\n1. \uC5F0\uC2B5\uBAA8\uB4DC(PC\uC804\uC6A9) \uCD94\uAC00\r\n
-    \uD0A4\uBCF4\uB4DC C \uD0A4\uB97C \uD1B5\uD574 \uC9C4\uC785 \uAC00\uB2A5\r\n
-    \uC9C4\uC785 \uC989\uC2DC 100\uB9CC \uCCAD\uD718\uC11D \uD68D\uB4DD\r\n \uD559\uC0DD
-    \uAC00\uCC60 \uC2DC\uC2A4\uD15C\uC774 \uC791\uB3D9\uD558\uC9C0 \uC54A\uC73C\uBA70
-    \uB300\uC2E0 \uD0A4\uBCF4\uB4DC \uC0C1\uB2E8 1~9 \uC22B\uC790\uD0A4\uC640 Q,
-    W, E \uD0A4\uB97C \uD1B5\uD574 \uC6D0\uD558\uB294 \uD559\uC0DD\uC744 \uC18C\uD658\uD560
-    \uC218 \uC788\uC74C\n\n\n\uD328\uCE58 1.9\r\n1. \uBCF4\uB108\uC2A4 \uC2A4\uD14C\uC774\uC9C0
-    \uBC29\uC5B4\uB825 \uC0C1\uC2B9\uB7C9 \uAC10\uC18C\r\n \uAE30\uC874 \uB2E8\uACC4\uB2F9
-    10%p -> \uD604\uC7AC \uB2E8\uACC4\uB2F9 5%p\r\n2. \uC544\uCF54 \uC0C1\uD5A5\r\n
-    20%\uD655\uB960 2\uBC30 -> 20%\uD655\uB960 2.5\uBC30\n\n\n\uD328\uCE58 1.8\r\n1.
-    101 \uC2A4\uD14C\uC774\uC9C0 \uC774\uD6C4 \uB09C\uC774\uB3C4 \uAC10\uC18C\r\n2.
-    \uACE0\uC720 \uB4F1\uAE09 \uD559\uC0DD \uCD94\uAC00\r\n 2500 \uCCAD\uD718\uC11D\uC744
-    \uC18C\uBAA8\uD574\uC11C \uB79C\uB364\uC73C\uB85C \uC18C\uD658 \uAC00\uB2A5\uD558\uBA70,
-    \uD55C \uAC8C\uC784 \uB2F9 \uD55C \uBC88\uB9CC \uC18C\uD658 \uAC00\uB2A5\uD568.\r\n
-    \uC624\uD1A0\uC138 \uCF54\uD0C0\uB9C8: \uBAA8\uB4E0 \uD559\uC0DD \uACF5\uACA9\uB825
-    25% \uC99D\uAC00\r\n\uC544\uB9C8\uC6B0 \uC544\uCF54: \uBAA8\uB4E0 \uD559\uC0DD\uC774
-    20% \uD655\uB960\uB85C 2\uBC30\uC758 \uD53C\uD574\uB97C \uAC00\uD568\r\n\uBB34\uB85C\uCE74\uC0AC
-    \uC544\uCE74\uB124: \uBAA8\uB4E0 \uC801 \uBC29\uC5B4\uB825 50% \uAC10\uC18C\n3.
-    \uC9C0\uAE08\uAE4C\uC9C0\uC758 \uD328\uCE58 \uB0B4\uC5ED\uC744 \uC54C \uC218
-    \uC788\uB294 \uACF5\uC9C0 \uCD94\uAC00\n\n\n\uD328\uCE58 1.7\r\n1. \uC77C\uC2DC
-    \uC815\uC9C0 \uCD94\uAC00\r\n PC - ESC, \uBAA8\uBC14\uC77C - \uB4A4\uB85C\uAC00\uAE30\r\n2.
-    101 \uC2A4\uD14C\uC774\uC9C0 \uC774\uD6C4 \uC77C\uBC18 \uC2A4\uD14C\uC774\uC9C0
-    \uCCB4\uB825 \uD558\uD5A5\r\n3. \uC77C\uBD80 \uB4F1\uAE09 \uD559\uC0DD\uB4E4
-    \uC870\uC815\r\n \uC11C\uC0AC - \uB4F1\uC7A5 \uD655\uB960 2.2% -> 2.15%\r\n \uC804\uC124
-    - \uACF5\uACA9\uB825 30 -> 33\r\n \uC2E0\uD654 - \uACF5\uACA9\uB825 35 -> 40,
-    \uB4F1\uC7A5 \uD655\uB960 0.1% -> 0.15%\n\n\n\uD328\uCE58 1.6\r\n1. \uC804\uC124
-    \uC774\uC0C1 \uACF5\uACA9 \uC774\uD399\uD2B8 \uD65C\uC131\uD654, \uAC04\uC18C\uD654,
-    \uBE44\uD65C\uC131\uD654 \uAE30\uB2A5 \uBC84\uD2BC \uCD94\uAC00\r\n2. \uBC31\uADF8\uB77C\uC6B4\uB4DC\uC5D0\uC11C\uB3C4
-    \uC791\uB3D9\uD558\uB3C4\uB85D \uBCC0\uACBD\r\n3. \uD559\uC0DD \uD310\uB9E4 \uAC00\uACA9
-    \uBC0F \uAD50\uD658 \uAC00\uACA9 \uC815\uBCF4 \uCD94\uAC00\r\n4. \uC804\uC124
-    \uAD50\uD658 \uAC00\uACA9 500 \uCCAD\uD718\uC11D -> 400 \uCCAD\uD718\uC11D\r\n5.
-    \uD0DC\uCD08 \uC18C\uD658 \uD14D\uC2A4\uD2B8 \uC624\uB958 \uC288\uC815\r\n6.
-    \uAE30\uC874 \uC2A4\uD14C\uC774\uC9C0 \uC57D\uAC04 \uC218\uC815\r\n 58~101 \uBCF4\uC2A4
-    \uC2A4\uD14C\uC774\uC9C0: HP \uC57D 10% \uAC10\uC18C\r\n 59 \uC774\uD6C4 \uC77C\uBC18
-    \uC2A4\uD14C\uC774\uC9C0: HP \uC57D 10% \uC99D\uAC00\r\n 95~100 \uC2A4\uD14C\uC774\uC9C0:
-    \uC77C\uBC18 \uC2A4\uD14C\uC774\uC9C0\uCC98\uB7FC 30\uB9C8\uB9AC \uB098\uC624\uAC8C
-    \uBCC0\uACBD. \uADF8\uC5D0 \uB9DE\uAC8C HP \uAC10\uC18C, \uCCAD\uD718\uC11D \uD68D\uB4DD\uB7C9
+  m_text: "\n\uD328\uCE58 2.1\r\n1. \uD559\uC0DD \uBC30\uCE58 \uD0C0\uC77C\uC758
+    \uC0C9\uC0C1\uC744 \uBCC0\uACBD\uD560 \uC218 \uC788\uB294 \uAE30\uB2A5 \uCD94\uAC00\n\n\n\uD328\uCE58
+    2.0\r\n1. \uC5F0\uC2B5\uBAA8\uB4DC(PC\uC804\uC6A9) \uCD94\uAC00\r\n\uD0A4\uBCF4\uB4DC
+    C \uD0A4\uB97C \uD1B5\uD574 \uC9C4\uC785 \uAC00\uB2A5\r\n\uC9C4\uC785 \uC989\uC2DC
+    100\uB9CC \uCCAD\uD718\uC11D \uD68D\uB4DD\r\n \uD559\uC0DD \uAC00\uCC60 \uC2DC\uC2A4\uD15C\uC774
+    \uC791\uB3D9\uD558\uC9C0 \uC54A\uC73C\uBA70 \uB300\uC2E0 \uD0A4\uBCF4\uB4DC \uC0C1\uB2E8
+    1~9 \uC22B\uC790\uD0A4\uC640 Q, W, E \uD0A4\uB97C \uD1B5\uD574 \uC6D0\uD558\uB294
+    \uD559\uC0DD\uC744 \uC18C\uD658\uD560 \uC218 \uC788\uC74C\n\n\n\uD328\uCE58 1.9\r\n1.
+    \uBCF4\uB108\uC2A4 \uC2A4\uD14C\uC774\uC9C0 \uBC29\uC5B4\uB825 \uC0C1\uC2B9\uB7C9
+    \uAC10\uC18C\r\n \uAE30\uC874 \uB2E8\uACC4\uB2F9 10%p -> \uD604\uC7AC \uB2E8\uACC4\uB2F9
+    5%p\r\n2. \uC544\uCF54 \uC0C1\uD5A5\r\n20%\uD655\uB960 2\uBC30 -> 20%\uD655\uB960
+    2.5\uBC30\n\n\n\uD328\uCE58 1.8\r\n1. 101 \uC2A4\uD14C\uC774\uC9C0 \uC774\uD6C4
+    \uB09C\uC774\uB3C4 \uAC10\uC18C\r\n2. \uACE0\uC720 \uB4F1\uAE09 \uD559\uC0DD
+    \uCD94\uAC00\r\n 2500 \uCCAD\uD718\uC11D\uC744 \uC18C\uBAA8\uD574\uC11C \uB79C\uB364\uC73C\uB85C
+    \uC18C\uD658 \uAC00\uB2A5\uD558\uBA70, \uD55C \uAC8C\uC784 \uB2F9 \uD55C \uBC88\uB9CC
+    \uC18C\uD658 \uAC00\uB2A5\uD568.\r\n\uC624\uD1A0\uC138 \uCF54\uD0C0\uB9C8: \uBAA8\uB4E0
+    \uD559\uC0DD \uACF5\uACA9\uB825 25% \uC99D\uAC00\r\n\uC544\uB9C8\uC6B0 \uC544\uCF54:
+    \uBAA8\uB4E0 \uD559\uC0DD\uC774 20% \uD655\uB960\uB85C 2\uBC30\uC758 \uD53C\uD574\uB97C
+    \uAC00\uD568\r\n\uBB34\uB85C\uCE74\uC0AC \uC544\uCE74\uB124: \uBAA8\uB4E0 \uC801
+    \uBC29\uC5B4\uB825 50% \uAC10\uC18C\n3. \uC9C0\uAE08\uAE4C\uC9C0\uC758 \uD328\uCE58
+    \uB0B4\uC5ED\uC744 \uC54C \uC218 \uC788\uB294 \uACF5\uC9C0 \uCD94\uAC00\n\n\n\uD328\uCE58
+    1.7\r\n1. \uC77C\uC2DC \uC815\uC9C0 \uCD94\uAC00\r\n PC - ESC, \uBAA8\uBC14\uC77C
+    - \uB4A4\uB85C\uAC00\uAE30\r\n2. 101 \uC2A4\uD14C\uC774\uC9C0 \uC774\uD6C4 \uC77C\uBC18
+    \uC2A4\uD14C\uC774\uC9C0 \uCCB4\uB825 \uD558\uD5A5\r\n3. \uC77C\uBD80 \uB4F1\uAE09
+    \uD559\uC0DD\uB4E4 \uC870\uC815\r\n \uC11C\uC0AC - \uB4F1\uC7A5 \uD655\uB960
+    2.2% -> 2.15%\r\n \uC804\uC124 - \uACF5\uACA9\uB825 30 -> 33\r\n \uC2E0\uD654
+    - \uACF5\uACA9\uB825 35 -> 40, \uB4F1\uC7A5 \uD655\uB960 0.1% -> 0.15%\n\n\n\uD328\uCE58
+    1.6\r\n1. \uC804\uC124 \uC774\uC0C1 \uACF5\uACA9 \uC774\uD399\uD2B8 \uD65C\uC131\uD654,
+    \uAC04\uC18C\uD654, \uBE44\uD65C\uC131\uD654 \uAE30\uB2A5 \uBC84\uD2BC \uCD94\uAC00\r\n2.
+    \uBC31\uADF8\uB77C\uC6B4\uB4DC\uC5D0\uC11C\uB3C4 \uC791\uB3D9\uD558\uB3C4\uB85D
+    \uBCC0\uACBD\r\n3. \uD559\uC0DD \uD310\uB9E4 \uAC00\uACA9 \uBC0F \uAD50\uD658
+    \uAC00\uACA9 \uC815\uBCF4 \uCD94\uAC00\r\n4. \uC804\uC124 \uAD50\uD658 \uAC00\uACA9
+    500 \uCCAD\uD718\uC11D -> 400 \uCCAD\uD718\uC11D\r\n5. \uD0DC\uCD08 \uC18C\uD658
+    \uD14D\uC2A4\uD2B8 \uC624\uB958 \uC288\uC815\r\n6. \uAE30\uC874 \uC2A4\uD14C\uC774\uC9C0
+    \uC57D\uAC04 \uC218\uC815\r\n 58~101 \uBCF4\uC2A4 \uC2A4\uD14C\uC774\uC9C0: HP
+    \uC57D 10% \uAC10\uC18C\r\n 59 \uC774\uD6C4 \uC77C\uBC18 \uC2A4\uD14C\uC774\uC9C0:
+    HP \uC57D 10% \uC99D\uAC00\r\n 95~100 \uC2A4\uD14C\uC774\uC9C0: \uC77C\uBC18
+    \uC2A4\uD14C\uC774\uC9C0\uCC98\uB7FC 30\uB9C8\uB9AC \uB098\uC624\uAC8C \uBCC0\uACBD.
+    \uADF8\uC5D0 \uB9DE\uAC8C HP \uAC10\uC18C, \uCCAD\uD718\uC11D \uD68D\uB4DD\uB7C9
     \uAC10\uC18C\r\n7. \uC2A4\uD14C\uC774\uC9C0 151\uAE4C\uC9C0 \uD655\uC7A5\n\n\n\uD328\uCE58
     1.5\r\n1. \uC6B0\uCE21 \uC0C1\uB2E8 \uD14D\uC2A4\uD2B8 UI \uC798\uB9AC\uB294
     \uBD80\uBD84 \uC218\uC815\r\n2. \uC2DC\uC791 \uD654\uBA74\uC5D0 \uD559\uC0DD
@@ -10384,7 +10387,7 @@ MonoBehaviour:
     \uC0C9\uC0C1 \uBCC0\uACBD\r\n3. \uBAA8\uBC14\uC77C \uD574\uC0C1\uB3C4 \uBC84\uADF8
     \uC218\uC815(\uD655\uC2E0X)\r\n4. \uD559\uC0DD \uC774\uB3D9 On/Off \uBC84\uD2BC
     \uCD94\uAC00(\uBC30\uC18D\uBC84\uD2BC \uC606\uC5D0 \uC704\uCE58)\r\n5. \uACF5\uACA9
-    \uD0C0\uC785\uBCC4 \uC77C\uAD04 \uD310\uB9E4 \uBC84\uD2BC \uCD94\uAC00"
+    \uD0C0\uC785\uBCC4 \uC77C\uAD04 \uD310\uB9E4 \uBC84\uD2BC \uCD94\uAC00\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0bac3093ff2d38947a43d476400fe0a6, type: 2}
   m_sharedMaterial: {fileID: -5004445102228487465, guid: 0bac3093ff2d38947a43d476400fe0a6, type: 2}
@@ -10461,6 +10464,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555523344}
   m_CullTransparentMesh: 1
+--- !u!114 &1555523348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555523344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &1563733727
 GameObject:
   m_ObjectHideFlags: 0
@@ -13251,7 +13268,7 @@ RectTransform:
   m_Father: {fileID: 1483149273}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.71666664}
+  m_AnchorMin: {x: 0, y: 0.75907093}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -13726,7 +13743,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2049005324}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.28333336
+  m_Size: 0.24092905
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

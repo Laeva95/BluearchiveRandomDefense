@@ -13,6 +13,7 @@ ScriptsOnlyBuild:
     - StartUI
     - TextAlarmManager
     - Tile
+    - TileColorChange
     - UnitSO
     - UnitSpawnManager
     - UnitTier0
@@ -55,8 +56,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -147,6 +150,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: GameManager
     methodName: BtnSetEnableBtn
+  - assembly: Assembly-CSharp
+    fullTypeName: GameManager
+    methodName: ColorChangeBtn
   - assembly: Assembly-CSharp
     fullTypeName: UnitSpawnManager
     methodName: RareSellBtn
@@ -285,27 +291,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6828}
     - Class: 114
-      Script: {instanceID: 6930}
+      Script: {instanceID: 6830}
     - Class: 114
-      Script: {instanceID: 6938}
+      Script: {instanceID: 6932}
     - Class: 114
-      Script: {instanceID: 6946}
+      Script: {instanceID: 6940}
     - Class: 114
-      Script: {instanceID: 6964}
+      Script: {instanceID: 6948}
     - Class: 114
-      Script: {instanceID: 7356}
+      Script: {instanceID: 6966}
     - Class: 114
-      Script: {instanceID: 7990}
+      Script: {instanceID: 7358}
     - Class: 114
-      Script: {instanceID: 8552}
+      Script: {instanceID: 7992}
     - Class: 114
-      Script: {instanceID: 8770}
+      Script: {instanceID: 8554}
     - Class: 114
-      Script: {instanceID: 9190}
+      Script: {instanceID: 8772}
     - Class: 114
-      Script: {instanceID: 9422}
+      Script: {instanceID: 9192}
     - Class: 114
-      Script: {instanceID: 34166}
+      Script: {instanceID: 9424}
+    - Class: 114
+      Script: {instanceID: 29786}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -380,19 +388,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6730}
     - Class: 114
-      Script: {instanceID: 6930}
+      Script: {instanceID: 6932}
     - Class: 114
-      Script: {instanceID: 6938}
+      Script: {instanceID: 6940}
     - Class: 114
-      Script: {instanceID: 7356}
+      Script: {instanceID: 7358}
     - Class: 114
-      Script: {instanceID: 7368}
+      Script: {instanceID: 7370}
     - Class: 114
-      Script: {instanceID: 7900}
+      Script: {instanceID: 7902}
     - Class: 114
-      Script: {instanceID: 8048}
+      Script: {instanceID: 8050}
     - Class: 114
-      Script: {instanceID: 8708}
+      Script: {instanceID: 8710}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1096,6 +1104,12 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
+      Hash: a071736b7aa2d83df4e5ef19cfb28ed5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CheatManager
+  - hash:
+      serializedVersion: 2
       Hash: 2bf7f858d39630d96e219c1e473dbb61
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1402,7 +1416,7 @@ ScriptsOnlyBuild:
     className: StateMachine
   - hash:
       serializedVersion: 2
-      Hash: a9adde24edac649f0e585b52d15fa8bf
+      Hash: 6ddf866d4394579776baf0b2cfcdc4ca
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -1468,10 +1482,10 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: a071736b7aa2d83df4e5ef19cfb28ed5
+      Hash: d904a0c8fe315e9cfa3c1c97954d77d4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: CheatManager
+    className: TileColorChange
   platform: 20
   scenePathNames:
   - Assets/Scenes/StartScene.unity

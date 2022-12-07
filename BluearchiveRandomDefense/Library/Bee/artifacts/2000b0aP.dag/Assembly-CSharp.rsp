@@ -315,6 +315,7 @@
 "Assets/Scripts/StartUI.cs"
 "Assets/Scripts/Tile/SellButton.cs"
 "Assets/Scripts/Tile/Tile.cs"
+"Assets/Scripts/Tile/TileColorChange.cs"
 "Assets/Scripts/Unit/Unit.cs"
 "Assets/Scripts/Unit/UnitSO.cs"
 "Assets/Scripts/Unit/UnitTier0.cs"

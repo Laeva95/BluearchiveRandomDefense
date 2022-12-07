@@ -43,6 +43,10 @@ public class GameManager : MonoBehaviour
     GameObject m_BtnSetObj;
     [SerializeField]
     GameObject m_PauseObj;
+    [SerializeField]
+    GameObject m_ColorPaletteObj;
+    [SerializeField]
+    GameObject m_ColorPickerObj;
     public GameObject m_ResetCheckObj;
 
     [SerializeField]
@@ -294,6 +298,12 @@ public class GameManager : MonoBehaviour
         m_IsOpening = true;
         m_BtnSetAni.SetTrigger("Close");
 
+        if (m_ColorPaletteObj.activeSelf)
+        {
+            m_ColorPaletteObj.SetActive(false);
+            m_ColorPickerObj.SetActive(false);
+        }
+
         yield return new WaitForSeconds(0.5f);
 
         m_BtnSetObj.SetActive(false);
@@ -339,5 +349,14 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
+    }
+    public void ColorChangeBtn()
+    {
+        if (m_IsOpening)
+        {
+            return;
+        }
+        m_ColorPaletteObj.SetActive(!m_ColorPaletteObj.activeSelf);
+        m_ColorPickerObj.SetActive(!m_ColorPickerObj.activeSelf);
     }
 }
