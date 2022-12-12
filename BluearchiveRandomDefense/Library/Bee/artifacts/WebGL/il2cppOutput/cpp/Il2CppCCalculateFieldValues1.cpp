@@ -1425,58 +1425,58 @@ struct LayoutCache_tF844B2FAD6933B78FD5EFEBDE0529BCBAC19BA60  : public RuntimeOb
 	GUILayoutGroup_tD08496E80F283C290B5B90D7BFB3C9C7CC33CD8D* ___windows_3;
 };
 
-// GameManager/<BtnSetCloseCoroutine>d__41
-struct U3CBtnSetCloseCoroutineU3Ed__41_t35772B6659F03BA31DBA7572024FAD2508C20B7D  : public RuntimeObject
+// GameManager/<BtnSetCloseCoroutine>d__42
+struct U3CBtnSetCloseCoroutineU3Ed__42_t4EC7A5A66369677DCCAFFABB91682162BE956EE6  : public RuntimeObject
 {
-	// System.Int32 GameManager/<BtnSetCloseCoroutine>d__41::<>1__state
+	// System.Int32 GameManager/<BtnSetCloseCoroutine>d__42::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object GameManager/<BtnSetCloseCoroutine>d__41::<>2__current
+	// System.Object GameManager/<BtnSetCloseCoroutine>d__42::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// GameManager GameManager/<BtnSetCloseCoroutine>d__41::<>4__this
+	// GameManager GameManager/<BtnSetCloseCoroutine>d__42::<>4__this
 	GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* ___U3CU3E4__this_2;
 };
 
-// GameManager/<BtnSetOpenCoroutine>d__40
-struct U3CBtnSetOpenCoroutineU3Ed__40_t2E88EFF76E5DD4CB3C7F3D4317C66F3A345BCC10  : public RuntimeObject
+// GameManager/<BtnSetOpenCoroutine>d__41
+struct U3CBtnSetOpenCoroutineU3Ed__41_t76A50426373F0432EF9BA09F55885B202F1DA48E  : public RuntimeObject
 {
-	// System.Int32 GameManager/<BtnSetOpenCoroutine>d__40::<>1__state
+	// System.Int32 GameManager/<BtnSetOpenCoroutine>d__41::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object GameManager/<BtnSetOpenCoroutine>d__40::<>2__current
+	// System.Object GameManager/<BtnSetOpenCoroutine>d__41::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// GameManager GameManager/<BtnSetOpenCoroutine>d__40::<>4__this
+	// GameManager GameManager/<BtnSetOpenCoroutine>d__41::<>4__this
 	GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* ___U3CU3E4__this_2;
 };
 
-// GameManager/<GameClearCoroutine>d__30
-struct U3CGameClearCoroutineU3Ed__30_tE32A932D0DBC0C8AED2651D5D26C582170240665  : public RuntimeObject
+// GameManager/<GameClearCoroutine>d__31
+struct U3CGameClearCoroutineU3Ed__31_tEB1DF65F8677F14BA2CD829038FF165FC6F0BA84  : public RuntimeObject
 {
-	// System.Int32 GameManager/<GameClearCoroutine>d__30::<>1__state
+	// System.Int32 GameManager/<GameClearCoroutine>d__31::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object GameManager/<GameClearCoroutine>d__30::<>2__current
+	// System.Object GameManager/<GameClearCoroutine>d__31::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// GameManager GameManager/<GameClearCoroutine>d__30::<>4__this
+	// GameManager GameManager/<GameClearCoroutine>d__31::<>4__this
 	GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* ___U3CU3E4__this_2;
 };
 
-// GameManager/<GameOverCoroutine>d__28
-struct U3CGameOverCoroutineU3Ed__28_t5965E2226DF1F1229076F1FE3F31021193654B62  : public RuntimeObject
+// GameManager/<GameOverCoroutine>d__29
+struct U3CGameOverCoroutineU3Ed__29_tFC87DD473D6095802D88F6CA8E6CB2D4B7A1C22A  : public RuntimeObject
 {
-	// System.Int32 GameManager/<GameOverCoroutine>d__28::<>1__state
+	// System.Int32 GameManager/<GameOverCoroutine>d__29::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object GameManager/<GameOverCoroutine>d__28::<>2__current
+	// System.Object GameManager/<GameOverCoroutine>d__29::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// GameManager GameManager/<GameOverCoroutine>d__28::<>4__this
+	// GameManager GameManager/<GameOverCoroutine>d__29::<>4__this
 	GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* ___U3CU3E4__this_2;
 };
 
-// GameManager/<SetResolutionCoroutine>d__37
-struct U3CSetResolutionCoroutineU3Ed__37_tD0A2CD6D45D62BA2E74BE37B701B338C8E95F2EA  : public RuntimeObject
+// GameManager/<SetResolutionCoroutine>d__38
+struct U3CSetResolutionCoroutineU3Ed__38_t03130E3E3C0252C9F0DD490A9E1BD57696E2D8E6  : public RuntimeObject
 {
-	// System.Int32 GameManager/<SetResolutionCoroutine>d__37::<>1__state
+	// System.Int32 GameManager/<SetResolutionCoroutine>d__38::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object GameManager/<SetResolutionCoroutine>d__37::<>2__current
+	// System.Object GameManager/<SetResolutionCoroutine>d__38::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// GameManager GameManager/<SetResolutionCoroutine>d__37::<>4__this
+	// GameManager GameManager/<SetResolutionCoroutine>d__38::<>4__this
 	GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* ___U3CU3E4__this_2;
 };
 
@@ -6401,34 +6401,36 @@ struct GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6  : public MonoBehav
 	bool ___m_IsGameOver_11;
 	// System.Boolean GameManager::m_IsOpening
 	bool ___m_IsOpening_12;
+	// UnitSpawnManager GameManager::m_UnitManager
+	UnitSpawnManager_t8D7945616A2A02F1406FCEF789F5B818F132AE8B* ___m_UnitManager_13;
 	// TMPro.TextMeshProUGUI GameManager::m_GoldText
-	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___m_GoldText_13;
+	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___m_GoldText_14;
 	// UnityEngine.GameObject GameManager::m_GameOverObj
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_GameOverObj_14;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_GameOverObj_15;
 	// TMPro.TextMeshProUGUI GameManager::m_GameOverText
-	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___m_GameOverText_15;
+	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___m_GameOverText_16;
 	// UnityEngine.GameObject GameManager::m_GameClearObj
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_GameClearObj_16;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_GameClearObj_17;
 	// UnityEngine.GameObject GameManager::m_BtnSetObj
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_BtnSetObj_17;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_BtnSetObj_18;
 	// UnityEngine.GameObject GameManager::m_PauseObj
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_PauseObj_18;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_PauseObj_19;
 	// UnityEngine.GameObject GameManager::m_ColorPaletteObj
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_ColorPaletteObj_19;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_ColorPaletteObj_20;
 	// UnityEngine.GameObject GameManager::m_ColorPickerObj
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_ColorPickerObj_20;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_ColorPickerObj_21;
 	// UnityEngine.GameObject GameManager::m_ResetCheckObj
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_ResetCheckObj_21;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___m_ResetCheckObj_22;
 	// TMPro.TextMeshProUGUI GameManager::m_TimeScaleText
-	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___m_TimeScaleText_22;
+	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___m_TimeScaleText_23;
 	// TMPro.TextMeshProUGUI GameManager::m_UnitSwapText
-	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___m_UnitSwapText_23;
+	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___m_UnitSwapText_24;
 	// TMPro.TextMeshProUGUI GameManager::m_BtnSetText
-	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___m_BtnSetText_24;
+	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___m_BtnSetText_25;
 	// TMPro.TextMeshProUGUI GameManager::m_EffectSettingText
-	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___m_EffectSettingText_25;
+	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___m_EffectSettingText_26;
 	// UnityEngine.Animator GameManager::m_BtnSetAni
-	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ___m_BtnSetAni_26;
+	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ___m_BtnSetAni_27;
 };
 
 struct GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields
@@ -7206,22 +7208,22 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3204[1] =
 	static_cast<int32_t>(offsetof(SaveData_tD8A7BA38011DB392E3FC7630525E745AED3AAF29, ___stage_0)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3205[3] = 
 {
-	static_cast<int32_t>(offsetof(U3CGameOverCoroutineU3Ed__28_t5965E2226DF1F1229076F1FE3F31021193654B62, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CGameOverCoroutineU3Ed__28_t5965E2226DF1F1229076F1FE3F31021193654B62, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CGameOverCoroutineU3Ed__28_t5965E2226DF1F1229076F1FE3F31021193654B62, ___U3CU3E4__this_2)),};
+	static_cast<int32_t>(offsetof(U3CGameOverCoroutineU3Ed__29_tFC87DD473D6095802D88F6CA8E6CB2D4B7A1C22A, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CGameOverCoroutineU3Ed__29_tFC87DD473D6095802D88F6CA8E6CB2D4B7A1C22A, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CGameOverCoroutineU3Ed__29_tFC87DD473D6095802D88F6CA8E6CB2D4B7A1C22A, ___U3CU3E4__this_2)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3206[3] = 
 {
-	static_cast<int32_t>(offsetof(U3CGameClearCoroutineU3Ed__30_tE32A932D0DBC0C8AED2651D5D26C582170240665, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CGameClearCoroutineU3Ed__30_tE32A932D0DBC0C8AED2651D5D26C582170240665, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CGameClearCoroutineU3Ed__30_tE32A932D0DBC0C8AED2651D5D26C582170240665, ___U3CU3E4__this_2)),};
+	static_cast<int32_t>(offsetof(U3CGameClearCoroutineU3Ed__31_tEB1DF65F8677F14BA2CD829038FF165FC6F0BA84, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CGameClearCoroutineU3Ed__31_tEB1DF65F8677F14BA2CD829038FF165FC6F0BA84, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CGameClearCoroutineU3Ed__31_tEB1DF65F8677F14BA2CD829038FF165FC6F0BA84, ___U3CU3E4__this_2)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3207[3] = 
 {
-	static_cast<int32_t>(offsetof(U3CSetResolutionCoroutineU3Ed__37_tD0A2CD6D45D62BA2E74BE37B701B338C8E95F2EA, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CSetResolutionCoroutineU3Ed__37_tD0A2CD6D45D62BA2E74BE37B701B338C8E95F2EA, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CSetResolutionCoroutineU3Ed__37_tD0A2CD6D45D62BA2E74BE37B701B338C8E95F2EA, ___U3CU3E4__this_2)),};
+	static_cast<int32_t>(offsetof(U3CSetResolutionCoroutineU3Ed__38_t03130E3E3C0252C9F0DD490A9E1BD57696E2D8E6, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CSetResolutionCoroutineU3Ed__38_t03130E3E3C0252C9F0DD490A9E1BD57696E2D8E6, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CSetResolutionCoroutineU3Ed__38_t03130E3E3C0252C9F0DD490A9E1BD57696E2D8E6, ___U3CU3E4__this_2)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3208[3] = 
 {
-	static_cast<int32_t>(offsetof(U3CBtnSetOpenCoroutineU3Ed__40_t2E88EFF76E5DD4CB3C7F3D4317C66F3A345BCC10, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CBtnSetOpenCoroutineU3Ed__40_t2E88EFF76E5DD4CB3C7F3D4317C66F3A345BCC10, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CBtnSetOpenCoroutineU3Ed__40_t2E88EFF76E5DD4CB3C7F3D4317C66F3A345BCC10, ___U3CU3E4__this_2)),};
+	static_cast<int32_t>(offsetof(U3CBtnSetOpenCoroutineU3Ed__41_t76A50426373F0432EF9BA09F55885B202F1DA48E, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CBtnSetOpenCoroutineU3Ed__41_t76A50426373F0432EF9BA09F55885B202F1DA48E, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CBtnSetOpenCoroutineU3Ed__41_t76A50426373F0432EF9BA09F55885B202F1DA48E, ___U3CU3E4__this_2)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3209[3] = 
 {
-	static_cast<int32_t>(offsetof(U3CBtnSetCloseCoroutineU3Ed__41_t35772B6659F03BA31DBA7572024FAD2508C20B7D, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CBtnSetCloseCoroutineU3Ed__41_t35772B6659F03BA31DBA7572024FAD2508C20B7D, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CBtnSetCloseCoroutineU3Ed__41_t35772B6659F03BA31DBA7572024FAD2508C20B7D, ___U3CU3E4__this_2)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3210[23] = 
+	static_cast<int32_t>(offsetof(U3CBtnSetCloseCoroutineU3Ed__42_t4EC7A5A66369677DCCAFFABB91682162BE956EE6, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CBtnSetCloseCoroutineU3Ed__42_t4EC7A5A66369677DCCAFFABB91682162BE956EE6, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CBtnSetCloseCoroutineU3Ed__42_t4EC7A5A66369677DCCAFFABB91682162BE956EE6, ___U3CU3E4__this_2)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3210[24] = 
 {
-	static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___instance_4)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_Stage_5)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_BonusStage_6)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_Gold_7)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_IsEffect_8)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_TimeScale_9)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_IsSwap_10)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_IsGameOver_11)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_IsOpening_12)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_GoldText_13)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_GameOverObj_14)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_GameOverText_15)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_GameClearObj_16)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_BtnSetObj_17)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_PauseObj_18)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_ColorPaletteObj_19)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_ColorPickerObj_20)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_ResetCheckObj_21)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_TimeScaleText_22)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_UnitSwapText_23)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_BtnSetText_24)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_EffectSettingText_25)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_BtnSetAni_26)),};
+	static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___instance_4)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_Stage_5)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_BonusStage_6)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_Gold_7)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_IsEffect_8)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_TimeScale_9)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_IsSwap_10)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_IsGameOver_11)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_IsOpening_12)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_UnitManager_13)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_GoldText_14)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_GameOverObj_15)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_GameOverText_16)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_GameClearObj_17)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_BtnSetObj_18)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_PauseObj_19)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_ColorPaletteObj_20)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_ColorPickerObj_21)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_ResetCheckObj_22)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_TimeScaleText_23)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_UnitSwapText_24)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_BtnSetText_25)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_EffectSettingText_26)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___m_BtnSetAni_27)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3211[4] = 
 {
 	static_cast<int32_t>(offsetof(U3CMonsterSpawnCoroutineU3Ed__9_tC761EC19BB19EFAD115E9ABF2C06C8B717451040, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CMonsterSpawnCoroutineU3Ed__9_tC761EC19BB19EFAD115E9ABF2C06C8B717451040, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CMonsterSpawnCoroutineU3Ed__9_tC761EC19BB19EFAD115E9ABF2C06C8B717451040, ___U3CU3E4__this_2)),static_cast<int32_t>(offsetof(U3CMonsterSpawnCoroutineU3Ed__9_tC761EC19BB19EFAD115E9ABF2C06C8B717451040, ___U3CiU3E5__2_3)),};

@@ -56,10 +56,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -293,27 +291,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6830}
     - Class: 114
-      Script: {instanceID: 6932}
+      Script: {instanceID: 6910}
     - Class: 114
-      Script: {instanceID: 6940}
+      Script: {instanceID: 6934}
     - Class: 114
-      Script: {instanceID: 6948}
+      Script: {instanceID: 6942}
     - Class: 114
-      Script: {instanceID: 6966}
+      Script: {instanceID: 6950}
     - Class: 114
-      Script: {instanceID: 7358}
+      Script: {instanceID: 6968}
     - Class: 114
-      Script: {instanceID: 7992}
+      Script: {instanceID: 7360}
     - Class: 114
-      Script: {instanceID: 8554}
+      Script: {instanceID: 7994}
     - Class: 114
-      Script: {instanceID: 8772}
+      Script: {instanceID: 8556}
     - Class: 114
-      Script: {instanceID: 9192}
+      Script: {instanceID: 8774}
     - Class: 114
-      Script: {instanceID: 9424}
+      Script: {instanceID: 9194}
     - Class: 114
-      Script: {instanceID: 29786}
+      Script: {instanceID: 9426}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -388,19 +386,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6730}
     - Class: 114
-      Script: {instanceID: 6932}
+      Script: {instanceID: 6934}
     - Class: 114
-      Script: {instanceID: 6940}
+      Script: {instanceID: 6942}
     - Class: 114
-      Script: {instanceID: 7358}
+      Script: {instanceID: 7360}
     - Class: 114
-      Script: {instanceID: 7370}
+      Script: {instanceID: 7372}
     - Class: 114
-      Script: {instanceID: 7902}
+      Script: {instanceID: 7904}
     - Class: 114
-      Script: {instanceID: 8050}
+      Script: {instanceID: 8052}
     - Class: 114
-      Script: {instanceID: 8710}
+      Script: {instanceID: 8712}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1128,6 +1126,12 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
+      Hash: d904a0c8fe315e9cfa3c1c97954d77d4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TileColorChange
+  - hash:
+      serializedVersion: 2
       Hash: 0ae96b694d4b3eb570b61bc0845333e2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1416,7 +1420,7 @@ ScriptsOnlyBuild:
     className: StateMachine
   - hash:
       serializedVersion: 2
-      Hash: 6ddf866d4394579776baf0b2cfcdc4ca
+      Hash: 44052225112f0ba25d075761899f4ff2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -1480,12 +1484,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: d904a0c8fe315e9cfa3c1c97954d77d4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TileColorChange
   platform: 20
   scenePathNames:
   - Assets/Scenes/StartScene.unity

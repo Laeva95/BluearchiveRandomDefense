@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     bool m_IsGameOver = false;
     public bool m_IsOpening = false;
     [SerializeField]
+    UnitSpawnManager m_UnitManager;
+    [SerializeField]
     TextMeshProUGUI m_GoldText;
     [SerializeField]
     GameObject m_GameOverObj;
@@ -106,7 +108,11 @@ public class GameManager : MonoBehaviour
 
         m_GameOverObj.SetActive(true);
         m_GameOverText.text = $"당신의 기록은 {m_Stage + m_BonusStage} Stage입니다.";
-        StageDataSave(m_Stage + m_BonusStage);
+
+        if (!m_UnitManager.m_IsCheat)
+        {
+            StageDataSave(m_Stage + m_BonusStage);
+        }
 
         yield return new WaitForSecondsRealtime(5f);
 
@@ -118,7 +124,10 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator GameClearCoroutine()
     {
-        StageDataSave(101);
+        if (!m_UnitManager.m_IsCheat)
+        {
+            StageDataSave(151);
+        }
 
         Time.timeScale = 0;
         m_IsGameOver = true;

@@ -39619,6 +39619,7 @@ MonoBehaviour:
   m_Gold: 0
   m_IsEffect: 0
   m_IsOpening: 0
+  m_UnitManager: {fileID: 616757197}
   m_GoldText: {fileID: 153646200}
   m_GameOverObj: {fileID: 1793858141}
   m_GameOverText: {fileID: 407021879}
